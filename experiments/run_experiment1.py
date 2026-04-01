@@ -1,0 +1,102 @@
+"""
+Experiment 1: Compare TF-IDF, embedding, and LLM scoring approaches
+across WHAT, WHY, and HOW dimensions.
+
+Usage:
+    python experiments/run_experiment1.py
+    python experiments/run_experiment1.py --llm-models claude gpt4o gemini
+    python experiments/run_experiment1.py --data-path data/raw/reflections.csv
+"""
+import argparse
+import sys
+from pathlib import Path
+
+import numpy as np
+import pandas as pd
+from dotenv import load_dotenv
+from sklearn.model_selection import train_test_split
+
+# Allow running from the project root
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
+from config import DIMENSIONS, PROCESSED_DATA_DIR, RANDOM_SEED, RAW_CSV
+from evaluation.metrics import compute_dimension_metrics, summarize_results
+from preprocessing.loader import load_dataset
+from scoring.embedding_classifier import EmbeddingClassifier
+from scoring.llm_scorer import score_dataset
+from scoring.tfidf_classifier import TFIDFClassifier
+
+load_dotenv()
+
+
+def run_tfidf(df_train: pd.DataFrame, df_test: pd.DataFrame) -> pd.DataFrame:
+    clf = TFIDFClassifier(model_type="logreg")
+    clf.fit(df_train)
+    raw_preds = clf.predict(df_test["reflection_text"].tolist())
+    df_pred = pd.DataFrame(raw_preds)
+    return compute_dimension_metrics(df_test, df_pred)
+
+
+def run_embedding(df_train: pd.DataFrame, df_test: pd.DataFrame) -> pd.DataFrame:
+    clf = EmbeddingClassifier(model_type="logreg")
+    clf.fit(df_train)
+    raw_preds = clf.predict(df_test["reflection_text"].tolist())
+    df_pred = pd.DataFrame(raw_preds)
+    return compute_dimension_metrics(df_test, df_pred)
+
+
+def run_llm(df_test: pd.DataFrame, model: str) -> pd.DataFrame:
+    results = score_dataset(df_test["reflection_text"].tolist(), model=model)
+    preds = {f"{dim}_score": [r[f"{dim}_score"] for r in results] for dim in DIMENSIONS}
+    df_pred = pd.DataFrame(preds)
+    return compute_dimension_metrics(df_test, df_pred)
+
+
+def main(args: argparse.Namespace) -> None:
+    df = load_dataset(args.data_path)
+    df_train, df_test = train_test_split(
+        df, test_size=0.2, random_state=RANDOM_SEED, stratify=df["what_score"]
+    )
+    print(f"Dataset loaded — train: {len(df_train)}, test: {len(df_test)}")
+
+    all_results: dict[str, pd.DataFrame] = {}
+
+    print("\n[1/3] TF-IDF classifier...")
+    all_results["tfidf"] = run_tfidf(df_train, df_test)
+
+    print("[2/3] Embedding classifier...")
+    all_results["embedding"] = run_embedding(df_train, df_test)
+
+    if args.llm_models:
+        for model in args.llm_models:
+            print(f"[LLM] Scoring with {model}...")
+            all_results[f"llm_{model}"] = run_llm(df_test, model=model)
+
+    summary = summarize_results(all_results)
+    print("\n=== Experiment 1 Results ===")
+    print(summary.to_string())
+
+    out_dir = Path(args.output_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    out_path = out_dir / "experiment1_results.csv"
+    summary.to_csv(out_path)
+    print(f"\nSaved to {out_path}")
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(
+        description="Experiment 1: Dimension-level scoring across model families"
+    )
+    parser.add_argument(
+        "--data-path", default=str(RAW_CSV),
+        help="Path to reflections CSV"
+    )
+    parser.add_argument(
+        "--llm-models", nargs="*", choices=["claude", "gpt4o", "gemini"], default=[],
+        help="LLM models to include (omit to skip LLM scoring)"
+    )
+    parser.add_argument(
+        "--output-dir", default=str(PROCESSED_DATA_DIR / "experiments"),
+        help="Directory to save results CSV"
+    )
+    main(parser.parse_args())

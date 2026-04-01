@@ -1,0 +1,31 @@
+# Python 3.10+ required
+
+# Data
+pandas>=2.0
+numpy>=1.26
+
+# NLP core
+spacy>=3.7
+vaderSentiment>=3.3
+
+# Classical ML
+scikit-learn>=1.4
+
+# Sentence embeddings
+sentence-transformers>=3.0
+
+# LLM APIs
+anthropic>=0.30
+openai>=1.30
+google-generativeai>=0.7  # for Gemini; use `pip install google-generativeai`
+
+# Environment / config
+python-dotenv>=1.0
+
+# Visualization
+matplotlib>=3.8
+seaborn>=0.13
+
+# Utilities
+scipy>=1.12
+tqdm>=4.66
