@@ -6,9 +6,16 @@ Usage:
     python experiments/run_experiment1.py
     python experiments/run_experiment1.py --llm-models claude gpt4o gemini
     python experiments/run_experiment1.py --data-path data/raw/reflections.csv
+
+Results are saved in three formats inside --output-dir:
+    experiment1_results.csv   — wide multi-index table (overwritten each run)
+    experiment1_results.json  — timestamped snapshot (one file per run)
+    results_log.csv           — long-format log that appends across runs
 """
 import argparse
+import json
 import sys
+from datetime import datetime
 from pathlib import Path
 
 import numpy as np
@@ -78,9 +85,51 @@ def main(args: argparse.Namespace) -> None:
 
     out_dir = Path(args.output_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
-    out_path = out_dir / "experiment1_results.csv"
-    summary.to_csv(out_path)
-    print(f"\nSaved to {out_path}")
+    run_ts = datetime.now().strftime("%Y%m%d_%H%M%S")
+
+    # 1. Wide CSV (overwritten each run — quick reference)
+    # Flatten multi-index columns to "model_metric" so it opens cleanly in any spreadsheet.
+    wide_path = out_dir / "experiment1_results.csv"
+    flat = summary.copy()
+    flat.columns = [f"{model}_{metric}" for model, metric in flat.columns]
+    flat.to_csv(wide_path)
+
+    # 2. Timestamped JSON snapshot (one per run — never overwritten)
+    json_path = out_dir / f"experiment1_{run_ts}.json"
+    snapshot = {
+        "timestamp": run_ts,
+        "data_path": args.data_path,
+        "n_train": len(df_train),
+        "n_test": len(df_test),
+        "results": {
+            model_name: metrics_df.to_dict()
+            for model_name, metrics_df in all_results.items()
+        },
+    }
+    with open(json_path, "w") as f:
+        json.dump(snapshot, f, indent=2, default=str)
+
+    # 3. Long-format log (appended across runs — useful for comparing over time)
+    log_path = out_dir / "results_log.csv"
+    log_rows = []
+    for model_name, metrics_df in all_results.items():
+        for target, row in metrics_df.iterrows():
+            log_rows.append({
+                "timestamp": run_ts,
+                "data_path": args.data_path,
+                "model": model_name,
+                "target": target,
+                **{k: v for k, v in row.items() if k != "n"},
+                "n": int(row["n"]),
+            })
+    log_df = pd.DataFrame(log_rows)
+    write_header = not log_path.exists()
+    log_df.to_csv(log_path, mode="a", header=write_header, index=False)
+
+    print(f"\nSaved:")
+    print(f"  Wide CSV  → {wide_path}")
+    print(f"  JSON snap → {json_path}")
+    print(f"  Log (append) → {log_path}")
 
 
 if __name__ == "__main__":
