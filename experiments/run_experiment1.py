@@ -141,7 +141,7 @@ if __name__ == "__main__":
         help="Path to reflections CSV"
     )
     parser.add_argument(
-        "--llm-models", nargs="*", choices=["claude", "gpt4o", "gemini"], default=[],
+        "--llm-models", nargs="*", choices=["claude", "gpt4o", "llama"], default=[],
         help="LLM models to include (omit to skip LLM scoring)"
     )
     parser.add_argument(

@@ -1,8 +1,8 @@
 """
 Approach (c): Prompt-based LLM rubric scorer.
-Unified interface for Claude Sonnet, GPT-4o, and Gemini 2.5 Pro.
+Unified interface for Claude Sonnet, GPT-4o, and Llama (via HuggingFace Inference API).
 
-Requires environment variables:  ANTHROPIC_API_KEY, OPENAI_API_KEY, GEMINI_API_KEY
+Requires environment variables:  ANTHROPIC_API_KEY, OPENAI_API_KEY, GROQ_API_KEY
 Load them before use:  from dotenv import load_dotenv; load_dotenv()
 """
 import json
@@ -16,7 +16,7 @@ from config import LLM_MODELS, RUBRIC
 # SDK clients are initialised lazily so you only need the key for the model you call
 _anthropic_client = None
 _openai_client = None
-_gemini_configured = False
+_groq_client = None
 
 
 def _get_anthropic():
@@ -35,14 +35,15 @@ def _get_openai():
     return _openai_client
 
 
-def _get_gemini():
-    global _gemini_configured
-    if not _gemini_configured:
-        import google.generativeai as genai
-        genai.configure(api_key=os.environ["GEMINI_API_KEY"])
-        _gemini_configured = True
-    import google.generativeai as genai
-    return genai
+def _get_llama():
+    global _groq_client
+    if _groq_client is None:
+        import openai
+        _groq_client = openai.OpenAI(
+            api_key=os.environ["GROQ_API_KEY"],
+            base_url="https://api.groq.com/openai/v1",
+        )
+    return _groq_client
 
 
 # ---------------------------------------------------------------------------
@@ -95,7 +96,7 @@ def score_with_claude(reflection_text: str) -> dict[str, Any]:
     client = _get_anthropic()
     response = client.messages.create(
         model=LLM_MODELS["claude"],
-        max_tokens=512,
+        max_tokens=1024,
         messages=[{"role": "user", "content": build_scoring_prompt(reflection_text)}],
     )
     result = _parse_response(response.content[0].text)
@@ -116,19 +117,22 @@ def score_with_gpt4o(reflection_text: str) -> dict[str, Any]:
     return result
 
 
-def score_with_gemini(reflection_text: str) -> dict[str, Any]:
-    genai = _get_gemini()
-    model = genai.GenerativeModel(LLM_MODELS["gemini"])
-    response = model.generate_content(build_scoring_prompt(reflection_text))
-    result = _parse_response(response.text)
-    result["model"] = LLM_MODELS["gemini"]
+def score_with_llama(reflection_text: str) -> dict[str, Any]:
+    client = _get_llama()
+    response = client.chat.completions.create(
+        model=LLM_MODELS["llama"],
+        messages=[{"role": "user", "content": build_scoring_prompt(reflection_text)}],
+        max_tokens=512,
+    )
+    result = _parse_response(response.choices[0].message.content)
+    result["model"] = LLM_MODELS["llama"]
     return result
 
 
 _SCORER_MAP = {
     "claude": score_with_claude,
     "gpt4o":  score_with_gpt4o,
-    "gemini": score_with_gemini,
+    "llama":  score_with_llama,
 }
 
 
@@ -146,7 +150,7 @@ def score_reflection(
 
     Args:
         reflection_text: Full text of the student reflection.
-        model: One of 'claude', 'gpt4o', 'gemini'.
+        model: One of 'claude', 'gpt4o', 'llama'.
         retries: Extra attempts on JSON parse failure.
         retry_delay: Seconds between retries.
 

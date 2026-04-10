@@ -85,7 +85,7 @@ SPECIFICITY_MARKERS = [
 LLM_MODELS = {
     "claude": "claude-sonnet-4-6",
     "gpt4o": "gpt-4o",
-    "gemini": "gemini-2.5-pro",  # update if the Gemini model ID changes
+    "llama": "llama-3.3-70b-versatile",
 }
 
 # Sentence embedding model (SentenceTransformers) used for approach (b) and evidence extraction
