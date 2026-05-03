@@ -3,8 +3,8 @@ Experiment 2: Rubric-decomposed scoring (predict WHAT + WHY + HOW separately, th
 vs. direct total-score prediction.
 
 Usage:
-    python experiments/run_experiment2.py
-    python experiments/run_experiment2.py --data-path data/raw/reflections.csv
+    python3 experiments/run_experiment2.py
+    python3 experiments/run_experiment2.py --data-path data/raw/reflections.csv
 """
 import argparse
 import sys

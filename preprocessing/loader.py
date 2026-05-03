@@ -20,6 +20,7 @@ def load_dataset(path: str | Path) -> pd.DataFrame:
     _validate_schema(df)
     df = df.copy()
     df["total_score"] = df["what_score"] + df["why_score"] + df["how_score"]
+    df["reflection_length"] = df["reflection_text"].str.split().str.len()
     return df
 
 

@@ -3,9 +3,9 @@ Experiment 1: Compare TF-IDF, embedding, and LLM scoring approaches
 across WHAT, WHY, and HOW dimensions.
 
 Usage:
-    python experiments/run_experiment1.py
-    python experiments/run_experiment1.py --llm-models claude gpt4o gemini
-    python experiments/run_experiment1.py --data-path data/raw/reflections.csv
+    python3 experiments/run_experiment1.py
+    python3 experiments/run_experiment1.py --llm-models claude gpt4o llama-3.3-70b ollama-qwen2.5-72b ollama-gemma3-12b
+    python3 experiments/run_experiment1.py --data-path data/raw/reflections.csv
 
 Results are saved in three formats inside --output-dir:
     experiment1_results.csv   — wide multi-index table (overwritten each run)
@@ -18,8 +18,10 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+import seaborn as sns
 from dotenv import load_dotenv
 from sklearn.model_selection import train_test_split
 
@@ -27,7 +29,7 @@ from sklearn.model_selection import train_test_split
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from config import DIMENSIONS, PROCESSED_DATA_DIR, RANDOM_SEED, RAW_CSV
-from evaluation.metrics import compute_dimension_metrics, summarize_results
+from evaluation.metrics import compute_confusion_matrices, compute_dimension_metrics, summarize_results
 from preprocessing.loader import load_dataset
 from scoring.embedding_classifier import EmbeddingClassifier
 from scoring.llm_scorer import score_dataset
@@ -36,27 +38,101 @@ from scoring.tfidf_classifier import TFIDFClassifier
 load_dotenv()
 
 
-def run_tfidf(df_train: pd.DataFrame, df_test: pd.DataFrame) -> pd.DataFrame:
+def plot_results(
+    all_results: dict[str, pd.DataFrame],
+    all_preds: dict[str, pd.DataFrame],
+    df_test: pd.DataFrame,
+    out_dir: Path,
+) -> None:
+    """Save three plots to out_dir/plots/: QWK bar chart, metrics heatmap, confusion matrices."""
+    plot_dir = out_dir / "plots"
+    plot_dir.mkdir(parents=True, exist_ok=True)
+
+    dim_targets = [f"{d}_score" for d in DIMENSIONS]
+    model_names = list(all_results.keys())
+
+    # 1. QWK grouped bar chart — one group per dimension, one bar per model
+    fig, ax = plt.subplots(figsize=(max(8, len(model_names) * 1.5), 5))
+    x = np.arange(len(DIMENSIONS))
+    width = 0.8 / len(model_names)
+    for i, model in enumerate(model_names):
+        qwk_vals = [all_results[model].loc[t, "qwk"] if t in all_results[model].index else 0.0
+                    for t in dim_targets]
+        ax.bar(x + i * width - 0.4 + width / 2, qwk_vals, width, label=model)
+    ax.set_xticks(x)
+    ax.set_xticklabels([d.upper() for d in DIMENSIONS])
+    ax.set_ylim(-0.1, 1.0)
+    ax.axhline(0, color="black", linewidth=0.8, linestyle="--")
+    ax.set_ylabel("QWK")
+    ax.set_title("Quadratic Weighted Kappa by Dimension and Model")
+    ax.legend(bbox_to_anchor=(1.01, 1), loc="upper left", fontsize=8)
+    fig.tight_layout()
+    fig.savefig(plot_dir / "qwk_by_dimension.png", dpi=150)
+    plt.close(fig)
+
+    # 2. Heatmap — models × dimensions, coloured by QWK
+    qwk_df = pd.DataFrame(
+        {model: [all_results[model].loc[t, "qwk"] if t in all_results[model].index else np.nan
+                 for t in dim_targets]
+         for model in model_names},
+        index=[d.upper() for d in DIMENSIONS],
+    )
+    fig, ax = plt.subplots(figsize=(max(6, len(model_names) * 1.2), 3))
+    sns.heatmap(
+        qwk_df, annot=True, fmt=".2f", vmin=-0.1, vmax=1.0,
+        cmap="RdYlGn", linewidths=0.5, ax=ax,
+    )
+    ax.set_title("QWK Heatmap — Models vs Dimensions")
+    ax.set_xticklabels(ax.get_xticklabels(), rotation=30, ha="right", fontsize=8)
+    fig.tight_layout()
+    fig.savefig(plot_dir / "qwk_heatmap.png", dpi=150)
+    plt.close(fig)
+
+    # 3. Confusion matrices — one figure per model (3 subplots: WHAT / WHY / HOW)
+    for model, df_pred in all_preds.items():
+        cms = compute_confusion_matrices(df_test, df_pred)
+        fig, axes = plt.subplots(1, len(DIMENSIONS), figsize=(4 * len(DIMENSIONS), 4))
+        for ax, dim in zip(axes, DIMENSIONS):
+            target = f"{dim}_score"
+            cm = cms.get(target, np.zeros((3, 3), dtype=int))
+            sns.heatmap(
+                cm, annot=True, fmt="d", cmap="Blues",
+                xticklabels=[0, 1, 2], yticklabels=[0, 1, 2],
+                ax=ax, cbar=False,
+            )
+            ax.set_title(dim.upper())
+            ax.set_xlabel("Predicted")
+            ax.set_ylabel("True")
+        fig.suptitle(f"Confusion Matrices — {model}", fontsize=11)
+        fig.tight_layout()
+        safe_name = model.replace("/", "_").replace(":", "_")
+        fig.savefig(plot_dir / f"confusion_{safe_name}.png", dpi=150)
+        plt.close(fig)
+
+    print(f"  Plots saved → {plot_dir}")
+
+
+def run_tfidf(df_train: pd.DataFrame, df_test: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
     clf = TFIDFClassifier(model_type="logreg")
     clf.fit(df_train)
     raw_preds = clf.predict(df_test["reflection_text"].tolist())
     df_pred = pd.DataFrame(raw_preds)
-    return compute_dimension_metrics(df_test, df_pred)
+    return compute_dimension_metrics(df_test, df_pred), df_pred
 
 
-def run_embedding(df_train: pd.DataFrame, df_test: pd.DataFrame) -> pd.DataFrame:
+def run_embedding(df_train: pd.DataFrame, df_test: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
     clf = EmbeddingClassifier(model_type="logreg")
     clf.fit(df_train)
     raw_preds = clf.predict(df_test["reflection_text"].tolist())
     df_pred = pd.DataFrame(raw_preds)
-    return compute_dimension_metrics(df_test, df_pred)
+    return compute_dimension_metrics(df_test, df_pred), df_pred
 
 
-def run_llm(df_test: pd.DataFrame, model: str) -> pd.DataFrame:
+def run_llm(df_test: pd.DataFrame, model: str) -> tuple[pd.DataFrame, pd.DataFrame]:
     results = score_dataset(df_test["reflection_text"].tolist(), model=model)
     preds = {f"{dim}_score": [r[f"{dim}_score"] for r in results] for dim in DIMENSIONS}
     df_pred = pd.DataFrame(preds)
-    return compute_dimension_metrics(df_test, df_pred)
+    return compute_dimension_metrics(df_test, df_pred), df_pred
 
 
 def main(args: argparse.Namespace) -> None:
@@ -67,17 +143,19 @@ def main(args: argparse.Namespace) -> None:
     print(f"Dataset loaded — train: {len(df_train)}, test: {len(df_test)}")
 
     all_results: dict[str, pd.DataFrame] = {}
+    all_preds: dict[str, pd.DataFrame] = {}
 
     print("\n[1/3] TF-IDF classifier...")
-    all_results["tfidf"] = run_tfidf(df_train, df_test)
+    all_results["tfidf"], all_preds["tfidf"] = run_tfidf(df_train, df_test)
 
     print("[2/3] Embedding classifier...")
-    all_results["embedding"] = run_embedding(df_train, df_test)
+    all_results["embedding"], all_preds["embedding"] = run_embedding(df_train, df_test)
 
     if args.llm_models:
         for model in args.llm_models:
             print(f"[LLM] Scoring with {model}...")
-            all_results[f"llm_{model}"] = run_llm(df_test, model=model)
+            key = f"llm_{model}"
+            all_results[key], all_preds[key] = run_llm(df_test, model=model)
 
     summary = summarize_results(all_results)
     print("\n=== Experiment 1 Results ===")
@@ -131,6 +209,9 @@ def main(args: argparse.Namespace) -> None:
     print(f"  JSON snap → {json_path}")
     print(f"  Log (append) → {log_path}")
 
+    print("\nGenerating plots...")
+    plot_results(all_results, all_preds, df_test, out_dir)
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
@@ -141,8 +222,20 @@ if __name__ == "__main__":
         help="Path to reflections CSV"
     )
     parser.add_argument(
-        "--llm-models", nargs="*", choices=["claude", "gpt4o", "llama"], default=[],
-        help="LLM models to include (omit to skip LLM scoring)"
+        "--llm-models", nargs="*",
+        choices=[
+            # Proprietary (ANTHROPIC_API_KEY / OPENAI_API_KEY)
+            "claude", "gpt4o",
+            # Groq (GROQ_API_KEY)
+            "llama-3.3-70b",
+            # Ollama local (requires `ollama serve`)
+            "ollama-qwen2.5-72b", "ollama-gemma3-12b",
+        ],
+        default=[],
+        help=(
+            "LLM models to include. Groq models need GROQ_API_KEY; "
+            "ollama-* models require `ollama serve` running locally (no key needed)."
+        ),
     )
     parser.add_argument(
         "--output-dir", default=str(PROCESSED_DATA_DIR / "experiments"),

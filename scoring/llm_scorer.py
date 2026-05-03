@@ -1,8 +1,12 @@
 """
 Approach (c): Prompt-based LLM rubric scorer.
-Unified interface for Claude Sonnet, GPT-4o, and Llama (via HuggingFace Inference API).
+Unified interface for Claude, GPT-4o, Groq (llama-3.3-70b), and Ollama local models.
 
-Requires environment variables:  ANTHROPIC_API_KEY, OPENAI_API_KEY, GROQ_API_KEY
+Required environment variables (only for the model(s) you call):
+    ANTHROPIC_API_KEY   — claude
+    OPENAI_API_KEY      — gpt4o
+    GROQ_API_KEY        — llama-3.3-70b
+
 Load them before use:  from dotenv import load_dotenv; load_dotenv()
 """
 import json
@@ -35,7 +39,7 @@ def _get_openai():
     return _openai_client
 
 
-def _get_llama():
+def _get_groq():
     global _groq_client
     if _groq_client is None:
         import openai
@@ -44,6 +48,20 @@ def _get_llama():
             base_url="https://api.groq.com/openai/v1",
         )
     return _groq_client
+
+
+_ollama_client = None
+
+
+def _get_ollama():
+    global _ollama_client
+    if _ollama_client is None:
+        import openai
+        _ollama_client = openai.OpenAI(
+            api_key="ollama",  # required by the openai client but ignored by Ollama
+            base_url="http://localhost:11434/v1",
+        )
+    return _ollama_client
 
 
 # ---------------------------------------------------------------------------
@@ -63,6 +81,7 @@ def build_scoring_prompt(reflection_text: str) -> str:
 
 Score the reflection on three rubric dimensions: WHAT, WHY, and HOW.
 Each dimension is scored 0, 1, or 2 according to the rubric below.
+Apply each score strictly based on the evidence in the reflection — do not default to the same score across dimensions or across reflections.
 
 RUBRIC:
 {rubric_text}
@@ -89,7 +108,7 @@ IMPORTANT: evidence values must be exact substrings copied from the reflection a
 
 
 # ---------------------------------------------------------------------------
-# Per-model scoring functions
+# Per-provider scoring functions
 # ---------------------------------------------------------------------------
 
 def score_with_claude(reflection_text: str) -> dict[str, Any]:
@@ -97,6 +116,7 @@ def score_with_claude(reflection_text: str) -> dict[str, Any]:
     response = client.messages.create(
         model=LLM_MODELS["claude"],
         max_tokens=1024,
+        temperature=0,
         messages=[{"role": "user", "content": build_scoring_prompt(reflection_text)}],
     )
     result = _parse_response(response.content[0].text)
@@ -110,6 +130,7 @@ def score_with_gpt4o(reflection_text: str) -> dict[str, Any]:
         model=LLM_MODELS["gpt4o"],
         messages=[{"role": "user", "content": build_scoring_prompt(reflection_text)}],
         max_tokens=512,
+        temperature=0,
         response_format={"type": "json_object"},
     )
     result = _parse_response(response.choices[0].message.content)
@@ -117,22 +138,47 @@ def score_with_gpt4o(reflection_text: str) -> dict[str, Any]:
     return result
 
 
-def score_with_llama(reflection_text: str) -> dict[str, Any]:
-    client = _get_llama()
-    response = client.chat.completions.create(
-        model=LLM_MODELS["llama"],
-        messages=[{"role": "user", "content": build_scoring_prompt(reflection_text)}],
-        max_tokens=512,
-    )
-    result = _parse_response(response.choices[0].message.content)
-    result["model"] = LLM_MODELS["llama"]
-    return result
+def _make_groq_scorer(model_key: str):
+    """Factory: returns a scorer function for any Groq-hosted model."""
+    def _score(reflection_text: str) -> dict[str, Any]:
+        client = _get_groq()
+        response = client.chat.completions.create(
+            model=LLM_MODELS[model_key],
+            messages=[{"role": "user", "content": build_scoring_prompt(reflection_text)}],
+            max_tokens=512,
+            temperature=0,
+        )
+        result = _parse_response(response.choices[0].message.content)
+        result["model"] = LLM_MODELS[model_key]
+        return result
+    return _score
 
 
-_SCORER_MAP = {
+def _make_ollama_scorer(model_key: str):
+    """Factory: returns a scorer function for any Ollama-hosted model."""
+    def _score(reflection_text: str) -> dict[str, Any]:
+        client = _get_ollama()
+        response = client.chat.completions.create(
+            model=LLM_MODELS[model_key],
+            messages=[{"role": "user", "content": build_scoring_prompt(reflection_text)}],
+            max_tokens=512,
+            temperature=0,
+        )
+        result = _parse_response(response.choices[0].message.content)
+        result["model"] = LLM_MODELS[model_key]
+        return result
+    return _score
+
+
+# Models routed by provider
+_GROQ_MODELS   = {"llama-3.3-70b", "llama-4-scout"}
+_OLLAMA_MODELS = {"ollama-qwen2.5-72b", "ollama-gemma3-12b"}
+
+_SCORER_MAP: dict[str, Any] = {
     "claude": score_with_claude,
     "gpt4o":  score_with_gpt4o,
-    "llama":  score_with_llama,
+    **{k: _make_groq_scorer(k)   for k in _GROQ_MODELS},
+    **{k: _make_ollama_scorer(k) for k in _OLLAMA_MODELS},
 }
 
 
@@ -142,17 +188,21 @@ _SCORER_MAP = {
 
 def score_reflection(
     reflection_text: str,
-    model: str = "claude",
+    model: str = "llama-3.3-70b",
     retries: int = 2,
     retry_delay: float = 1.5,
+    rate_limit_retries: int = 8,
 ) -> dict[str, Any]:
     """Score a single reflection with the given LLM model.
 
     Args:
         reflection_text: Full text of the student reflection.
-        model: One of 'claude', 'gpt4o', 'llama'.
+        model: One of 'claude', 'gpt4o', 'llama-3.3-70b',
+               'ollama-qwen2.5-72b', 'ollama-gemma3-12b'.
         retries: Extra attempts on JSON parse failure.
         retry_delay: Seconds between retries.
+        rate_limit_retries: Max retries on HTTP 429 rate-limit errors; uses
+            the wait time from the error message with exponential backoff fallback.
 
     Returns:
         Dict with what_score, why_score, how_score, evidence, explanations, model name.
@@ -162,27 +212,47 @@ def score_reflection(
         raise ValueError(f"Unknown model '{model}'. Choose from {list(_SCORER_MAP)}")
 
     last_error: Exception | None = None
-    for attempt in range(retries + 1):
+    parse_attempts = 0
+    rl_attempts = 0
+
+    while parse_attempts <= retries:
         try:
             result = _SCORER_MAP[model](reflection_text)
             _add_exact_match_flags(result, reflection_text)
             return result
         except (json.JSONDecodeError, ValueError, KeyError) as e:
             last_error = e
-            if attempt < retries:
+            parse_attempts += 1
+            if parse_attempts <= retries:
                 time.sleep(retry_delay)
+        except Exception as e:
+            if getattr(e, "status_code", None) == 429 or "ratelimit" in type(e).__name__.lower():
+                rl_attempts += 1
+                if rl_attempts > rate_limit_retries:
+                    raise
+                wait = _parse_retry_after(e) or min(2 ** rl_attempts, 300)
+                mins, secs = divmod(int(wait), 60)
+                wait_str = f"{mins}m{secs}s" if mins else f"{secs}s"
+                print(f"  [rate limit] waiting {wait_str} (attempt {rl_attempts}/{rate_limit_retries})...")
+                time.sleep(wait)
+            else:
+                raise
 
     raise RuntimeError(
-        f"LLM scoring failed after {retries + 1} attempt(s). Last error: {last_error}"
+        f"LLM scoring failed after {parse_attempts} attempt(s). Last error: {last_error}"
     )
 
 
 def score_dataset(
     texts: list[str],
-    model: str = "claude",
-    sleep_between: float = 0.5,
+    model: str = "llama-3.3-70b",
+    sleep_between: float = 2.0,
 ) -> list[dict[str, Any]]:
-    """Score a list of reflections sequentially, with a small delay between API calls."""
+    """Score a list of reflections sequentially, with a small delay between API calls.
+
+    Note: free-tier Groq limits (e.g. 6 000 TPM for llama-3.1-8b) may require a
+    larger sleep_between (~10s) to avoid sustained rate-limit pressure.
+    """
     results = []
     for i, text in enumerate(texts):
         result = score_reflection(text, model=model)
@@ -197,10 +267,48 @@ def score_dataset(
 # Internal helpers
 # ---------------------------------------------------------------------------
 
+def _parse_retry_after(exc: Exception) -> float | None:
+    """Extract wait time (seconds) from a Groq/OpenAI rate-limit error message.
+
+    Handles formats like: '880ms', '1.2s', '6m33.12s', '1h2m3s'.
+    Returns None if no match found; caller should fall back to exponential backoff.
+    """
+    msg = str(exc)
+    m = re.search(r"try again in ([\w.]+)", msg)
+    if not m:
+        return None
+    time_str = m.group(1)
+    total = 0.0
+    for part in re.finditer(r"(\d+(?:\.\d+)?)(ms|h|m|s)", time_str):
+        value, unit = float(part.group(1)), part.group(2)
+        if unit == "h":
+            total += value * 3600
+        elif unit == "m":
+            total += value * 60
+        elif unit == "s":
+            total += value
+        elif unit == "ms":
+            total += value / 1000
+    return total if total > 0 else None
+
+
 def _parse_response(raw: str) -> dict[str, Any]:
     """Strip markdown fences if present, parse JSON, and validate required fields."""
-    raw = re.sub(r"```(?:json)?\s*", "", raw).strip().rstrip("```").strip()
-    parsed = json.loads(raw)
+    # First try to extract the outermost {...} block (handles preamble/postamble text
+    # and unstripped fences that small models like llama-3.1-8b sometimes emit).
+    start = raw.find("{")
+    end = raw.rfind("}")
+    if start != -1 and end != -1 and end > start:
+        candidate = raw[start : end + 1]
+        try:
+            parsed = json.loads(candidate)
+        except json.JSONDecodeError:
+            # Fall back to fence-stripping and parse the full string
+            cleaned = re.sub(r"```(?:json)?\s*", "", raw).strip().rstrip("`").strip()
+            parsed = json.loads(cleaned)
+    else:
+        cleaned = re.sub(r"```(?:json)?\s*", "", raw).strip().rstrip("`").strip()
+        parsed = json.loads(cleaned)
     required = [
         "what_score", "what_evidence", "what_explanation",
         "why_score",  "why_evidence",  "why_explanation",
