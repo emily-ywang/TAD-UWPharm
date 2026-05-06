@@ -12,7 +12,7 @@ RAW_DATA_DIR = DATA_DIR / "raw"
 PROCESSED_DATA_DIR = DATA_DIR / "processed"
 
 # Place your CSV here (columns: reflection_id, reflection_text, what_score, why_score, how_score)
-RAW_CSV = RAW_DATA_DIR / "reflections.csv"
+RAW_CSV = RAW_DATA_DIR / "SyntheticReflectionData_Experiment.csv"
 
 # ---------------------------------------------------------------------------
 # Dataset schema
@@ -28,31 +28,31 @@ RUBRIC = {
     "what": {
         "name": "WHAT / Description",
         "prompt": "What did you learn?",
-        "description": "Evaluates how clearly and specifically the student describes what they learned.",
+        "description": "Describes key learnings, activities, or concepts from the session.",
         "levels": {
-            2: "Clear, specific description of a concrete learning experience with relevant details.",
-            1: "Some description of learning but vague, incomplete, or lacking specificity.",
-            0: "No meaningful description of learning, or response is off-topic.",
+            2: "Clear and specific description of key learnings, activities, or concepts.",
+            1: "Description is present but vague; lacks details or specificity.",
+            0: "No identifiable learning described; off-topic or overly vague.",
         },
     },
     "why": {
         "name": "WHY / Analysis",
-        "prompt": "Why is this learning important for your growth or development?",
-        "description": "Evaluates the depth of reflection on why the learning matters.",
+        "prompt": "Why is it important for your growth/development?",
+        "description": "Explains why the learning mattered; describes new thoughts and/or feelings; examines assumptions, beliefs, or challenges.",
         "levels": {
-            2: "Clear explanation of personal significance with insight, self-awareness, and concrete examples.",
-            1: "Some analysis of importance but surface-level, generic, or lacking personal connection.",
-            0: "No meaningful analysis of why the learning mattered.",
+            2: "Clearly explains why the learning mattered and includes personal insight, supported with examples.",
+            1: "States general importance but includes limited personal insight or little supporting evidence.",
+            0: "No analysis or reflection; simply restates expectations or requirements.",
         },
     },
     "how": {
         "name": "HOW / Integration",
-        "prompt": "How will you apply this learning in future practice?",
-        "description": "Evaluates specificity and actionability of the future application plan.",
+        "prompt": "How will you apply this learning in future practice (e.g. internship, rotations, or beyond)?",
+        "description": "Connects learning to prior experiences or values; clearly describes plan for future professional role.",
         "levels": {
-            2: "Specific, actionable, and realistic plan for applying learning in future pharmacy practice.",
-            1: "Some mention of future application but vague, generic, or not clearly actionable.",
-            0: "No mention of future application, or response is purely hypothetical without specifics.",
+            2: "Clear, specific, and actionable future plan for applying learning.",
+            1: "Future intent is mentioned but vague or not actionable.",
+            0: "No clear application or plan described.",
         },
     },
 }
@@ -83,9 +83,19 @@ SPECIFICITY_MARKERS = [
 # LLM model names
 # ---------------------------------------------------------------------------
 LLM_MODELS = {
-    "claude": "claude-sonnet-4-6",
-    "gpt4o": "gpt-4o",
-    "llama": "llama-3.3-70b-versatile",
+    # Proprietary
+    "claude-haiku":  "claude-haiku-4-5-20251001",
+    "claude":        "claude-sonnet-4-6",
+    "gpt4o":         "gpt-4o",
+    # Groq-hosted open-source (GROQ_API_KEY)
+    "llama-3.3-70b":  "llama-3.3-70b-versatile",
+    "llama-4-scout":  "meta-llama/llama-4-scout-17b-16e-instruct",
+    # Google Gemini (GEMINI_API_KEY)
+    # "gemini-flash":   "gemini-2.5-flash",  # temporarily disabled — high demand
+    # Ollama local (no API key — requires `ollama serve` on localhost:11434)
+    # "ollama-qwen2.5-72b": "qwen2.5:72b",
+    # "ollama-gemma3-12b":  "gemma3:12b",
+    # "ollama-llama-4-maverick": "llama4:maverick",
 }
 
 # Sentence embedding model (SentenceTransformers) used for approach (b) and evidence extraction

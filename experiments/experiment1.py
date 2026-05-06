@@ -1,10 +1,10 @@
 """
-Experiment 2: Rubric-decomposed scoring (predict WHAT + WHY + HOW separately, then sum)
+Experiment 1: Rubric-decomposed scoring (predict WHAT + WHY + HOW separately, then sum)
 vs. direct total-score prediction.
 
 Usage:
-    python experiments/run_experiment2.py
-    python experiments/run_experiment2.py --data-path data/raw/reflections.csv
+    python3 experiments/experiment1.py
+    python3 experiments/experiment1.py --data-path data/raw/SyntheticReflectionData_Experiment.csv
 """
 import argparse
 import sys
@@ -56,7 +56,7 @@ def run_decomposed_vs_direct(
 def main(args: argparse.Namespace) -> None:
     df = load_dataset(args.data_path)
     df_train, df_test = train_test_split(
-        df, test_size=0.2, random_state=RANDOM_SEED, stratify=df["what_score"]
+        df, test_size=0.2, random_state=RANDOM_SEED
     )
     print(f"Dataset loaded — train: {len(df_train)}, test: {len(df_test)}")
 
@@ -79,19 +79,19 @@ def main(args: argparse.Namespace) -> None:
             rows.append({"model": model_name, "approach": approach, **metrics})
     summary_df = pd.DataFrame(rows).set_index(["model", "approach"])
 
-    print("\n=== Experiment 2 Results ===")
+    print("\n=== Experiment 1 Results ===")
     print(summary_df.to_string())
 
     out_dir = Path(args.output_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
-    out_path = out_dir / "experiment2_results.csv"
+    out_path = out_dir / "experiment1_results.csv"
     summary_df.to_csv(out_path)
     print(f"\nSaved to {out_path}")
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
-        description="Experiment 2: Decomposed vs direct total-score prediction"
+        description="Experiment 1: Decomposed vs direct total-score prediction"
     )
     parser.add_argument(
         "--data-path", default=str(RAW_CSV),

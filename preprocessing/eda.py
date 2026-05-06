@@ -1,8 +1,18 @@
 """
 Exploratory text analysis on the reflection corpus.
-Call run_full_eda(df) to generate all plots and save summaries to data/processed/eda_plots/.
+Call run_full_eda(df, output_dir=...) to generate all plots and save summaries.
+
+Usage:
+    python3 preprocessing/eda.py --data-path data/raw/SyntheticReflectionData_Experiment.csv
+    python3 preprocessing/eda.py --data-path data/raw/mydata.csv --output-dir data/processed/my_run
 """
+import argparse
 import json
+import sys
+from pathlib import Path
+
+# Allow running directly from the preprocessing/ directory or the project root
+sys.path.insert(0, str(Path(__file__).parent.parent))
 
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -11,26 +21,28 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from config import DIMENSIONS, SCORE_LABELS, PROCESSED_DATA_DIR
 from preprocessing.text_features import extract_features_batch
 
-PLOT_DIR = PROCESSED_DATA_DIR / "eda_plots"
 
-
-def run_full_eda(df: pd.DataFrame, save: bool = True) -> dict:
-    """Run all EDA analyses. Returns a dict of result summaries."""
+def run_full_eda(df: pd.DataFrame, save: bool = True, output_dir: Path | str | None = None) -> dict:
+    """Run all EDA analyses and save outputs under the selected output directory."""
+    if output_dir is None:
+        output_dir = PROCESSED_DATA_DIR
+    output_dir = Path(output_dir)
+    plot_dir = output_dir / "eda_plots"
     if save:
-        PLOT_DIR.mkdir(parents=True, exist_ok=True)
+        plot_dir.mkdir(parents=True, exist_ok=True)
 
     results = {
-        "score_distributions":  plot_score_distributions(df, save=save),
-        "length_distributions": plot_length_distributions(df, save=save),
-        "tfidf_keywords":       compute_tfidf_keywords_by_score(df, save=save),
-        "marker_analysis":      plot_marker_analysis(df, save=save),
-        "sentiment_analysis":   plot_sentiment_by_score(df, save=save),
+        "score_distributions":  plot_score_distributions(df, save=save, output_dir=output_dir),
+        "length_distributions": plot_length_distributions(df, save=save, output_dir=output_dir),
+        "tfidf_keywords":       compute_tfidf_keywords_by_score(df, save=save, output_dir=output_dir),
+        "marker_analysis":      plot_marker_analysis(df, save=save, output_dir=output_dir),
+        "sentiment_analysis":   plot_sentiment_by_score(df, save=save, output_dir=output_dir),
     }
 
     if save:
         serialisable = {k: v.to_dict() if isinstance(v, pd.DataFrame) else v
                         for k, v in results.items()}
-        with open(PROCESSED_DATA_DIR / "eda_summary.json", "w") as f:
+        with open(output_dir / "eda_summary.json", "w") as f:
             json.dump(serialisable, f, indent=2, default=str)
 
     return results
@@ -40,8 +52,13 @@ def run_full_eda(df: pd.DataFrame, save: bool = True) -> dict:
 # Individual analyses
 # ---------------------------------------------------------------------------
 
-def plot_score_distributions(df: pd.DataFrame, save: bool = True) -> pd.DataFrame:
+def plot_score_distributions(
+    df: pd.DataFrame,
+    save: bool = True,
+    output_dir: Path | str | None = None,
+) -> pd.DataFrame:
     """Bar charts for WHAT, WHY, HOW score distributions."""
+    plot_dir = Path(output_dir) / "eda_plots" if output_dir is not None else PROCESSED_DATA_DIR / "eda_plots"
     fig, axes = plt.subplots(1, 3, figsize=(12, 4))
     score_counts = {}
     for ax, dim in zip(axes, DIMENSIONS):
@@ -56,13 +73,18 @@ def plot_score_distributions(df: pd.DataFrame, save: bool = True) -> pd.DataFram
     fig.suptitle("Score Distributions by Rubric Dimension", y=1.02)
     plt.tight_layout()
     if save:
-        fig.savefig(PLOT_DIR / "score_distributions.png", dpi=150, bbox_inches="tight")
+        fig.savefig(plot_dir / "score_distributions.png", dpi=150, bbox_inches="tight")
     plt.close(fig)
     return pd.DataFrame(score_counts)
 
 
-def plot_length_distributions(df: pd.DataFrame, save: bool = True) -> pd.DataFrame:
+def plot_length_distributions(
+    df: pd.DataFrame,
+    save: bool = True,
+    output_dir: Path | str | None = None,
+) -> pd.DataFrame:
     """Box plots of word / sentence count by total_score."""
+    plot_dir = Path(output_dir) / "eda_plots" if output_dir is not None else PROCESSED_DATA_DIR / "eda_plots"
     features = extract_features_batch(df["reflection_text"].tolist())
     df = df.copy()
     df["word_count"]     = [f["word_count"]     for f in features]
@@ -82,13 +104,16 @@ def plot_length_distributions(df: pd.DataFrame, save: bool = True) -> pd.DataFra
     fig.suptitle("Length Distributions by Total Score")
     plt.tight_layout()
     if save:
-        fig.savefig(PLOT_DIR / "length_distributions.png", dpi=150, bbox_inches="tight")
+        fig.savefig(plot_dir / "length_distributions.png", dpi=150, bbox_inches="tight")
     plt.close(fig)
     return df[["word_count", "sentence_count"]].describe()
 
 
 def compute_tfidf_keywords_by_score(
-    df: pd.DataFrame, n_top: int = 10, save: bool = True
+    df: pd.DataFrame,
+    n_top: int = 10,
+    save: bool = True,
+    output_dir: Path | str | None = None,
 ) -> dict:
     """Top TF-IDF keywords per score level for each rubric dimension."""
     results: dict[str, dict] = {}
@@ -111,13 +136,19 @@ def compute_tfidf_keywords_by_score(
         results[dim] = dim_results
 
     if save:
-        with open(PROCESSED_DATA_DIR / "tfidf_keywords.json", "w") as f:
+        output_dir = Path(output_dir) if output_dir is not None else PROCESSED_DATA_DIR
+        with open(output_dir / "tfidf_keywords.json", "w") as f:
             json.dump(results, f, indent=2)
     return results
 
 
-def plot_marker_analysis(df: pd.DataFrame, save: bool = True) -> pd.DataFrame:
+def plot_marker_analysis(
+    df: pd.DataFrame,
+    save: bool = True,
+    output_dir: Path | str | None = None,
+) -> pd.DataFrame:
     """Mean language-marker rates per dimension score — links rubric markers to scores."""
+    plot_dir = Path(output_dir) / "eda_plots" if output_dir is not None else PROCESSED_DATA_DIR / "eda_plots"
     features = extract_features_batch(df["reflection_text"].tolist())
     df = df.copy()
     for col in ("future_marker_rate", "causal_marker_rate",
@@ -146,13 +177,18 @@ def plot_marker_analysis(df: pd.DataFrame, save: bool = True) -> pd.DataFrame:
     fig.suptitle("Language Marker Rates by Score")
     plt.tight_layout()
     if save:
-        fig.savefig(PLOT_DIR / "marker_analysis.png", dpi=150, bbox_inches="tight")
+        fig.savefig(plot_dir / "marker_analysis.png", dpi=150, bbox_inches="tight")
     plt.close(fig)
     return pd.DataFrame(summary)
 
 
-def plot_sentiment_by_score(df: pd.DataFrame, save: bool = True) -> pd.DataFrame:
+def plot_sentiment_by_score(
+    df: pd.DataFrame,
+    save: bool = True,
+    output_dir: Path | str | None = None,
+) -> pd.DataFrame:
     """Mean VADER compound sentiment per dimension score."""
+    plot_dir = Path(output_dir) / "eda_plots" if output_dir is not None else PROCESSED_DATA_DIR / "eda_plots"
     features = extract_features_batch(df["reflection_text"].tolist())
     df = df.copy()
     df["sentiment_compound"] = [f["sentiment_compound"] for f in features]
@@ -171,6 +207,20 @@ def plot_sentiment_by_score(df: pd.DataFrame, save: bool = True) -> pd.DataFrame
     fig.suptitle("VADER Sentiment by Score Level")
     plt.tight_layout()
     if save:
-        fig.savefig(PLOT_DIR / "sentiment_by_score.png", dpi=150, bbox_inches="tight")
+        fig.savefig(plot_dir / "sentiment_by_score.png", dpi=150, bbox_inches="tight")
     plt.close(fig)
     return pd.DataFrame(summary)
+
+
+if __name__ == "__main__":
+    from preprocessing.loader import load_dataset
+
+    parser = argparse.ArgumentParser(description="Run EDA on a reflection dataset.")
+    parser.add_argument("--data-path", required=True, help="Path to input CSV file")
+    parser.add_argument("--output-dir", default=None, help="Directory to save plots and summary (default: data/processed)")
+    args = parser.parse_args()
+
+    df = load_dataset(args.data_path)
+    out_dir = Path(args.output_dir) if args.output_dir else None
+    run_full_eda(df, save=True, output_dir=out_dir)
+    print("EDA complete. Plots saved to", (out_dir or Path("data/processed")) / "eda_plots")

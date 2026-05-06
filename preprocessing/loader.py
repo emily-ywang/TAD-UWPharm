@@ -10,16 +10,29 @@ import pandas as pd
 from config import REQUIRED_COLUMNS, SCORE_LABELS, DIMENSIONS
 
 
+_COLUMN_ALIASES = {
+    "Reflection ID": "reflection_id",
+    "Reflection":    "reflection_text",
+    "Score 1 (WHAT)": "what_score",
+    "Score 2 (WHY)":  "why_score",
+    "Score 3 (HOW)":  "how_score",
+}
+
+
 def load_dataset(path: str | Path) -> pd.DataFrame:
     """Load the reflections CSV and validate its schema.
 
-    Expected columns: reflection_id, reflection_text, what_score, why_score, how_score
+    Accepts both snake_case column names (reflection_id, reflection_text,
+    what_score, why_score, how_score) and the raw export format
+    (Reflection ID, Reflection, Score 1 (WHAT), etc.).
     Adds total_score = what_score + why_score + how_score.
     """
     df = pd.read_csv(path)
+    df = df.rename(columns=_COLUMN_ALIASES)
     _validate_schema(df)
     df = df.copy()
     df["total_score"] = df["what_score"] + df["why_score"] + df["how_score"]
+    df["reflection_length"] = df["reflection_text"].str.split().str.len()
     return df
 
 
