@@ -12,7 +12,7 @@ RAW_DATA_DIR = DATA_DIR / "raw"
 PROCESSED_DATA_DIR = DATA_DIR / "processed"
 
 # Place your CSV here (columns: reflection_id, reflection_text, what_score, why_score, how_score)
-RAW_CSV = RAW_DATA_DIR / "practice_reflections.csv"
+RAW_CSV = RAW_DATA_DIR / "SyntheticReflectionData_Experiment.csv"
 
 # ---------------------------------------------------------------------------
 # Dataset schema
@@ -84,14 +84,18 @@ SPECIFICITY_MARKERS = [
 # ---------------------------------------------------------------------------
 LLM_MODELS = {
     # Proprietary
+    "claude-haiku":  "claude-haiku-4-5-20251001",
     "claude":        "claude-sonnet-4-6",
     "gpt4o":         "gpt-4o",
     # Groq-hosted open-source (GROQ_API_KEY)
     "llama-3.3-70b":  "llama-3.3-70b-versatile",
     "llama-4-scout":  "meta-llama/llama-4-scout-17b-16e-instruct",
+    # Google Gemini (GEMINI_API_KEY)
+    # "gemini-flash":   "gemini-2.5-flash",  # temporarily disabled — high demand
     # Ollama local (no API key — requires `ollama serve` on localhost:11434)
-    "ollama-qwen2.5-72b": "qwen2.5:72b",
-    "ollama-gemma3-12b":  "gemma3:12b",
+    # "ollama-qwen2.5-72b": "qwen2.5:72b",
+    # "ollama-gemma3-12b":  "gemma3:12b",
+    # "ollama-llama-4-maverick": "llama4:maverick",
 }
 
 # Sentence embedding model (SentenceTransformers) used for approach (b) and evidence extraction

@@ -1,15 +1,15 @@
 """
-Experiment 1: Compare TF-IDF, embedding, and LLM scoring approaches
+Experiment 2: Compare TF-IDF, embedding, and LLM scoring approaches
 across WHAT, WHY, and HOW dimensions.
 
 Usage:
-    python3 experiments/run_experiment1.py
-    python3 experiments/run_experiment1.py --llm-models claude gpt4o llama-3.3-70b ollama-qwen2.5-72b ollama-gemma3-12b
-    python3 experiments/run_experiment1.py --data-path data/raw/reflections.csv
+    python3 experiments/experiment2.py
+    python3 experiments/experiment2.py --llm-models claude-haiku claude gpt4o llama-3.3-70b llama-4-scout gemini-flash
+    python3 experiments/experiment2.py --data-path data/raw/reflections.csv
 
 Results are saved in three formats inside --output-dir:
-    experiment1_results.csv   — wide multi-index table (overwritten each run)
-    experiment1_results.json  — timestamped snapshot (one file per run)
+    experiment2_results.csv   — wide multi-index table (overwritten each run)
+    experiment2_results.json  — timestamped snapshot (one file per run)
     results_log.csv           — long-format log that appends across runs
 """
 import argparse
@@ -32,8 +32,10 @@ from config import DIMENSIONS, PROCESSED_DATA_DIR, RANDOM_SEED, RAW_CSV
 from evaluation.metrics import compute_confusion_matrices, compute_dimension_metrics, summarize_results
 from preprocessing.loader import load_dataset
 from scoring.embedding_classifier import EmbeddingClassifier
-from scoring.llm_scorer import score_dataset
+from scoring.llm_scorer import score_dataset, set_cache_path
 from scoring.tfidf_classifier import TFIDFClassifier
+
+set_cache_path(PROCESSED_DATA_DIR / "experiments" / "llm_score_cache.json")
 
 load_dotenv()
 
@@ -138,7 +140,7 @@ def run_llm(df_test: pd.DataFrame, model: str) -> tuple[pd.DataFrame, pd.DataFra
 def main(args: argparse.Namespace) -> None:
     df = load_dataset(args.data_path)
     df_train, df_test = train_test_split(
-        df, test_size=0.2, random_state=RANDOM_SEED, stratify=df["what_score"]
+        df, test_size=0.2, random_state=RANDOM_SEED
     )
     print(f"Dataset loaded — train: {len(df_train)}, test: {len(df_test)}")
 
@@ -158,7 +160,7 @@ def main(args: argparse.Namespace) -> None:
             all_results[key], all_preds[key] = run_llm(df_test, model=model)
 
     summary = summarize_results(all_results)
-    print("\n=== Experiment 1 Results ===")
+    print("\n=== Experiment 2 Results ===")
     print(summary.to_string())
 
     out_dir = Path(args.output_dir)
@@ -167,13 +169,13 @@ def main(args: argparse.Namespace) -> None:
 
     # 1. Wide CSV (overwritten each run — quick reference)
     # Flatten multi-index columns to "model_metric" so it opens cleanly in any spreadsheet.
-    wide_path = out_dir / "experiment1_results.csv"
+    wide_path = out_dir / "experiment2_results.csv"
     flat = summary.copy()
     flat.columns = [f"{model}_{metric}" for model, metric in flat.columns]
     flat.to_csv(wide_path)
 
     # 2. Timestamped JSON snapshot (one per run — never overwritten)
-    json_path = out_dir / f"experiment1_{run_ts}.json"
+    json_path = out_dir / f"experiment2_{run_ts}.json"
     snapshot = {
         "timestamp": run_ts,
         "data_path": args.data_path,
@@ -215,26 +217,36 @@ def main(args: argparse.Namespace) -> None:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
-        description="Experiment 1: Dimension-level scoring across model families"
+        description="Experiment 2: Dimension-level scoring across model families"
     )
     parser.add_argument(
-        "--data-path", default=str(RAW_CSV),
+        "--data-path", default="/Users/bellachang/Desktop/TAD-UWProject/TAD-UWPharm/data/raw/SyntheticReflectionData_Experiment.csv",
         help="Path to reflections CSV"
     )
     parser.add_argument(
         "--llm-models", nargs="*",
         choices=[
-            # Proprietary (ANTHROPIC_API_KEY / OPENAI_API_KEY)
-            "claude", "gpt4o",
-            # Groq (GROQ_API_KEY)
-            "llama-3.3-70b",
-            # Ollama local (requires `ollama serve`)
-            "ollama-qwen2.5-72b", "ollama-gemma3-12b",
+            # Proprietary — Anthropic (ANTHROPIC_API_KEY)
+            "claude-haiku", "claude",
+            # Proprietary — OpenAI (OPENAI_API_KEY)
+            "gpt4o",
+            # Groq open-source (GROQ_API_KEY)
+            "llama-3.3-70b", "llama-4-scout",
+            # Google Gemini (GEMINI_API_KEY)
+            "gemini-flash",
         ],
-        default=[],
+        default=[
+            # Proprietary
+            "claude-haiku", "claude", "gpt4o",
+            # Groq
+            "llama-3.3-70b", "llama-4-scout",
+            # Gemini
+            "gemini-flash",
+        ],
         help=(
-            "LLM models to include. Groq models need GROQ_API_KEY; "
-            "ollama-* models require `ollama serve` running locally (no key needed)."
+            "LLM models to run. Anthropic models need ANTHROPIC_API_KEY; "
+            "gpt4o needs OPENAI_API_KEY; Groq models need GROQ_API_KEY; "
+            "gemini-flash needs GEMINI_API_KEY; "
         ),
     )
     parser.add_argument(
