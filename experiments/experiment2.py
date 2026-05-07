@@ -232,21 +232,16 @@ if __name__ == "__main__":
             "gpt4o",
             # Groq open-source (GROQ_API_KEY)
             "llama-3.3-70b", "llama-4-scout",
-            # Google Gemini (GEMINI_API_KEY)
-            "gemini-flash",
         ],
         default=[
             # Proprietary
             "claude-haiku", "claude", "gpt4o",
             # Groq
             "llama-3.3-70b", "llama-4-scout",
-            # Gemini
-            "gemini-flash",
         ],
         help=(
             "LLM models to run. Anthropic models need ANTHROPIC_API_KEY; "
-            "gpt4o needs OPENAI_API_KEY; Groq models need GROQ_API_KEY; "
-            "gemini-flash needs GEMINI_API_KEY; "
+            "gpt4o needs OPENAI_API_KEY; Groq models need GROQ_API_KEY."
         ),
     )
     parser.add_argument(
