@@ -1,0 +1,1315 @@
+reflection_id,dimension,rank,sentence,similarity,is_exact_match,true_score
+R001,what,1,This topic is critically important to me because it challenges my prior assumption that all medications carry equal risk.,0.1522,True,2
+R001,what,2,"I had not fully appreciated how certain drugs — if given at the wrong dose or to the wrong patient — can cause immediate, irreversible harm.",0.1416,True,2
+R001,what,3,"We discussed how these drugs require additional safeguards not because errors are more frequent, but because the consequences are more devastating when they do occur.",0.1211,True,2
+R001,why,1,I was also struck by how systemic changes — like removing high-alert medications from unit stock — can be more effective than relying on individual vigilance alone.,0.2418,True,2
+R001,why,2,This topic is critically important to me because it challenges my prior assumption that all medications carry equal risk.,0.2402,True,2
+R001,why,3,"We discussed how these drugs require additional safeguards not because errors are more frequent, but because the consequences are more devastating when they do occur.",0.2266,True,2
+R001,how,1,"During my upcoming internship rotation at a hospital pharmacy, I will create a personal reference card listing the site-specific high-alert medications and the required double-check protocols.",0.4782,True,2
+R001,how,2,"I had not fully appreciated how certain drugs — if given at the wrong dose or to the wrong patient — can cause immediate, irreversible harm.",0.3618,True,2
+R001,how,3,This topic is critically important to me because it challenges my prior assumption that all medications carry equal risk.,0.3336,True,2
+R002,what,1,Understanding high-alert medications is fundamental to my development as a pharmacist because it shifts my mindset from general carefulness to targeted vigilance.,0.1836,True,2
+R002,what,2,We also discussed the difference between error prevention (stopping mistakes) and harm reduction (minimizing impact when errors occur).,0.1829,True,2
+R002,what,3,Knowing which drugs are on this list will help me prioritize where to focus my attention.,0.1151,True,2
+R002,why,1,Understanding high-alert medications is fundamental to my development as a pharmacist because it shifts my mindset from general carefulness to targeted vigilance.,0.2995,True,2
+R002,why,2,Knowing which drugs are on this list will help me prioritize where to focus my attention.,0.2381,True,2
+R002,why,3,We also discussed the difference between error prevention (stopping mistakes) and harm reduction (minimizing impact when errors occur).,0.22,True,2
+R002,how,1,"In the future, I will try to be more careful when handling these medications and make sure I follow safety protocols at my internship site.",0.4504,True,1
+R002,how,2,Understanding high-alert medications is fundamental to my development as a pharmacist because it shifts my mindset from general carefulness to targeted vigilance.,0.3951,True,1
+R002,how,3,Knowing which drugs are on this list will help me prioritize where to focus my attention.,0.3806,True,1
+R003,what,1,Patient safety is a core part of pharmacy practice and knowing about high-alert medications is important for preventing harm.,0.177,True,2
+R003,what,2,"This week's session introduced the concept of high-alert medications, including the ISMP classification system and the specific categories most commonly associated with serious patient harm.",0.0988,True,2
+R003,what,3,"When I start my clinical rotations, I will ask my preceptor on the first day to show me where high-alert medications are stored, what the site-specific safeguards are, and whether I am allowed to participate in independent double checks.",0.0898,True,2
+R003,why,1,Patient safety is a core part of pharmacy practice and knowing about high-alert medications is important for preventing harm.,0.2504,True,1
+R003,why,2,"This week's session introduced the concept of high-alert medications, including the ISMP classification system and the specific categories most commonly associated with serious patient harm.",0.1381,True,1
+R003,why,3,I will also set aside time each week to review one ISMP alert or case report to build my knowledge of current safety issues.,0.1236,True,1
+R003,how,1,Patient safety is a core part of pharmacy practice and knowing about high-alert medications is important for preventing harm.,0.4191,True,2
+R003,how,2,"When I start my clinical rotations, I will ask my preceptor on the first day to show me where high-alert medications are stored, what the site-specific safeguards are, and whether I am allowed to participate in independent double checks.",0.3256,True,2
+R003,how,3,"We reviewed strategies like tall man lettering, physical separation on shelves, and limit-access storage for drugs like concentrated potassium chloride and neuromuscular blocking agents.",0.2993,True,2
+R004,what,1,We covered the topic of high-alert medications in class and learned about how they are categorized.,0.3152,True,1
+R004,what,2,"It made me realize how real these risks are — not abstract, not just in textbooks.",0.2767,True,1
+R004,what,3,The details of specific drug categories were discussed as examples.,0.268,True,1
+R004,why,1,"It made me realize how real these risks are — not abstract, not just in textbooks.",0.3786,True,2
+R004,why,2,We covered the topic of high-alert medications in class and learned about how they are categorized.,0.3502,True,2
+R004,why,3,The class also reviewed some safety strategies that hospitals and pharmacies use.,0.2056,True,2
+R004,how,1,The class also reviewed some safety strategies that hospitals and pharmacies use.,0.4837,True,2
+R004,how,2,We covered the topic of high-alert medications in class and learned about how they are categorized.,0.4526,True,2
+R004,how,3,"During my internship, I plan to proactively audit the drug storage areas I work in, focusing specifically on where high-alert medications are kept relative to similar-looking or similarly-packaged drugs.",0.4174,True,2
+R005,what,1,I want to make sure I remember this going forward in my career.,0.2402,True,2
+R005,what,2,High-alert medications are important to know about as a pharmacist because they carry serious risk of patient harm.,0.1377,True,2
+R005,what,3,Case examples involving insulin dosing confusion between U-100 and U-500 formulations were particularly memorable.,0.0831,True,2
+R005,why,1,I want to make sure I remember this going forward in my career.,0.2659,True,1
+R005,why,2,High-alert medications are important to know about as a pharmacist because they carry serious risk of patient harm.,0.2275,True,1
+R005,why,3,"We reviewed how errors with these medications differ in impact rather than frequency, and why extra safeguards are justified.",0.1727,True,1
+R005,how,1,High-alert medications are important to know about as a pharmacist because they carry serious risk of patient harm.,0.4054,True,0
+R005,how,2,It is part of our responsibility to make sure these drugs are handled carefully.,0.3365,True,0
+R005,how,3,Case examples involving insulin dosing confusion between U-100 and U-500 formulations were particularly memorable.,0.2924,True,0
+R006,what,1,I will keep this in mind as I continue my training and try to apply these safety principles at my internship.,0.31,True,1
+R006,what,2,In class we discussed the topic of high-alert medications and how they are different from other drugs.,0.2086,True,1
+R006,what,3,We learned about the ISMP list and some examples of medications that require extra care.,0.1806,True,1
+R006,why,1,I will keep this in mind as I continue my training and try to apply these safety principles at my internship.,0.2895,True,1
+R006,why,2,In class we discussed the topic of high-alert medications and how they are different from other drugs.,0.2489,True,1
+R006,why,3,We learned about the ISMP list and some examples of medications that require extra care.,0.2277,True,1
+R006,how,1,In class we discussed the topic of high-alert medications and how they are different from other drugs.,0.3846,True,1
+R006,how,2,Safety is important in pharmacy and these medications can cause significant harm if used incorrectly.,0.3677,True,1
+R006,how,3,We learned about the ISMP list and some examples of medications that require extra care.,0.3175,True,1
+R007,what,1,Today's class was about medication safety.,0.2329,True,0
+R007,what,2,Patient safety is a key responsibility for pharmacists.,0.1761,True,0
+R007,what,3,I will try to do my best when working with any medications.,0.0947,True,0
+R007,why,1,Today's class was about medication safety.,0.2097,True,1
+R007,why,2,Patient safety is a key responsibility for pharmacists.,0.1979,True,1
+R007,why,3,I will try to do my best when working with any medications.,0.1661,True,1
+R007,how,1,Patient safety is a key responsibility for pharmacists.,0.4658,True,0
+R007,how,2,Today's class was about medication safety.,0.4342,True,0
+R007,how,3,We talked about some types of drugs that are particularly risky.,0.3335,True,0
+R008,what,1,I learned some things about how drugs can be dangerous.,0.4165,True,0
+R008,what,2,I will try to remember this for my career.,0.2525,True,0
+R008,what,3,Today we covered an important pharmacy topic.,0.1604,True,0
+R008,why,1,I learned some things about how drugs can be dangerous.,0.4316,True,0
+R008,why,2,I will try to remember this for my career.,0.295,True,0
+R008,why,3,Today we covered an important pharmacy topic.,0.183,True,0
+R008,how,1,Today we covered an important pharmacy topic.,0.5481,True,0
+R008,how,2,I learned some things about how drugs can be dangerous.,0.3624,True,0
+R008,how,3,I will try to remember this for my career.,0.248,True,0
+R009,what,1,"We also learned about systematic safeguards including tall man lettering, barcode medication administration (BCMA), visual alerts in pharmacy software, and physical separation on shelving.",0.2602,True,2
+R009,what,2,"Instead, I now understand that they are largely driven by predictable cognitive shortcuts that everyone uses — making systemic safeguards essential rather than optional.",0.2412,True,2
+R009,what,3,This session challenged my assumption that LASA errors are primarily caused by inattention or individual carelessness.,0.1806,True,2
+R009,why,1,"Instead, I now understand that they are largely driven by predictable cognitive shortcuts that everyone uses — making systemic safeguards essential rather than optional.",0.4175,True,2
+R009,why,2,"We also learned about systematic safeguards including tall man lettering, barcode medication administration (BCMA), visual alerts in pharmacy software, and physical separation on shelving.",0.2869,True,2
+R009,why,3,"In today's class, we did a deep dive into look-alike/sound-alike (LASA) drugs, focusing on the cognitive mechanisms behind LASA errors — specifically confirmation bias, top-down processing, and the speed-accuracy tradeoff in busy dispensing environments.",0.2453,True,2
+R009,how,1,"We also learned about systematic safeguards including tall man lettering, barcode medication administration (BCMA), visual alerts in pharmacy software, and physical separation on shelving.",0.3713,True,2
+R009,how,2,"During my next internship rotation, I will specifically observe how LASA medications are stored and labeled at the site, and ask my preceptor about the most common LASA pairs encountered there.",0.3195,True,2
+R009,how,3,"As someone who has worked in a retail pharmacy where multiple generic formulations of similar drugs are shelved together, I can now see exactly how these errors happen.",0.2823,True,2
+R010,what,1,Understanding LASA medications is central to safe pharmacy practice because it shows that even well-trained professionals can make mistakes when the environment is designed in a way that exploits normal cognitive patterns.,0.3329,True,2
+R010,what,2,"Learning about tall man lettering and barcode systems showed me that clever, simple interventions can meaningfully reduce error rates without relying on individual heroics.",0.1868,True,2
+R010,what,3,"We discussed how tall man lettering works by emphasizing letter differences to slow down reading and reduce confirmation bias — for example, DOBUTamine vs. DOPamine.",0.1455,True,2
+R010,why,1,Understanding LASA medications is central to safe pharmacy practice because it shows that even well-trained professionals can make mistakes when the environment is designed in a way that exploits normal cognitive patterns.,0.3793,True,2
+R010,why,2,"Learning about tall man lettering and barcode systems showed me that clever, simple interventions can meaningfully reduce error rates without relying on individual heroics.",0.2877,True,2
+R010,why,3,"We discussed how tall man lettering works by emphasizing letter differences to slow down reading and reduce confirmation bias — for example, DOBUTamine vs. DOPamine.",0.209,True,2
+R010,how,1,Understanding LASA medications is central to safe pharmacy practice because it shows that even well-trained professionals can make mistakes when the environment is designed in a way that exploits normal cognitive patterns.,0.4754,True,1
+R010,how,2,"We also examined cases where sound-alike drug names caused errors during verbal orders, such as between Celebrex and Celexa or between Xanax and Zantac.",0.1796,True,1
+R010,how,3,"Learning about tall man lettering and barcode systems showed me that clever, simple interventions can meaningfully reduce error rates without relying on individual heroics.",0.1786,True,1
+R011,what,1,LASA errors are an important topic for pharmacists to understand.,0.2156,True,2
+R011,what,2,"Many of these errors have resulted in patient harm, and knowing about them is part of our professional responsibility.",0.1965,True,2
+R011,what,3,"I also plan to speak with my preceptor about what verbal order protocols are in place at the site to prevent sound-alike confusion, and observe how these are handled in practice.",0.1731,True,2
+R011,why,1,"Many of these errors have resulted in patient harm, and knowing about them is part of our professional responsibility.",0.2444,True,1
+R011,why,2,"I also plan to speak with my preceptor about what verbal order protocols are in place at the site to prevent sound-alike confusion, and observe how these are handled in practice.",0.2306,True,1
+R011,why,3,LASA errors are an important topic for pharmacists to understand.,0.2081,True,1
+R011,how,1,LASA errors are an important topic for pharmacists to understand.,0.327,True,2
+R011,how,2,"This week's class covered look-alike/sound-alike drug errors in depth, including the use of ISMP's LASA drug list, the role of pharmacy software in generating LASA warnings, and case studies of patient harm caused by LASA mix-ups.",0.3107,True,2
+R011,how,3,I will apply this knowledge by memorizing the most critical LASA pairs on the ISMP list and setting them as pop-up alerts on whatever pharmacy system I use during rotations.,0.2836,True,2
+R012,what,1,"That experience, combined with what I learned in class about confirmation bias, changed how I think about my own cognitive vulnerabilities.",0.3208,True,1
+R012,what,2,We also talked about strategies for preventing these types of mistakes.,0.2351,True,1
+R012,what,3,We discussed look-alike and sound-alike drugs in class today and reviewed some examples of errors that have occurred.,0.1553,True,1
+R012,why,1,"That experience, combined with what I learned in class about confirmation bias, changed how I think about my own cognitive vulnerabilities.",0.369,True,2
+R012,why,2,We also talked about strategies for preventing these types of mistakes.,0.2653,True,2
+R012,why,3,We discussed look-alike and sound-alike drugs in class today and reviewed some examples of errors that have occurred.,0.179,True,2
+R012,how,1,"This topic resonated with me because during a community pharmacy internship last summer, I nearly reached for amlodipine 10 mg instead of amiloride 5 mg during a busy Saturday shift.",0.3923,True,1
+R012,how,2,We discussed look-alike and sound-alike drugs in class today and reviewed some examples of errors that have occurred.,0.3187,True,1
+R012,how,3,We also talked about strategies for preventing these types of mistakes.,0.2309,True,1
+R013,what,1,I will try to pay attention to LASA medications at my internship.,0.1325,True,2
+R013,what,2,"I am still developing my understanding of why this topic matters specifically to me as a future pharmacist, but I recognize that these errors are documented and cause harm.",0.071,True,2
+R013,what,3,"In today's session, we covered the topic of look-alike/sound-alike medications, including specific ISMP-identified pairs and the strategies used to prevent errors — such as tall man lettering, physical separation, and electronic alerts.",0.0541,True,2
+R013,why,1,I will try to pay attention to LASA medications at my internship.,0.1819,True,0
+R013,why,2,"I am still developing my understanding of why this topic matters specifically to me as a future pharmacist, but I recognize that these errors are documented and cause harm.",0.1445,True,0
+R013,why,3,"In today's session, we covered the topic of look-alike/sound-alike medications, including specific ISMP-identified pairs and the strategies used to prevent errors — such as tall man lettering, physical separation, and electronic alerts.",0.1138,True,0
+R013,how,1,I will try to pay attention to LASA medications at my internship.,0.3824,True,1
+R013,how,2,We also reviewed examples of mix-ups between oral medications with similar-looking tablets and between IV medications with similar vial sizes.,0.3444,True,1
+R013,how,3,"I am still developing my understanding of why this topic matters specifically to me as a future pharmacist, but I recognize that these errors are documented and cause harm.",0.3047,True,1
+R014,what,1,We went over some medication mix-up topics in class.,0.2632,True,0
+R014,what,2,Understanding LASA errors is something I feel strongly about because I once witnessed my father receive the wrong medication at a retail pharmacy — a drug that sounded similar to his actual prescription.,0.1669,True,0
+R014,what,3,That experience made me want to become a pharmacist who actively works to prevent these errors.,0.1192,True,0
+R014,why,1,We went over some medication mix-up topics in class.,0.2511,True,2
+R014,why,2,Understanding LASA errors is something I feel strongly about because I once witnessed my father receive the wrong medication at a retail pharmacy — a drug that sounded similar to his actual prescription.,0.1572,True,2
+R014,why,3,I plan to specifically ask my preceptor at my upcoming rotation about the LASA protocols at their site.,0.1255,True,2
+R014,how,1,We went over some medication mix-up topics in class.,0.5042,True,2
+R014,how,2,That experience made me want to become a pharmacist who actively works to prevent these errors.,0.4308,True,2
+R014,how,3,Understanding LASA errors is something I feel strongly about because I once witnessed my father receive the wrong medication at a retail pharmacy — a drug that sounded similar to his actual prescription.,0.307,True,2
+R015,what,1,I should keep this in mind as I continue my training.,0.2568,True,1
+R015,what,2,There were some interesting examples shared.,0.1999,True,1
+R015,what,3,"In today's class, we talked about look-alike and sound-alike medications and some of the errors that can result.",0.1848,True,1
+R015,why,1,I should keep this in mind as I continue my training.,0.3173,True,1
+R015,why,2,There were some interesting examples shared.,0.2578,True,1
+R015,why,3,"In today's class, we talked about look-alike and sound-alike medications and some of the errors that can result.",0.2295,True,1
+R015,how,1,"This topic is important because pharmacists have a responsibility to keep patients safe, and LASA errors can cause real harm.",0.3732,True,0
+R015,how,2,"In today's class, we talked about look-alike and sound-alike medications and some of the errors that can result.",0.3275,True,0
+R015,how,3,I should keep this in mind as I continue my training.,0.3005,True,0
+R016,what,1,We had class today about medications and how they can get mixed up.,0.237,True,0
+R016,what,2,I will pay more attention to drug names when I am at my internship and make sure to slow down.,0.1024,True,0
+R016,why,1,I will pay more attention to drug names when I am at my internship and make sure to slow down.,0.2064,True,0
+R016,why,2,We had class today about medications and how they can get mixed up.,0.1955,True,0
+R016,how,1,We had class today about medications and how they can get mixed up.,0.4442,True,1
+R016,how,2,I will pay more attention to drug names when I am at my internship and make sure to slow down.,0.3628,True,1
+R017,what,1,"I will practice building a complete best possible medication history by interviewing the patient, consulting dispensing records, and contacting the patient's home pharmacy.",0.2213,True,2
+R017,what,2,This topic directly shifted my understanding of where medication errors originate.,0.1719,True,2
+R017,what,3,"As a pharmacist, I am well-positioned to catch these discrepancies because I have access to dispensing history, patient profiles, and prescribing records — a perspective that nurses and physicians may not have.",0.0657,True,2
+R017,why,1,"I will practice building a complete best possible medication history by interviewing the patient, consulting dispensing records, and contacting the patient's home pharmacy.",0.1949,True,2
+R017,why,2,This topic directly shifted my understanding of where medication errors originate.,0.1719,True,2
+R017,why,3,"As a pharmacist, I am well-positioned to catch these discrepancies because I have access to dispensing history, patient profiles, and prescribing records — a perspective that nurses and physicians may not have.",0.0876,True,2
+R017,how,1,"I will practice building a complete best possible medication history by interviewing the patient, consulting dispensing records, and contacting the patient's home pharmacy.",0.5776,True,2
+R017,how,2,"During my hospital rotation, I will ask to participate in the medication reconciliation process at admission and discharge for at least one patient per shift.",0.4128,True,2
+R017,how,3,"Today we covered medication reconciliation — the process of comparing a patient's current medication list against new orders at transitions of care such as admission, transfer between units, and discharge.",0.3764,True,2
+R018,what,1,I will track any discrepancies I find and review them with my preceptor to understand how they are handled.,0.2249,True,2
+R018,what,2,"In class today, we learned about the medication reconciliation process, including its three main steps: verification (obtaining a complete list), clarification (checking that orders are appropriate), and reconciliation (resolving discrepancies).",0.1473,True,2
+R018,what,3,We reviewed tools like the BPMH (best possible medication history) and discussed common pitfalls such as patients not knowing their medication names or doses.,0.133,True,2
+R018,why,1,I will track any discrepancies I find and review them with my preceptor to understand how they are handled.,0.2836,True,1
+R018,why,2,"Medication reconciliation is clearly an important patient safety process, and pharmacists are well-suited to lead it given their medication expertise.",0.1882,True,1
+R018,why,3,We reviewed tools like the BPMH (best possible medication history) and discussed common pitfalls such as patients not knowing their medication names or doses.,0.1781,True,1
+R018,how,1,"Medication reconciliation is clearly an important patient safety process, and pharmacists are well-suited to lead it given their medication expertise.",0.4234,True,2
+R018,how,2,We also watched a video simulation of a pharmacist conducting a reconciliation interview at hospital admission.,0.4018,True,2
+R018,how,3,"In class today, we learned about the medication reconciliation process, including its three main steps: verification (obtaining a complete list), clarification (checking that orders are appropriate), and reconciliation (resolving discrepancies).",0.3731,True,2
+R019,what,1,I appreciate the depth of this topic now after hearing a patient story in class.,0.2855,True,1
+R019,what,2,"During my upcoming rotation, I will ask to observe a pharmacist-led reconciliation interview and take notes on how open-ended questions are used to elicit a complete history.",0.2078,True,1
+R019,what,3,"We discussed medication reconciliation in class today, including how errors can happen during transitions of care.",0.2013,True,1
+R019,why,1,I appreciate the depth of this topic now after hearing a patient story in class.,0.3811,True,2
+R019,why,2,"During my upcoming rotation, I will ask to observe a pharmacist-led reconciliation interview and take notes on how open-ended questions are used to elicit a complete history.",0.2583,True,2
+R019,why,3,"We discussed medication reconciliation in class today, including how errors can happen during transitions of care.",0.187,True,2
+R019,how,1,"During my upcoming rotation, I will ask to observe a pharmacist-led reconciliation interview and take notes on how open-ended questions are used to elicit a complete history.",0.4536,True,2
+R019,how,2,"We discussed medication reconciliation in class today, including how errors can happen during transitions of care.",0.4062,True,2
+R019,how,3,"I had not thought about how over-the-counter products and supplements would be part of my reconciliation responsibility, and this case challenged me to think more comprehensively about what a complete medication list actually means.",0.3918,True,2
+R020,what,1,"I am not yet sure exactly how I will apply this in practice, but I know it is something I need to take seriously.",0.2619,True,2
+R020,what,2,"Today's class gave a thorough overview of medication reconciliation, focusing on the transitions of care model — what happens to a patient's medications at admission, throughout hospitalization, and at discharge.",0.1156,True,2
+R020,what,3,"We reviewed Joint Commission standards, specific error types (omissions, dose discrepancies, therapeutic duplications), and the role of the clinical pharmacist versus pharmacy technician in the reconciliation workflow.",0.1108,True,2
+R020,why,1,"I am not yet sure exactly how I will apply this in practice, but I know it is something I need to take seriously.",0.3469,True,2
+R020,why,2,We also discussed evidence showing that pharmacist-led reconciliation significantly reduces discrepancy rates.,0.1686,True,2
+R020,why,3,The pharmacist is often the last and best line of defense before the patient walks out the door.,0.1455,True,2
+R020,how,1,The pharmacist is often the last and best line of defense before the patient walks out the door.,0.4334,True,0
+R020,how,2,"Today's class gave a thorough overview of medication reconciliation, focusing on the transitions of care model — what happens to a patient's medications at admission, throughout hospitalization, and at discharge.",0.4208,True,0
+R020,how,3,"We reviewed Joint Commission standards, specific error types (omissions, dose discrepancies, therapeutic duplications), and the role of the clinical pharmacist versus pharmacy technician in the reconciliation workflow.",0.4135,True,0
+R021,what,1,I will try to apply what I learned when I have the opportunity during my rotations.,0.4014,True,1
+R021,what,2,We covered medication reconciliation today and discussed how pharmacists play an important role in verifying medication lists when patients are admitted or discharged from the hospital.,0.1128,True,1
+R021,what,3,"Medication reconciliation is an important process because patients often have complex medication regimens, and errors during transitions of care can cause harm.",0.0836,True,1
+R021,why,1,I will try to apply what I learned when I have the opportunity during my rotations.,0.4496,True,1
+R021,why,2,"Medication reconciliation is an important process because patients often have complex medication regimens, and errors during transitions of care can cause harm.",0.1907,True,1
+R021,why,3,We covered medication reconciliation today and discussed how pharmacists play an important role in verifying medication lists when patients are admitted or discharged from the hospital.,0.1106,True,1
+R021,how,1,We covered medication reconciliation today and discussed how pharmacists play an important role in verifying medication lists when patients are admitted or discharged from the hospital.,0.414,True,1
+R021,how,2,Pharmacists are in a good position to help catch these errors.,0.3926,True,1
+R021,how,3,I will try to apply what I learned when I have the opportunity during my rotations.,0.3858,True,1
+R022,what,1,Today's class introduced a new topic related to medication management.,0.3043,True,0
+R022,what,2,I want to learn how to do medication reconciliation well and will ask my preceptor to let me practice this skill during my hospital rotation.,0.2895,True,0
+R022,what,3,I honestly found the material a bit dense and I am still working to understand all the components.,0.2325,True,0
+R022,why,1,I want to learn how to do medication reconciliation well and will ask my preceptor to let me practice this skill during my hospital rotation.,0.2949,True,2
+R022,why,2,Today's class introduced a new topic related to medication management.,0.2819,True,2
+R022,why,3,I honestly found the material a bit dense and I am still working to understand all the components.,0.2541,True,2
+R022,how,1,Today's class introduced a new topic related to medication management.,0.5466,True,1
+R022,how,2,I want to learn how to do medication reconciliation well and will ask my preceptor to let me practice this skill during my hospital rotation.,0.5384,True,1
+R022,how,3,"However, I felt strongly connected to the topic because my grandfather was recently hospitalized and discharged with a medication list that nobody explained to him or my family.",0.238,True,1
+R023,what,1,There were some case examples discussed in class.,0.2981,True,1
+R023,what,2,I plan to pay more attention to this at my internship when I have the chance.,0.1591,True,1
+R023,what,3,We talked about medication reconciliation and its role in pharmacy practice.,0.1408,True,1
+R023,why,1,I plan to pay more attention to this at my internship when I have the chance.,0.2935,True,0
+R023,why,2,There were some case examples discussed in class.,0.2557,True,0
+R023,why,3,We talked about medication reconciliation and its role in pharmacy practice.,0.2103,True,0
+R023,how,1,We talked about medication reconciliation and its role in pharmacy practice.,0.5178,True,0
+R023,how,2,I plan to pay more attention to this at my internship when I have the chance.,0.2812,True,0
+R023,how,3,There were some case examples discussed in class.,0.1545,True,0
+R024,what,1,I will look for opportunities to practice what we discussed at my internship site and ask questions if I am unsure.,0.3472,True,0
+R024,what,2,Class today covered a medication safety topic.,0.2234,True,0
+R024,why,1,I will look for opportunities to practice what we discussed at my internship site and ask questions if I am unsure.,0.3761,True,0
+R024,why,2,Class today covered a medication safety topic.,0.1759,True,0
+R024,how,1,Class today covered a medication safety topic.,0.4486,True,1
+R024,how,2,I will look for opportunities to practice what we discussed at my internship site and ask questions if I am unsure.,0.3705,True,1
+R025,what,1,"I will apply this learning by selecting two to three CYP450 interactions per week to study in depth during my rotations, using real patient cases.",0.232,True,2
+R025,what,2,Now I understand they are a predictable result of how drugs are metabolized and that knowing the underlying mechanisms allows me to anticipate interactions before they occur — without relying solely on software.,0.1743,True,2
+R025,what,3,This session fundamentally changed how I approach medication review.,0.1621,True,2
+R025,why,1,"I will apply this learning by selecting two to three CYP450 interactions per week to study in depth during my rotations, using real patient cases.",0.3506,True,2
+R025,why,2,Now I understand they are a predictable result of how drugs are metabolized and that knowing the underlying mechanisms allows me to anticipate interactions before they occur — without relying solely on software.,0.2665,True,2
+R025,why,3,This session fundamentally changed how I approach medication review.,0.2497,True,2
+R025,how,1,"I will apply this learning by selecting two to three CYP450 interactions per week to study in depth during my rotations, using real patient cases.",0.4756,True,2
+R025,how,2,This session fundamentally changed how I approach medication review.,0.4163,True,2
+R025,how,3,Now I understand they are a predictable result of how drugs are metabolized and that knowing the underlying mechanisms allows me to anticipate interactions before they occur — without relying solely on software.,0.3775,True,2
+R026,what,1,I will aim to improve my interaction counseling skills during my rotations.,0.2983,True,2
+R026,what,2,"This topic is particularly relevant to me because I already work as a pharmacy technician in a busy retail pharmacy, and I frequently see patients on multiple medications who are never counseled about interactions.",0.2056,True,2
+R026,what,3,I want to be the kind of pharmacist who can quickly assess the clinical significance of an interaction rather than reflexively overriding alerts.,0.1999,True,2
+R026,why,1,I will aim to improve my interaction counseling skills during my rotations.,0.3567,True,2
+R026,why,2,I want to be the kind of pharmacist who can quickly assess the clinical significance of an interaction rather than reflexively overriding alerts.,0.2296,True,2
+R026,why,3,"This topic is particularly relevant to me because I already work as a pharmacy technician in a busy retail pharmacy, and I frequently see patients on multiple medications who are never counseled about interactions.",0.2045,True,2
+R026,how,1,I want to be the kind of pharmacist who can quickly assess the clinical significance of an interaction rather than reflexively overriding alerts.,0.4812,True,1
+R026,how,2,"This topic is particularly relevant to me because I already work as a pharmacy technician in a busy retail pharmacy, and I frequently see patients on multiple medications who are never counseled about interactions.",0.4674,True,1
+R026,how,3,I will aim to improve my interaction counseling skills during my rotations.,0.3508,True,1
+R027,what,1,"Drug interactions are important, and pharmacists need to be aware of them.",0.2083,True,2
+R027,what,2,I will also specifically look for patterns related to serotonin syndrome risk in patients on psychiatric medications combined with other drugs.,0.1295,True,2
+R027,what,3,"This session focused on drug-drug interactions, covering both pharmacokinetic interactions (absorption, distribution, metabolism, excretion) and pharmacodynamic interactions (synergistic, additive, antagonistic effects).",0.1277,True,2
+R027,why,1,"Drug interactions are important, and pharmacists need to be aware of them.",0.2547,True,1
+R027,why,2,"This session focused on drug-drug interactions, covering both pharmacokinetic interactions (absorption, distribution, metabolism, excretion) and pharmacodynamic interactions (synergistic, additive, antagonistic effects).",0.1369,True,1
+R027,why,3,I plan to use the interaction screening tools available at my site systematically during medication reviews and document any significant interactions I identify.,0.1125,True,1
+R027,how,1,"Drug interactions are important, and pharmacists need to be aware of them.",0.486,True,2
+R027,how,2,"This session focused on drug-drug interactions, covering both pharmacokinetic interactions (absorption, distribution, metabolism, excretion) and pharmacodynamic interactions (synergistic, additive, antagonistic effects).",0.4373,True,2
+R027,how,3,"We also discussed the clinical management of interactions, including dose adjustments, timing separations, and therapeutic substitutions.",0.367,True,2
+R028,what,1,"That experience is part of why I chose pharmacy, and it motivates me to be rigorous about interaction screening.",0.1886,True,1
+R028,what,2,"There were many examples, and I am still working to organize them in my mind.",0.169,True,1
+R028,what,3,"We reviewed different types of drug-drug interactions in today's class, including some of the most clinically significant ones that pharmacists encounter.",0.1373,True,1
+R028,why,1,"That experience is part of why I chose pharmacy, and it motivates me to be rigorous about interaction screening.",0.2837,True,2
+R028,why,2,"There were many examples, and I am still working to organize them in my mind.",0.2163,True,2
+R028,why,3,"I will make sure to review all interaction alerts carefully at my site rather than dismissing them, and will ask my preceptor to help me develop a triage framework.",0.2075,True,2
+R028,how,1,"That experience is part of why I chose pharmacy, and it motivates me to be rigorous about interaction screening.",0.5147,True,1
+R028,how,2,"We reviewed different types of drug-drug interactions in today's class, including some of the most clinically significant ones that pharmacists encounter.",0.4369,True,1
+R028,how,3,This topic hits close to home because my mother was briefly hospitalized after a drug interaction between her antibiotic and blood thinner was not caught at the pharmacy.,0.3796,True,1
+R029,what,1,I do not yet feel a strong personal connection to this topic beyond understanding it is part of pharmacist competency.,0.279,True,2
+R029,what,2,I will review interaction databases at my internship when relevant.,0.2282,True,2
+R029,what,3,We used Lexicomp to assess interaction severity and worked through clinical recommendations for each case.,0.1395,True,2
+R029,why,1,I do not yet feel a strong personal connection to this topic beyond understanding it is part of pharmacist competency.,0.353,True,0
+R029,why,2,I will review interaction databases at my internship when relevant.,0.2331,True,0
+R029,why,3,We used Lexicomp to assess interaction severity and worked through clinical recommendations for each case.,0.1613,True,0
+R029,how,1,I do not yet feel a strong personal connection to this topic beyond understanding it is part of pharmacist competency.,0.531,True,1
+R029,how,2,I will review interaction databases at my internship when relevant.,0.2566,True,1
+R029,how,3,"In today's class, we covered CYP450 drug interactions with a focus on the most clinically relevant inhibitors and inducers.",0.236,True,1
+R030,what,1,I will use the resources available at my internship site to screen for interactions and ask for guidance when I am unsure.,0.2838,True,1
+R030,what,2,Drug interactions are a key part of pharmacy practice and I need to understand them to protect patients.,0.2091,True,1
+R030,what,3,"We discussed drug interactions in class, including types of pharmacokinetic and pharmacodynamic interactions and why they matter for patient safety.",0.2035,True,1
+R030,why,1,I will use the resources available at my internship site to screen for interactions and ask for guidance when I am unsure.,0.2384,True,1
+R030,why,2,We went through several examples of harmful interactions that have occurred in clinical practice.,0.2096,True,1
+R030,why,3,Drug interactions are a key part of pharmacy practice and I need to understand them to protect patients.,0.1832,True,1
+R030,how,1,Drug interactions are a key part of pharmacy practice and I need to understand them to protect patients.,0.5225,True,1
+R030,how,2,"We discussed drug interactions in class, including types of pharmacokinetic and pharmacodynamic interactions and why they matter for patient safety.",0.4235,True,1
+R030,how,3,I will use the resources available at my internship site to screen for interactions and ask for guidance when I am unsure.,0.2787,True,1
+R031,what,1,It seems like there are many combinations that can be dangerous.,0.089,True,0
+R031,what,2,Today we talked about interactions between medications.,0.0755,True,0
+R031,what,3,I know this is something pharmacists check for and I will pay attention to it.,0.0318,True,0
+R031,why,1,It seems like there are many combinations that can be dangerous.,0.1415,True,1
+R031,why,2,Today we talked about interactions between medications.,0.1105,True,1
+R031,why,3,I know this is something pharmacists check for and I will pay attention to it.,0.0347,True,1
+R031,how,1,Today we talked about interactions between medications.,0.3765,True,0
+R031,how,2,I know this is something pharmacists check for and I will pay attention to it.,0.3698,True,0
+R031,how,3,It seems like there are many combinations that can be dangerous.,0.0545,True,0
+R032,what,1,Class today covered some drug topics.,0.2646,True,0
+R032,what,2,I will work on learning more about the medications I encounter and use the tools available to me to check for any problems.,0.1498,True,0
+R032,why,1,Class today covered some drug topics.,0.2487,True,0
+R032,why,2,I will work on learning more about the medications I encounter and use the tools available to me to check for any problems.,0.1831,True,0
+R032,how,1,Class today covered some drug topics.,0.4865,True,1
+R032,how,2,I will work on learning more about the medications I encounter and use the tools available to me to check for any problems.,0.4049,True,1
+R033,what,1,"Today's class focused on anticoagulation safety, a topic I had studied pharmacologically before but not from a patient safety perspective.",0.2338,True,2
+R033,what,2,This session expanded my understanding of anticoagulation from a clinical pharmacology topic to a systems safety topic.,0.1632,True,2
+R033,what,3,"At my upcoming internal medicine rotation, I will ask to be assigned to at least one anticoagulation patient each week so I can practice dose management, INR interpretation, and patient counseling about signs of bleeding and when to seek care.",0.0726,True,2
+R033,why,1,"Today's class focused on anticoagulation safety, a topic I had studied pharmacologically before but not from a patient safety perspective.",0.229,True,2
+R033,why,2,"I was also struck by how the introduction of DOACs, which were marketed as safer and requiring less monitoring, has actually introduced new safety concerns because patients and providers may underestimate their risks.",0.1803,True,2
+R033,why,3,This session expanded my understanding of anticoagulation from a clinical pharmacology topic to a systems safety topic.,0.1774,True,2
+R033,how,1,"At my upcoming internal medicine rotation, I will ask to be assigned to at least one anticoagulation patient each week so I can practice dose management, INR interpretation, and patient counseling about signs of bleeding and when to seek care.",0.3319,True,2
+R033,how,2,"Today's class focused on anticoagulation safety, a topic I had studied pharmacologically before but not from a patient safety perspective.",0.3199,True,2
+R033,how,3,This session expanded my understanding of anticoagulation from a clinical pharmacology topic to a systems safety topic.,0.2786,True,2
+R034,what,1,"As someone interested in hospital pharmacy, I need to be expert-level in this area.",0.2586,True,2
+R034,what,2,"Anticoagulation management is a core pharmacist competency, and the safety issues are genuinely complex.",0.1778,True,2
+R034,what,3,"This class helped me see that errors in anticoagulation are rarely simple — they involve interactions between dosing algorithms, monitoring schedules, communication among the care team, and patient adherence.",0.1635,True,2
+R034,why,1,"Anticoagulation management is a core pharmacist competency, and the safety issues are genuinely complex.",0.231,True,2
+R034,why,2,"This class helped me see that errors in anticoagulation are rarely simple — they involve interactions between dosing algorithms, monitoring schedules, communication among the care team, and patient adherence.",0.1359,True,2
+R034,why,3,"As someone interested in hospital pharmacy, I need to be expert-level in this area.",0.135,True,2
+R034,how,1,"As someone interested in hospital pharmacy, I need to be expert-level in this area.",0.5398,True,1
+R034,how,2,"Anticoagulation management is a core pharmacist competency, and the safety issues are genuinely complex.",0.4027,True,1
+R034,how,3,I will develop a personal anticoagulation reference sheet and ask to observe the anticoagulation pharmacist at my rotation site.,0.3905,True,1
+R035,what,1,There were several case studies shared.,0.2501,True,1
+R035,what,2,I also want to understand DOAC protocols well enough to counsel patients on the importance of adherence even when they feel well.,0.2252,True,1
+R035,what,3,I will make it a point during my rotations to practice INR counseling and patient education about dietary interactions with warfarin.,0.1754,True,1
+R035,why,1,I will make it a point during my rotations to practice INR counseling and patient education about dietary interactions with warfarin.,0.3227,True,2
+R035,why,2,There were several case studies shared.,0.3024,True,2
+R035,why,3,I also want to understand DOAC protocols well enough to counsel patients on the importance of adherence even when they feel well.,0.1882,True,2
+R035,how,1,I will make it a point during my rotations to practice INR counseling and patient education about dietary interactions with warfarin.,0.3877,True,2
+R035,how,2,I also want to understand DOAC protocols well enough to counsel patients on the importance of adherence even when they feel well.,0.3601,True,2
+R035,how,3,There were several case studies shared.,0.2503,True,2
+R036,what,1,I plan to focus on anticoagulation education at my rotation and ask to be involved in patient monitoring activities.,0.2468,True,2
+R036,what,2,The session reinforced my understanding of the risks involved and the pharmacist's key role in monitoring.,0.2412,True,2
+R036,what,3,"Today's class covered anticoagulation safety from a comprehensive standpoint, reviewing each drug class, monitoring requirements, and the case for and against different anticoagulation strategies.",0.1275,True,2
+R036,why,1,The session reinforced my understanding of the risks involved and the pharmacist's key role in monitoring.,0.3115,True,1
+R036,why,2,I plan to focus on anticoagulation education at my rotation and ask to be involved in patient monitoring activities.,0.2777,True,1
+R036,why,3,"Today's class covered anticoagulation safety from a comprehensive standpoint, reviewing each drug class, monitoring requirements, and the case for and against different anticoagulation strategies.",0.1374,True,1
+R036,how,1,The session reinforced my understanding of the risks involved and the pharmacist's key role in monitoring.,0.4467,True,1
+R036,how,2,I plan to focus on anticoagulation education at my rotation and ask to be involved in patient monitoring activities.,0.424,True,1
+R036,how,3,"Today's class covered anticoagulation safety from a comprehensive standpoint, reviewing each drug class, monitoring requirements, and the case for and against different anticoagulation strategies.",0.3432,True,1
+R037,what,1,"I am still connecting this topic to my personal professional motivations, but I understand its importance.",0.3514,True,2
+R037,what,2,I will focus on anticoagulation cases during my upcoming clinical rotation.,0.1239,True,2
+R037,what,3,We reviewed examples of heparin protocol deviations that resulted in serious patient harm.,0.029,True,2
+R037,why,1,"I am still connecting this topic to my personal professional motivations, but I understand its importance.",0.6193,True,0
+R037,why,2,I will focus on anticoagulation cases during my upcoming clinical rotation.,0.2331,True,0
+R037,why,3,"Today's session covered anticoagulants as high-alert medications in depth, including specific dosing protocols for UFH, LMWH, and warfarin, reversal strategies, and monitoring parameters like aPTT, anti-Xa levels, and INR.",0.0948,True,0
+R037,how,1,I will focus on anticoagulation cases during my upcoming clinical rotation.,0.3557,True,1
+R037,how,2,"Today's session covered anticoagulants as high-alert medications in depth, including specific dosing protocols for UFH, LMWH, and warfarin, reversal strategies, and monitoring parameters like aPTT, anti-Xa levels, and INR.",0.2949,True,1
+R037,how,3,"I am still connecting this topic to my personal professional motivations, but I understand its importance.",0.1843,True,1
+R038,what,1,We learned about anticoagulant medications and the safety risks associated with them.,0.1975,True,1
+R038,what,2,I will try to be diligent when working with these drugs in practice.,0.1752,True,1
+R038,what,3,"Anticoagulants are high-alert medications with serious risks, and pharmacists have an important role in monitoring patients who take them.",0.0447,True,1
+R038,why,1,We learned about anticoagulant medications and the safety risks associated with them.,0.2472,True,1
+R038,why,2,I will try to be diligent when working with these drugs in practice.,0.247,True,1
+R038,why,3,"Anticoagulants are high-alert medications with serious risks, and pharmacists have an important role in monitoring patients who take them.",0.1111,True,1
+R038,how,1,I will try to be diligent when working with these drugs in practice.,0.3782,True,1
+R038,how,2,We learned about anticoagulant medications and the safety risks associated with them.,0.351,True,1
+R038,how,3,"Anticoagulants are high-alert medications with serious risks, and pharmacists have an important role in monitoring patients who take them.",0.262,True,1
+R039,what,1,I will remember to be careful with these drugs.,0.0785,True,0
+R039,what,2,Anticoagulants are important medications that require careful monitoring.,0.0252,True,0
+R039,what,3,Today we talked about some types of blood thinners and their safety considerations.,-0.04,True,0
+R039,why,1,I will remember to be careful with these drugs.,0.1336,True,1
+R039,why,2,Anticoagulants are important medications that require careful monitoring.,0.0853,True,1
+R039,why,3,Today we talked about some types of blood thinners and their safety considerations.,0.0287,True,1
+R039,how,1,I will remember to be careful with these drugs.,0.3263,True,0
+R039,how,2,Anticoagulants are important medications that require careful monitoring.,0.1892,True,0
+R039,how,3,Today we talked about some types of blood thinners and their safety considerations.,0.1692,True,0
+R040,what,1,I learned about some important medications and their risks.,0.3695,True,0
+R040,what,2,We covered anticoagulation in class today.,0.1191,True,0
+R040,why,1,I learned about some important medications and their risks.,0.4398,True,0
+R040,why,2,We covered anticoagulation in class today.,0.1591,True,0
+R040,how,1,I learned about some important medications and their risks.,0.4635,True,0
+R040,how,2,We covered anticoagulation in class today.,0.2954,True,0
+R041,what,1,"I came into this class thinking I was fairly confident in my dosing calculation skills, but the examples showed me how easy it is to make a 10-fold error with a misplaced decimal point — and how fatal the consequences can be in a pediatric patient with limited physiological reserve.",0.2898,True,2
+R041,what,2,This class genuinely changed my vigilance level.,0.2278,True,2
+R041,what,3,"This week's session focused on pediatric dosing safety, covering weight-based and age-based dosing calculations, the risks of 10-fold dosing errors, and the importance of always questioning doses that fall outside expected ranges.",0.2058,True,2
+R041,why,1,This class genuinely changed my vigilance level.,0.3088,True,2
+R041,why,2,"I came into this class thinking I was fairly confident in my dosing calculation skills, but the examples showed me how easy it is to make a 10-fold error with a misplaced decimal point — and how fatal the consequences can be in a pediatric patient with limited physiological reserve.",0.2577,True,2
+R041,why,3,"This week's session focused on pediatric dosing safety, covering weight-based and age-based dosing calculations, the risks of 10-fold dosing errors, and the importance of always questioning doses that fall outside expected ranges.",0.2319,True,2
+R041,how,1,"This week's session focused on pediatric dosing safety, covering weight-based and age-based dosing calculations, the risks of 10-fold dosing errors, and the importance of always questioning doses that fall outside expected ranges.",0.3405,True,2
+R041,how,2,"At my pediatric rotation, I will double-check every dose I prepare or verify by (1) confirming the weight used for calculation and the units, (2) calculating the mg/kg dose independently, (3) comparing it against the expected range in a reference like Lexi-Pediatrics, and (4) asking a second pharmacist to verify before dispensing.",0.3377,True,2
+R041,how,3,"I came into this class thinking I was fairly confident in my dosing calculation skills, but the examples showed me how easy it is to make a 10-fold error with a misplaced decimal point — and how fatal the consequences can be in a pediatric patient with limited physiological reserve.",0.3191,True,2
+R042,what,1,"I am still thinking about what specific changes I will make to my practice, but I know I need to be more structured about verifying weights and units.",0.3517,True,2
+R042,what,2,"We discussed why children metabolize and respond to drugs differently at different developmental stages, and why extrapolating adult data to pediatrics is dangerous.",0.2408,True,2
+R042,what,3,Understanding pediatric dosing safety is especially important to me because I shadowed in a pediatric emergency department last summer and observed how rapidly small patients can deteriorate if given incorrect doses.,0.2276,True,2
+R042,why,1,"I am still thinking about what specific changes I will make to my practice, but I know I need to be more structured about verifying weights and units.",0.3147,True,2
+R042,why,2,Understanding pediatric dosing safety is especially important to me because I shadowed in a pediatric emergency department last summer and observed how rapidly small patients can deteriorate if given incorrect doses.,0.2586,True,2
+R042,why,3,"We discussed why children metabolize and respond to drugs differently at different developmental stages, and why extrapolating adult data to pediatrics is dangerous.",0.2295,True,2
+R042,how,1,Today we covered pediatric pharmacokinetics and the principles behind weight-based and body-surface-area-based dosing.,0.3427,True,0
+R042,how,2,"We discussed why children metabolize and respond to drugs differently at different developmental stages, and why extrapolating adult data to pediatrics is dangerous.",0.3337,True,0
+R042,how,3,Understanding pediatric dosing safety is especially important to me because I shadowed in a pediatric emergency department last summer and observed how rapidly small patients can deteriorate if given incorrect doses.,0.2978,True,0
+R043,what,1,I feel particularly motivated to understand pediatric dosing because I want to work in a children's hospital setting after graduation.,0.2954,True,1
+R043,what,2,The instructor mentioned several real-world cases involving decimal errors.,0.2486,True,1
+R043,what,3,"During my pediatric rotation, I will ask my preceptor to walk me through the site's pediatric dosing protocols and error-prevention procedures.",0.1838,True,1
+R043,why,1,I feel particularly motivated to understand pediatric dosing because I want to work in a children's hospital setting after graduation.,0.3602,True,2
+R043,why,2,"The cases shared today made me realize that pediatric pharmacy requires an extraordinarily high level of attention to detail — not just because children are physiologically different, but because the consequences of even a small dosing error are proportionally much more severe due to smaller body mass and immature organ function.",0.215,True,2
+R043,why,3,I will also practice performing two independent dose calculations for each pediatric order I encounter before verifying it.,0.1823,True,2
+R043,how,1,I feel particularly motivated to understand pediatric dosing because I want to work in a children's hospital setting after graduation.,0.4282,True,2
+R043,how,2,"During my pediatric rotation, I will ask my preceptor to walk me through the site's pediatric dosing protocols and error-prevention procedures.",0.3979,True,2
+R043,how,3,"The cases shared today made me realize that pediatric pharmacy requires an extraordinarily high level of attention to detail — not just because children are physiologically different, but because the consequences of even a small dosing error are proportionally much more severe due to smaller body mass and immature organ function.",0.3962,True,2
+R044,what,1,This is an important topic for pharmacists working with pediatric patients.,0.276,True,2
+R044,what,2,I will keep this in mind for future practice.,0.2564,True,2
+R044,what,3,"In today's class, we reviewed pediatric dosing principles including weight-based calculations, developmental pharmacokinetics, and the importance of oral formulation availability.",0.1751,True,2
+R044,why,1,I will keep this in mind for future practice.,0.3254,True,1
+R044,why,2,This is an important topic for pharmacists working with pediatric patients.,0.2299,True,1
+R044,why,3,We looked at real-world cases where lack of pediatric-specific formulations led to compounding errors or adult dosage form manipulation.,0.1554,True,1
+R044,how,1,This is an important topic for pharmacists working with pediatric patients.,0.4904,True,0
+R044,how,2,We looked at real-world cases where lack of pediatric-specific formulations led to compounding errors or adult dosage form manipulation.,0.4049,True,0
+R044,how,3,"In today's class, we reviewed pediatric dosing principles including weight-based calculations, developmental pharmacokinetics, and the importance of oral formulation availability.",0.3548,True,0
+R045,what,1,I will be careful and thorough when verifying pediatric orders during my training.,0.2189,True,1
+R045,what,2,"Pediatric patients are a vulnerable population, and pharmacists have a responsibility to ensure accurate dosing.",0.1709,True,1
+R045,what,3,"We covered pediatric dosing safety today, including common error types and how to prevent them.",0.1535,True,1
+R045,why,1,I will be careful and thorough when verifying pediatric orders during my training.,0.2071,True,1
+R045,why,2,"Pediatric patients are a vulnerable population, and pharmacists have a responsibility to ensure accurate dosing.",0.1543,True,1
+R045,why,3,"We covered pediatric dosing safety today, including common error types and how to prevent them.",0.0921,True,1
+R045,how,1,"Pediatric patients are a vulnerable population, and pharmacists have a responsibility to ensure accurate dosing.",0.4389,True,1
+R045,how,2,I will be careful and thorough when verifying pediatric orders during my training.,0.3539,True,1
+R045,how,3,"We talked about weight-based dosing, unit errors, and formulation challenges.",0.3226,True,1
+R046,what,1,Today's class was about dosing in children.,0.2524,True,0
+R046,what,2,Pediatric pharmacy requires careful attention to detail and I will keep this in mind.,0.2304,True,0
+R046,what,3,It seems like this is an area where errors can happen easily.,-0.0068,True,0
+R046,why,1,Today's class was about dosing in children.,0.2525,True,1
+R046,why,2,Pediatric pharmacy requires careful attention to detail and I will keep this in mind.,0.1821,True,1
+R046,why,3,It seems like this is an area where errors can happen easily.,0.017,True,1
+R046,how,1,Pediatric pharmacy requires careful attention to detail and I will keep this in mind.,0.5066,True,0
+R046,how,2,Today's class was about dosing in children.,0.3755,True,0
+R046,how,3,It seems like this is an area where errors can happen easily.,-0.0068,True,0
+R047,what,1,I will practice my dosing calculations and review any pediatric orders carefully when I am at my rotation site.,0.21,True,0
+R047,what,2,We talked about pediatric medications today.,0.1304,True,0
+R047,why,1,I will practice my dosing calculations and review any pediatric orders carefully when I am at my rotation site.,0.2533,True,0
+R047,why,2,We talked about pediatric medications today.,0.1477,True,0
+R047,how,1,I will practice my dosing calculations and review any pediatric orders carefully when I am at my rotation site.,0.4209,True,1
+R047,how,2,We talked about pediatric medications today.,0.3712,True,1
+R048,what,1,This session deepened my understanding of the pharmacist's dual role as clinician and compliance officer in controlled substance management.,0.2162,True,2
+R048,what,2,"At my community pharmacy internship, I will ask my preceptor to show me how PDMP checks are performed at the site, including what criteria are used to determine when a prescription raises concerns.",0.1957,True,2
+R048,what,3,"This class covered controlled substance management, including DEA scheduling, the regulatory requirements for prescribing and dispensing, and pharmacy-specific responsibilities around inventory, record-keeping, and disposal.",0.1528,True,2
+R048,why,1,This session deepened my understanding of the pharmacist's dual role as clinician and compliance officer in controlled substance management.,0.2423,True,2
+R048,why,2,"I had previously thought of PDMP checks as a regulatory formality, but after reviewing cases where pharmacists had legal exposure for filling prescriptions for patients with obvious doctor-shopping patterns, I now understand that the PDMP is a genuinely important clinical tool.",0.1835,True,2
+R048,why,3,I was also struck by how workplace diversion — often by trusted colleagues — is more common than we assume and that pharmacists have a responsibility to create and maintain internal safeguards.,0.1831,True,2
+R048,how,1,"This class covered controlled substance management, including DEA scheduling, the regulatory requirements for prescribing and dispensing, and pharmacy-specific responsibilities around inventory, record-keeping, and disposal.",0.5496,True,2
+R048,how,2,This session deepened my understanding of the pharmacist's dual role as clinician and compliance officer in controlled substance management.,0.4699,True,2
+R048,how,3,"We also discussed common diversion scenarios in pharmacy settings and the internal controls designed to detect them, including perpetual inventory systems, DEA Form 222, and the CURES database in California.",0.4342,True,2
+R049,what,1,We worked through case studies of pharmacists who failed to exercise corresponding responsibility when filling clearly suspicious prescriptions and the legal consequences that followed.,0.1519,True,2
+R049,what,2,Controlled substances are clearly important to manage properly.,0.1384,True,2
+R049,what,3,"When I rotate through a community pharmacy, I will practice conducting PDMP checks for every Schedule II prescription I process and document my reasoning.",0.1286,True,2
+R049,why,1,Controlled substances are clearly important to manage properly.,0.2524,True,1
+R049,why,2,"When I rotate through a community pharmacy, I will practice conducting PDMP checks for every Schedule II prescription I process and document my reasoning.",0.1787,True,1
+R049,why,3,We worked through case studies of pharmacists who failed to exercise corresponding responsibility when filling clearly suspicious prescriptions and the legal consequences that followed.,0.1266,True,1
+R049,how,1,"Pharmacists have legal responsibility for appropriate dispensing, and I understand I will need to apply this consistently in practice.",0.5628,True,2
+R049,how,2,We worked through case studies of pharmacists who failed to exercise corresponding responsibility when filling clearly suspicious prescriptions and the legal consequences that followed.,0.4652,True,2
+R049,how,3,"When I rotate through a community pharmacy, I will practice conducting PDMP checks for every Schedule II prescription I process and document my reasoning.",0.4437,True,2
+R050,what,1,"This class gave me the vocabulary and regulatory framework to understand what diversion looks like, what the pharmacy's responsibility is, and what reporting mechanisms exist.",0.296,True,1
+R050,what,2,I feel strongly about this topic because I had a distressing experience at a prior internship where I noticed a technician seemed to be removing medications without documentation.,0.213,True,1
+R050,what,3,"Class today covered controlled substance regulations and the pharmacist's responsibilities, including dispensing requirements, PDMP use, and inventory controls.",0.1814,True,1
+R050,why,1,"This class gave me the vocabulary and regulatory framework to understand what diversion looks like, what the pharmacy's responsibility is, and what reporting mechanisms exist.",0.308,True,2
+R050,why,2,I feel strongly about this topic because I had a distressing experience at a prior internship where I noticed a technician seemed to be removing medications without documentation.,0.2359,True,2
+R050,why,3,I now know that staying silent would make me complicit.,0.1345,True,2
+R050,how,1,"This class gave me the vocabulary and regulatory framework to understand what diversion looks like, what the pharmacy's responsibility is, and what reporting mechanisms exist.",0.6265,True,1
+R050,how,2,"Class today covered controlled substance regulations and the pharmacist's responsibilities, including dispensing requirements, PDMP use, and inventory controls.",0.4998,True,1
+R050,how,3,I feel strongly about this topic because I had a distressing experience at a prior internship where I noticed a technician seemed to be removing medications without documentation.,0.419,True,1
+R051,what,1,I will keep these responsibilities in mind as I continue my training.,0.2668,True,2
+R051,what,2,We discussed what constitutes a legitimate medical purpose and how pharmacists exercise professional judgment when filling controlled substance prescriptions.,0.2254,True,2
+R051,what,3,"Controlled substances are high-risk medications with significant abuse potential, and pharmacists have an important gatekeeping role.",0.1044,True,2
+R051,why,1,I will keep these responsibilities in mind as I continue my training.,0.3257,True,1
+R051,why,2,We discussed what constitutes a legitimate medical purpose and how pharmacists exercise professional judgment when filling controlled substance prescriptions.,0.2943,True,1
+R051,why,3,"Controlled substances are high-risk medications with significant abuse potential, and pharmacists have an important gatekeeping role.",0.1614,True,1
+R051,how,1,We discussed what constitutes a legitimate medical purpose and how pharmacists exercise professional judgment when filling controlled substance prescriptions.,0.497,True,0
+R051,how,2,"Controlled substances are high-risk medications with significant abuse potential, and pharmacists have an important gatekeeping role.",0.3745,True,0
+R051,how,3,I will keep these responsibilities in mind as I continue my training.,0.3452,True,0
+R052,what,1,"We discussed controlled substances in class today, including DEA schedules, dispensing rules, and the role of the PDMP.",0.1705,True,1
+R052,what,2,Controlled substance management is a critical part of pharmacy practice with both patient safety and legal dimensions.,0.1061,True,1
+R052,what,3,We also talked about diversion and what pharmacists should do if they suspect it is occurring.,0.0227,True,1
+R052,why,1,"We discussed controlled substances in class today, including DEA schedules, dispensing rules, and the role of the PDMP.",0.1845,True,1
+R052,why,2,Controlled substance management is a critical part of pharmacy practice with both patient safety and legal dimensions.,0.1393,True,1
+R052,why,3,We also talked about diversion and what pharmacists should do if they suspect it is occurring.,0.0407,True,1
+R052,how,1,Controlled substance management is a critical part of pharmacy practice with both patient safety and legal dimensions.,0.476,True,1
+R052,how,2,We also talked about diversion and what pharmacists should do if they suspect it is occurring.,0.4153,True,1
+R052,how,3,"We discussed controlled substances in class today, including DEA schedules, dispensing rules, and the role of the PDMP.",0.3803,True,1
+R053,what,1,This is clearly an important area for pharmacists to know well since it involves both patient care and the law.,0.1887,True,0
+R053,what,2,I will ask my preceptor about the processes used at my site.,0.0792,True,0
+R053,what,3,Today we went over some rules and regulations around controlled drugs.,0.066,True,0
+R053,why,1,This is clearly an important area for pharmacists to know well since it involves both patient care and the law.,0.1772,True,1
+R053,why,2,I will ask my preceptor about the processes used at my site.,0.1191,True,1
+R053,why,3,Today we went over some rules and regulations around controlled drugs.,0.0978,True,1
+R053,how,1,This is clearly an important area for pharmacists to know well since it involves both patient care and the law.,0.533,True,1
+R053,how,2,Today we went over some rules and regulations around controlled drugs.,0.333,True,1
+R053,how,3,I will ask my preceptor about the processes used at my site.,0.1673,True,1
+R054,what,1,and I will continue learning.,0.3088,True,0
+R054,what,2,There is a lot to know about this topic,0.2804,True,0
+R054,what,3,Class today was about controlled substances and their scheduling.,0.1765,True,0
+R054,why,1,and I will continue learning.,0.4061,True,0
+R054,why,2,There is a lot to know about this topic,0.3617,True,0
+R054,why,3,Class today was about controlled substances and their scheduling.,0.1918,True,0
+R054,how,1,Class today was about controlled substances and their scheduling.,0.4593,True,0
+R054,how,2,and I will continue learning.,0.2862,True,0
+R054,how,3,There is a lot to know about this topic,0.1863,True,0
+R055,what,1,"During any compounding rotation, I will actively practice USP 797 technique including garbing, aseptic manipulation, and environmental monitoring procedures.",0.1656,True,2
+R055,what,2,"We reviewed the key principles of compounding safety: beyond-use dating, environmental monitoring requirements, personnel training and competency, equipment calibration, and quality control testing.",0.1642,True,2
+R055,what,3,"Learning about the specific failures — contaminated sterile compounding, inadequate testing, regulatory oversight gaps — and seeing the scale of harm that resulted made the subject of compounding standards feel urgent and personal.",0.1573,True,2
+R055,why,1,"Learning about the specific failures — contaminated sterile compounding, inadequate testing, regulatory oversight gaps — and seeing the scale of harm that resulted made the subject of compounding standards feel urgent and personal.",0.2575,True,2
+R055,why,2,"During any compounding rotation, I will actively practice USP 797 technique including garbing, aseptic manipulation, and environmental monitoring procedures.",0.2488,True,2
+R055,why,3,"We reviewed the key principles of compounding safety: beyond-use dating, environmental monitoring requirements, personnel training and competency, equipment calibration, and quality control testing.",0.1869,True,2
+R055,how,1,We also discussed how compounding pharmacies are regulated differently from manufacturers and the ongoing debate about oversight gaps.,0.405,True,2
+R055,how,2,I will also read the current status of USP 800 for hazardous drug handling and ask my preceptor how the site is prepared for compliance.,0.3373,True,2
+R055,how,3,"Today's class covered pharmaceutical compounding safety, with particular emphasis on USP 795 (non-sterile) and USP 797 (sterile) standards and the regulatory context created by the Drug Quality and Security Act following the 2012 New England Compounding Center meningitis outbreak that killed 64 patients.",0.3361,True,2
+R056,what,1,I need to be technically excellent at sterile compounding before I am ever responsible for a patient.,0.1668,True,2
+R056,what,2,"Compounding safety is especially relevant to me because I plan to pursue a career in hospital pharmacy, where sterile compounding is performed daily.",0.1264,True,2
+R056,what,3,I will practice aseptic technique during any lab sessions available and review USP 797 in full before my sterile compounding rotation.,0.1143,True,2
+R056,why,1,"Compounding safety is especially relevant to me because I plan to pursue a career in hospital pharmacy, where sterile compounding is performed daily.",0.1948,True,2
+R056,why,2,I will practice aseptic technique during any lab sessions available and review USP 797 in full before my sterile compounding rotation.,0.1932,True,2
+R056,why,3,I need to be technically excellent at sterile compounding before I am ever responsible for a patient.,0.1505,True,2
+R056,how,1,I need to be technically excellent at sterile compounding before I am ever responsible for a patient.,0.4176,True,1
+R056,how,2,"Compounding safety is especially relevant to me because I plan to pursue a career in hospital pharmacy, where sterile compounding is performed daily.",0.3923,True,1
+R056,how,3,I will practice aseptic technique during any lab sessions available and review USP 797 in full before my sterile compounding rotation.,0.377,True,1
+R057,what,1,That dependency creates a profound responsibility for the pharmacist.,0.1574,True,1
+R057,what,2,I was deeply affected by the discussion of patients who received contaminated compounded medications in clinical settings — situations where they were entirely dependent on the healthcare system and its quality controls to protect them.,0.0934,True,1
+R057,what,3,"During my compounding lab and any compounding rotations, I will treat every step of the aseptic technique as non-negotiable, practice garbing and hood technique consistently, and ask to observe environmental monitoring procedures",0.089,True,1
+R057,why,1,That dependency creates a profound responsibility for the pharmacist.,0.3074,True,2
+R057,why,2,"During my compounding lab and any compounding rotations, I will treat every step of the aseptic technique as non-negotiable, practice garbing and hood technique consistently, and ask to observe environmental monitoring procedures",0.1488,True,2
+R057,why,3,I was deeply affected by the discussion of patients who received contaminated compounded medications in clinical settings — situations where they were entirely dependent on the healthcare system and its quality controls to protect them.,0.1157,True,2
+R057,how,1,That dependency creates a profound responsibility for the pharmacist.,0.4461,True,2
+R057,how,2,"We discussed pharmaceutical compounding safety in class today, including relevant regulatory standards and some case examples of compounding failures.",0.3499,True,2
+R057,how,3,I was deeply affected by the discussion of patients who received contaminated compounded medications in clinical settings — situations where they were entirely dependent on the healthcare system and its quality controls to protect them.,0.339,True,2
+R058,what,1,I am still thinking about specific applications of this learning to my own practice.,0.5191,True,2
+R058,what,2,Compounding safety is a critical area for pharmacists to understand.,0.1534,True,2
+R058,what,3,The consequences of errors can be catastrophic on a public health scale.,0.1207,True,2
+R058,why,1,I am still thinking about specific applications of this learning to my own practice.,0.6083,True,1
+R058,why,2,Compounding safety is a critical area for pharmacists to understand.,0.233,True,1
+R058,why,3,The consequences of errors can be catastrophic on a public health scale.,0.1697,True,1
+R058,how,1,I am still thinking about specific applications of this learning to my own practice.,0.4041,True,0
+R058,how,2,Compounding safety is a critical area for pharmacists to understand.,0.3773,True,0
+R058,how,3,"Today's class covered compounding safety comprehensively, reviewing USP 795 and 797 standards, the types of compounding errors (calculation errors, contamination, incorrect ingredient substitution), and the regulatory framework that governs both community and hospital compounding.",0.2853,True,0
+R059,what,1,Today's class was about compounding safety and the standards that apply to non-sterile and sterile preparations.,0.2038,True,1
+R059,what,2,I will take compounding labs and rotations seriously and follow all protocols carefully.,0.1238,True,1
+R059,what,3,We discussed some famous compounding failures and what pharmacists can do to prevent them.,0.087,True,1
+R059,why,1,I will take compounding labs and rotations seriously and follow all protocols carefully.,0.2293,True,1
+R059,why,2,Today's class was about compounding safety and the standards that apply to non-sterile and sterile preparations.,0.1885,True,1
+R059,why,3,"Pharmaceutical compounding involves significant risk if not done correctly, and USP standards exist for good reason.",0.1516,True,1
+R059,how,1,We discussed some famous compounding failures and what pharmacists can do to prevent them.,0.4161,True,1
+R059,how,2,"Pharmaceutical compounding involves significant risk if not done correctly, and USP standards exist for good reason.",0.3673,True,1
+R059,how,3,I will take compounding labs and rotations seriously and follow all protocols carefully.,0.3574,True,1
+R060,what,1,We covered some pharmacy compounding topics today.,0.149,True,0
+R060,what,2,I will make sure to follow the rules and procedures when I do any compounding at my sites.,0.0468,True,0
+R060,why,1,We covered some pharmacy compounding topics today.,0.1559,True,0
+R060,why,2,I will make sure to follow the rules and procedures when I do any compounding at my sites.,0.1003,True,0
+R060,how,1,We covered some pharmacy compounding topics today.,0.5234,True,1
+R060,how,2,I will make sure to follow the rules and procedures when I do any compounding at my sites.,0.2264,True,1
+R061,what,1,I will study more about these requirements.,0.3643,True,0
+R061,what,2,Class today covered compounding in pharmacy.,0.1851,True,0
+R061,what,3,There are important standards that need to be followed to keep patients safe.,0.1324,True,0
+R061,why,1,I will study more about these requirements.,0.2463,True,1
+R061,why,2,Class today covered compounding in pharmacy.,0.1792,True,1
+R061,why,3,There are important standards that need to be followed to keep patients safe.,0.1728,True,1
+R061,how,1,Class today covered compounding in pharmacy.,0.6162,True,0
+R061,how,2,I will study more about these requirements.,0.2961,True,0
+R061,how,3,There are important standards that need to be followed to keep patients safe.,0.1686,True,0
+R062,what,1,"After each counseling encounter at my internship, I will use the teach-back method to confirm understanding by asking the patient to explain the key points back to me in their own words.",0.4445,True,2
+R062,what,2,"In today's session, we covered evidence-based patient counseling strategies for medication safety, including health literacy-sensitive communication, teach-back methodology, and the use of standardized counseling mnemonics like the Indian Health Service Prime Questions.",0.341,True,2
+R062,what,3,"The simulation revealed something about my assumptions I had not recognized before: I tend to assume patients understand more than they do, particularly around concepts like international normalized ratio, drug-food interactions, and the need for frequent monitoring.",0.2649,True,2
+R062,why,1,"After each counseling encounter at my internship, I will use the teach-back method to confirm understanding by asking the patient to explain the key points back to me in their own words.",0.3875,True,2
+R062,why,2,"The simulation revealed something about my assumptions I had not recognized before: I tend to assume patients understand more than they do, particularly around concepts like international normalized ratio, drug-food interactions, and the need for frequent monitoring.",0.3005,True,2
+R062,why,3,"In today's session, we covered evidence-based patient counseling strategies for medication safety, including health literacy-sensitive communication, teach-back methodology, and the use of standardized counseling mnemonics like the Indian Health Service Prime Questions.",0.2714,True,2
+R062,how,1,"In today's session, we covered evidence-based patient counseling strategies for medication safety, including health literacy-sensitive communication, teach-back methodology, and the use of standardized counseling mnemonics like the Indian Health Service Prime Questions.",0.5139,True,2
+R062,how,2,"After each counseling encounter at my internship, I will use the teach-back method to confirm understanding by asking the patient to explain the key points back to me in their own words.",0.4059,True,2
+R062,how,3,"A simulation exercise required us to counsel a standardized patient with limited health literacy on starting warfarin, and I found it significantly more difficult than expected.",0.3773,True,2
+R063,what,1,"I plan to proactively offer counseling to every new prescription patient during my retail pharmacy rotation, including using teach-back to confirm understanding of high-risk medications like anticoagulants, insulin, and narrow therapeutic index drugs.",0.3075,True,2
+R063,what,2,We practiced using the IHS Prime Questions framework and discussed how counseling serves as a final safety check — an opportunity for the patient to catch errors the pharmacy might have missed.,0.2269,True,2
+R063,what,3,"This week's class focused on patient counseling, reviewing communication techniques, health literacy considerations, and the regulatory requirement (OBRA 90) for counseling offers to Medicaid patients.",0.193,True,2
+R063,why,1,"I plan to proactively offer counseling to every new prescription patient during my retail pharmacy rotation, including using teach-back to confirm understanding of high-risk medications like anticoagulants, insulin, and narrow therapeutic index drugs.",0.2781,True,1
+R063,why,2,"Patient counseling is important, and I understand it is both a legal requirement and a safety intervention.",0.2642,True,1
+R063,why,3,We practiced using the IHS Prime Questions framework and discussed how counseling serves as a final safety check — an opportunity for the patient to catch errors the pharmacy might have missed.,0.2367,True,1
+R063,how,1,"I plan to proactively offer counseling to every new prescription patient during my retail pharmacy rotation, including using teach-back to confirm understanding of high-risk medications like anticoagulants, insulin, and narrow therapeutic index drugs.",0.6595,True,2
+R063,how,2,We also reviewed studies showing that effective pharmacist counseling reduces hospitalization rates and adverse drug events.,0.431,True,2
+R063,how,3,We practiced using the IHS Prime Questions framework and discussed how counseling serves as a final safety check — an opportunity for the patient to catch errors the pharmacy might have missed.,0.4085,True,2
+R064,what,1,I will also practice teach-back in every counseling session and note any cases where a patient's understanding was different from what I expected.,0.4236,True,1
+R064,what,2,We discussed patient counseling techniques in class today.,0.3331,True,1
+R064,what,3,The content included some communication frameworks and health literacy considerations.,0.2552,True,1
+R064,why,1,I will also practice teach-back in every counseling session and note any cases where a patient's understanding was different from what I expected.,0.4065,True,2
+R064,why,2,We discussed patient counseling techniques in class today.,0.2962,True,2
+R064,why,3,The content included some communication frameworks and health literacy considerations.,0.2727,True,2
+R064,how,1,We discussed patient counseling techniques in class today.,0.434,True,2
+R064,how,2,I will also practice teach-back in every counseling session and note any cases where a patient's understanding was different from what I expected.,0.3901,True,2
+R064,how,3,"Helping patients from similar backgrounds access safe, clear medication information feels like a personal mission for me.",0.361,True,2
+R065,what,1,I will practice counseling skills at my internship and request feedback from my preceptor on my communication technique.,0.3019,True,2
+R065,what,2,"I have not yet developed a strong personal connection to this topic, though I recognize its clinical importance.",0.2675,True,2
+R065,what,3,"In class, we reviewed counseling frameworks including the IHS Prime Questions, teach-back methodology, and communication adaptations for patients with low health literacy or language barriers.",0.263,True,2
+R065,why,1,"I have not yet developed a strong personal connection to this topic, though I recognize its clinical importance.",0.4781,True,0
+R065,why,2,I will practice counseling skills at my internship and request feedback from my preceptor on my communication technique.,0.339,True,0
+R065,why,3,"In class, we reviewed counseling frameworks including the IHS Prime Questions, teach-back methodology, and communication adaptations for patients with low health literacy or language barriers.",0.2298,True,0
+R065,how,1,"In class, we reviewed counseling frameworks including the IHS Prime Questions, teach-back methodology, and communication adaptations for patients with low health literacy or language barriers.",0.3704,True,1
+R065,how,2,We discussed the evidence linking effective counseling to reduced adverse drug events and improved adherence outcomes.,0.3658,True,1
+R065,how,3,I will practice counseling skills at my internship and request feedback from my preceptor on my communication technique.,0.3403,True,1
+R066,what,1,"We discussed patient counseling in class, including how pharmacists communicate medication information effectively.",0.3176,True,1
+R066,what,2,I will make an effort to counsel patients clearly and check their understanding at my internship.,0.2813,True,1
+R066,what,3,"We reviewed health literacy, language barriers, and the importance of confirming patient understanding.",0.2403,True,1
+R066,why,1,I will make an effort to counsel patients clearly and check their understanding at my internship.,0.3353,True,1
+R066,why,2,"We discussed patient counseling in class, including how pharmacists communicate medication information effectively.",0.2701,True,1
+R066,why,3,"We reviewed health literacy, language barriers, and the importance of confirming patient understanding.",0.2414,True,1
+R066,how,1,"We discussed patient counseling in class, including how pharmacists communicate medication information effectively.",0.5654,True,1
+R066,how,2,Good counseling is a pharmacist responsibility that protects patients from medication errors.,0.4418,True,1
+R066,how,3,I will make an effort to counsel patients clearly and check their understanding at my internship.,0.3462,True,1
+R067,what,1,I will work on improving my communication skills.,0.2861,True,0
+R067,what,2,Class today was about counseling patients on their medications.,0.2325,True,0
+R067,what,3,This is an important part of the pharmacist's role in ensuring patients are safe.,0.1867,True,0
+R067,why,1,I will work on improving my communication skills.,0.3419,True,1
+R067,why,2,Class today was about counseling patients on their medications.,0.2083,True,1
+R067,why,3,This is an important part of the pharmacist's role in ensuring patients are safe.,0.1983,True,1
+R067,how,1,Class today was about counseling patients on their medications.,0.4531,True,0
+R067,how,2,This is an important part of the pharmacist's role in ensuring patients are safe.,0.4237,True,0
+R067,how,3,I will work on improving my communication skills.,0.2414,True,0
+R068,what,1,I will practice talking to patients at my internship and try to make sure they understand how to take their medications.,0.2168,True,0
+R068,what,2,We covered pharmacy counseling today.,0.0454,True,0
+R068,why,1,I will practice talking to patients at my internship and try to make sure they understand how to take their medications.,0.2245,True,0
+R068,why,2,We covered pharmacy counseling today.,0.0493,True,0
+R068,how,1,We covered pharmacy counseling today.,0.5374,True,1
+R068,how,2,I will practice talking to patients at my internship and try to make sure they understand how to take their medications.,0.4968,True,1
+R069,what,1,This topic carries personal weight for me.,0.2867,True,2
+R069,what,2,This session gave me a framework to understand what went wrong systemically and how pharmacists could have intervened differently at multiple points — from initial prescribing to community-level naloxone access.,0.1848,True,2
+R069,what,3,"A close friend struggled with opioid use disorder that began after a sports injury, and watching how the healthcare system both created and failed to address that problem shaped my view of pharmaceutical harm.",0.1669,True,2
+R069,why,1,This topic carries personal weight for me.,0.4397,True,2
+R069,why,2,This session gave me a framework to understand what went wrong systemically and how pharmacists could have intervened differently at multiple points — from initial prescribing to community-level naloxone access.,0.2381,True,2
+R069,why,3,"A close friend struggled with opioid use disorder that began after a sports injury, and watching how the healthcare system both created and failed to address that problem shaped my view of pharmaceutical harm.",0.2027,True,2
+R069,how,1,"At my community pharmacy rotation, I will ask to observe naloxone dispensing counseling sessions and eventually conduct them myself.",0.4451,True,2
+R069,how,2,"We discussed pharmacist-specific roles: dispensing naloxone under standing orders, reviewing MME thresholds, checking PDMPs, and counseling patients on safe storage and disposal.",0.3868,True,2
+R069,how,3,This session gave me a framework to understand what went wrong systemically and how pharmacists could have intervened differently at multiple points — from initial prescribing to community-level naloxone access.,0.3804,True,2
+R070,what,1,"This class gave me a more systemic perspective on how pharmacy-level interventions — particularly PDMP checks, MME monitoring, and naloxone co-prescription — can make a measurable difference at scale.",0.2435,True,2
+R070,what,2,I will make naloxone counseling a priority at every relevant encounter during my rotations and ask my preceptor to evaluate my technique.,0.139,True,2
+R070,what,3,"In class today, we covered opioid prescribing safety — MME calculation, combined opioid-benzodiazepine risk, naloxone co-prescription, and community pharmacist responsibilities during the opioid epidemic.",0.1085,True,2
+R070,why,1,"This class gave me a more systemic perspective on how pharmacy-level interventions — particularly PDMP checks, MME monitoring, and naloxone co-prescription — can make a measurable difference at scale.",0.2835,True,2
+R070,why,2,I will make naloxone counseling a priority at every relevant encounter during my rotations and ask my preceptor to evaluate my technique.,0.2624,True,2
+R070,why,3,"We discussed specific counseling points for naloxone including device training for different formulations (intranasal vs. auto-injector), when to use it, and how to call 911.",0.1642,True,2
+R070,how,1,"This class gave me a more systemic perspective on how pharmacy-level interventions — particularly PDMP checks, MME monitoring, and naloxone co-prescription — can make a measurable difference at scale.",0.501,True,1
+R070,how,2,I will make naloxone counseling a priority at every relevant encounter during my rotations and ask my preceptor to evaluate my technique.,0.3716,True,1
+R070,how,3,"In class today, we covered opioid prescribing safety — MME calculation, combined opioid-benzodiazepine risk, naloxone co-prescription, and community pharmacist responsibilities during the opioid epidemic.",0.32,True,1
+R071,what,1,I will apply what I learned by calculating MME for any opioid prescription I verify during my rotations and will offer naloxone co-prescription counseling whenever appropriate.,0.2935,True,2
+R071,what,2,Opioid safety is clearly an important area of pharmacy practice.,0.1533,True,2
+R071,what,3,We reviewed PDMP policies across different states and practiced calculating MME for a patient on multiple opioid formulations.,0.0202,True,2
+R071,why,1,I will apply what I learned by calculating MME for any opioid prescription I verify during my rotations and will offer naloxone co-prescription counseling whenever appropriate.,0.3212,True,1
+R071,why,2,Opioid safety is clearly an important area of pharmacy practice.,0.2285,True,1
+R071,why,3,I will also review the PDMP before dispensing any Schedule II opioid.,0.1035,True,1
+R071,how,1,I will apply what I learned by calculating MME for any opioid prescription I verify during my rotations and will offer naloxone co-prescription counseling whenever appropriate.,0.4966,True,2
+R071,how,2,Opioid safety is clearly an important area of pharmacy practice.,0.4149,True,2
+R071,how,3,I will also review the PDMP before dispensing any Schedule II opioid.,0.3009,True,2
+R072,what,1,"This topic matters to me because I want to work in a community pharmacy setting, and I know that opioid safety counseling will be part of my daily work.",0.1635,True,1
+R072,what,2,I will practice naloxone counseling at my retail rotation and ask my preceptor for feedback.,0.1383,True,1
+R072,what,3,The discussion of naloxone was helpful.,0.1003,True,1
+R072,why,1,I will practice naloxone counseling at my retail rotation and ask my preceptor for feedback.,0.2287,True,2
+R072,why,2,Seeing statistics about how many opioid overdose deaths are preventable with naloxone reinforced my belief that pharmacists can save lives through active patient engagement — not just medication dispensing.,0.2055,True,2
+R072,why,3,"This topic matters to me because I want to work in a community pharmacy setting, and I know that opioid safety counseling will be part of my daily work.",0.2031,True,2
+R072,how,1,"This topic matters to me because I want to work in a community pharmacy setting, and I know that opioid safety counseling will be part of my daily work.",0.4398,True,1
+R072,how,2,I will practice naloxone counseling at my retail rotation and ask my preceptor for feedback.,0.3991,True,1
+R072,how,3,Seeing statistics about how many opioid overdose deaths are preventable with naloxone reinforced my belief that pharmacists can save lives through active patient engagement — not just medication dispensing.,0.2977,True,1
+R073,what,1,I am still forming my personal perspective on this topic.,0.2379,True,2
+R073,what,2,I will try to apply MME awareness during my rotations.,0.19,True,2
+R073,what,3,We practiced using the MME calculator with a complex patient case involving both a long-acting and short-acting opioid.,0.1174,True,2
+R073,why,1,I am still forming my personal perspective on this topic.,0.434,True,0
+R073,why,2,I will try to apply MME awareness during my rotations.,0.2174,True,0
+R073,why,3,We practiced using the MME calculator with a complex patient case involving both a long-acting and short-acting opioid.,0.0973,True,0
+R073,how,1,We practiced using the MME calculator with a complex patient case involving both a long-acting and short-acting opioid.,0.3122,True,1
+R073,how,2,I will try to apply MME awareness during my rotations.,0.1907,True,1
+R073,how,3,"In today's class, we reviewed opioid safety in depth — including the pharmacokinetics of common opioids, MME thresholds from CDC guidelines, risks of polypharmacy with CNS depressants, and naloxone's mechanism and dispensing protocols.",0.1825,True,1
+R074,what,1,"We discussed opioid safety in class, covering naloxone, MME calculation, and the pharmacist's role in the opioid epidemic.",0.2079,True,1
+R074,what,2,I will try to follow safe dispensing practices and counsel patients on naloxone when appropriate during my internship.,0.1515,True,1
+R074,what,3,We reviewed relevant guidelines and how community pharmacists can help reduce harm.,0.0875,True,1
+R074,why,1,I will try to follow safe dispensing practices and counsel patients on naloxone when appropriate during my internship.,0.2252,True,1
+R074,why,2,"We discussed opioid safety in class, covering naloxone, MME calculation, and the pharmacist's role in the opioid epidemic.",0.215,True,1
+R074,why,3,We reviewed relevant guidelines and how community pharmacists can help reduce harm.,0.1258,True,1
+R074,how,1,I will try to follow safe dispensing practices and counsel patients on naloxone when appropriate during my internship.,0.4382,True,1
+R074,how,2,We reviewed relevant guidelines and how community pharmacists can help reduce harm.,0.4195,True,1
+R074,how,3,Opioid safety is one of the most urgent public health issues in pharmacy practice.,0.3918,True,1
+R075,what,1,I will learn more about this topic.,0.312,True,0
+R075,what,2,Today's class covered opioids and their safety considerations.,0.1214,True,0
+R075,what,3,Pharmacists have an important role in preventing harm from opioid medications.,0.1072,True,0
+R075,why,1,I will learn more about this topic.,0.3799,True,1
+R075,why,2,Pharmacists have an important role in preventing harm from opioid medications.,0.1867,True,1
+R075,why,3,Today's class covered opioids and their safety considerations.,0.1738,True,1
+R075,how,1,Pharmacists have an important role in preventing harm from opioid medications.,0.4028,True,0
+R075,how,2,Today's class covered opioids and their safety considerations.,0.3856,True,0
+R075,how,3,I will learn more about this topic.,0.2647,True,0
+R076,what,1,We covered opioid-related content in class today.,0.2015,True,0
+R076,what,2,I will make sure to ask my preceptor about the opioid-related procedures at my site and try to learn from real cases during my rotation.,0.0786,True,0
+R076,why,1,We covered opioid-related content in class today.,0.2287,True,0
+R076,why,2,I will make sure to ask my preceptor about the opioid-related procedures at my site and try to learn from real cases during my rotation.,0.1419,True,0
+R076,how,1,We covered opioid-related content in class today.,0.3887,True,1
+R076,how,2,I will make sure to ask my preceptor about the opioid-related procedures at my site and try to learn from real cases during my rotation.,0.333,True,1
+R077,what,1,This means pharmacists cannot rely on the system — we have to know the underlying principles.,0.2667,True,2
+R077,what,2,"I was surprised to learn how frequently renal dose adjustments are missed in practice, even in hospital settings with robust electronic clinical decision support.",0.142,True,2
+R077,what,3,"We also covered the nuances of serum creatinine as a marker — its limitations in elderly patients with low muscle mass, in patients with acute kidney injury, and in those on dialysis.",0.1043,True,2
+R077,why,1,This means pharmacists cannot rely on the system — we have to know the underlying principles.,0.2391,True,2
+R077,why,2,"I was surprised to learn how frequently renal dose adjustments are missed in practice, even in hospital settings with robust electronic clinical decision support.",0.1932,True,2
+R077,why,3,"At my clinical rotation, I will calculate CrCl independently for every patient I counsel on a renally-cleared medication rather than relying solely on the EHR-generated recommendation.",0.1289,True,2
+R077,how,1,This means pharmacists cannot rely on the system — we have to know the underlying principles.,0.4855,True,2
+R077,how,2,"At my clinical rotation, I will calculate CrCl independently for every patient I counsel on a renally-cleared medication rather than relying solely on the EHR-generated recommendation.",0.3293,True,2
+R077,how,3,"I was surprised to learn how frequently renal dose adjustments are missed in practice, even in hospital settings with robust electronic clinical decision support.",0.317,True,2
+R078,what,1,"I have not yet fully worked out how I will apply this in practice, but I know I need to make renal function review a standard part of my patient assessment.",0.1179,True,2
+R078,what,2,"Renal dose adjustment is critically important because the consequences of getting it wrong — toxicity or therapeutic failure — are often irreversible, especially in patients with already-compromised renal function.",0.0723,True,2
+R078,what,3,I need to be the one who catches this.,0.0562,True,2
+R078,why,1,"Renal dose adjustment is critically important because the consequences of getting it wrong — toxicity or therapeutic failure — are often irreversible, especially in patients with already-compromised renal function.",0.1575,True,2
+R078,why,2,"I have not yet fully worked out how I will apply this in practice, but I know I need to make renal function review a standard part of my patient assessment.",0.1453,True,2
+R078,why,3,I need to be the one who catches this.,0.0643,True,2
+R078,how,1,"I have not yet fully worked out how I will apply this in practice, but I know I need to make renal function review a standard part of my patient assessment.",0.2936,True,0
+R078,how,2,"Today we reviewed renal dose adjustment with a focus on calculating creatinine clearance, interpreting GFR stages, and applying dose modification recommendations from references like Lexicomp and the drug package insert.",0.2869,True,0
+R078,how,3,"Renal dose adjustment is critically important because the consequences of getting it wrong — toxicity or therapeutic failure — are often irreversible, especially in patients with already-compromised renal function.",0.2149,True,0
+R079,what,1,This experience made me aware of how critical pharmacist review of renal function is in complex patients.,0.179,True,1
+R079,what,2,I feel personally motivated by this topic because I cared for a family member with end-stage renal disease who experienced a preventable drug toxicity when a physician did not adjust her antibiotic dose.,0.178,True,1
+R079,what,3,I will also ask my preceptor to review the site's process for identifying patients with undocumented or fluctuating renal function.,0.1101,True,1
+R079,why,1,I feel personally motivated by this topic because I cared for a family member with end-stage renal disease who experienced a preventable drug toxicity when a physician did not adjust her antibiotic dose.,0.2897,True,2
+R079,why,2,This experience made me aware of how critical pharmacist review of renal function is in complex patients.,0.2523,True,2
+R079,why,3,I will also ask my preceptor to review the site's process for identifying patients with undocumented or fluctuating renal function.,0.1529,True,2
+R079,how,1,This experience made me aware of how critical pharmacist review of renal function is in complex patients.,0.3324,True,2
+R079,how,2,I feel personally motivated by this topic because I cared for a family member with end-stage renal disease who experienced a preventable drug toxicity when a physician did not adjust her antibiotic dose.,0.323,True,2
+R079,how,3,"We discussed renal dose adjustment in class, reviewing the Cockcroft-Gault equation and some key drug examples.",0.3157,True,2
+R080,what,1,Renal dose adjustment is a clinically important skill and I understand that errors in this area can cause serious harm.,0.1755,True,2
+R080,what,2,We also discussed the unique challenges of dosing in patients receiving hemodialysis or continuous renal replacement therapy.,0.0625,True,2
+R080,what,3,I will keep this in mind when reviewing medication orders during clinical rotations.,0.0557,True,2
+R080,why,1,Renal dose adjustment is a clinically important skill and I understand that errors in this area can cause serious harm.,0.1921,True,1
+R080,why,2,I will keep this in mind when reviewing medication orders during clinical rotations.,0.1639,True,1
+R080,why,3,We also discussed the unique challenges of dosing in patients receiving hemodialysis or continuous renal replacement therapy.,0.1005,True,1
+R080,how,1,I will keep this in mind when reviewing medication orders during clinical rotations.,0.4165,True,0
+R080,how,2,"In today's session, we covered renal pharmacokinetics and dose adjustment strategies, including the Cockcroft-Gault equation, GFR staging, and drug-specific adjustment recommendations.",0.3799,True,0
+R080,how,3,We also discussed the unique challenges of dosing in patients receiving hemodialysis or continuous renal replacement therapy.,0.2776,True,0
+R081,what,1,Patient safety is important in this area since kidney impairment is common and many drugs require adjusted doses.,0.1261,True,1
+R081,what,2,I will review renal function when dispensing medications during my rotations.,0.083,True,1
+R081,what,3,We covered renal dosing today including CrCl calculations and some drug examples.,0.0758,True,1
+R081,why,1,Patient safety is important in this area since kidney impairment is common and many drugs require adjusted doses.,0.1871,True,1
+R081,why,2,I will review renal function when dispensing medications during my rotations.,0.1385,True,1
+R081,why,3,We covered renal dosing today including CrCl calculations and some drug examples.,0.0753,True,1
+R081,how,1,I will review renal function when dispensing medications during my rotations.,0.3565,True,1
+R081,how,2,Patient safety is important in this area since kidney impairment is common and many drugs require adjusted doses.,0.3267,True,1
+R081,how,3,We covered renal dosing today including CrCl calculations and some drug examples.,0.303,True,1
+R082,what,1,I will practice creatinine clearance calculations and remember to check renal function for high-risk drugs at my site.,0.2213,True,0
+R082,what,2,Class today covered kidney-related drug dosing.,0.1297,True,0
+R082,why,1,I will practice creatinine clearance calculations and remember to check renal function for high-risk drugs at my site.,0.2261,True,0
+R082,why,2,Class today covered kidney-related drug dosing.,0.1397,True,0
+R082,how,1,Class today covered kidney-related drug dosing.,0.4846,True,1
+R082,how,2,I will practice creatinine clearance calculations and remember to check renal function for high-risk drugs at my site.,0.3942,True,1
+R083,what,1,This is clearly an important area for clinical pharmacists to understand.,0.266,True,0
+R083,what,2,We discussed drug dosing and kidney function in class.,0.2594,True,0
+R083,what,3,I will pay attention to this in practice.,0.1273,True,0
+R083,why,1,This is clearly an important area for clinical pharmacists to understand.,0.3148,True,1
+R083,why,2,I will pay attention to this in practice.,0.2161,True,1
+R083,why,3,We discussed drug dosing and kidney function in class.,0.2078,True,1
+R083,how,1,This is clearly an important area for clinical pharmacists to understand.,0.5166,True,0
+R083,how,2,We discussed drug dosing and kidney function in class.,0.459,True,0
+R083,how,3,I will pay attention to this in practice.,0.161,True,0
+R084,what,1,I will document the number of discrepancies or education gaps I identify and debrief with my preceptor after each encounter.,0.3353,True,2
+R084,what,2,"This topic helped me connect several concepts from prior sessions — medication reconciliation, patient counseling, drug interactions — into an integrated model of the care transition process.",0.1658,True,2
+R084,what,3,"We also discussed the typical discharge medication error profile: omitted medications, dose changes not communicated, new drug-drug interactions from combined inpatient and outpatient regimens, and inadequate patient education about medication changes.",0.1583,True,2
+R084,why,1,I will document the number of discrepancies or education gaps I identify and debrief with my preceptor after each encounter.,0.3242,True,2
+R084,why,2,I now see the discharge interaction as one of the highest-stakes moments in pharmacy practice and one of the areas where pharmacists are most underpresent relative to the evidence for their impact.,0.1763,True,2
+R084,why,3,"This topic helped me connect several concepts from prior sessions — medication reconciliation, patient counseling, drug interactions — into an integrated model of the care transition process.",0.1681,True,2
+R084,how,1,"Today's session focused on transitions of care pharmacy — the high-risk period when patients move between care settings such as from hospital to home, hospital to skilled nursing facility, or emergency department to outpatient.",0.4986,True,2
+R084,how,2,"We reviewed the evidence base for pharmacist-led discharge interventions, including the PILL study and Project Re-Engineered Discharge (RED), both of which demonstrated significant reductions in 30-day readmissions when pharmacists were involved in discharge counseling and medication reconciliation.",0.4373,True,2
+R084,how,3,"At my hospital rotation, I will ask to participate in at least three pharmacist-led discharge counseling sessions, focusing on patients who had medication changes during hospitalization.",0.4349,True,2
+R085,what,1,"During my hospital rotation, I will ask to observe discharge counseling sessions, paying particular attention to how pharmacists explain medication changes to patients in plain language, and I will practice these conversations myself under supervision.",0.2036,True,2
+R085,what,2,We also reviewed CMS quality measures related to readmissions and how pharmacist involvement affects them.,0.1977,True,2
+R085,what,3,"In class, we reviewed transitions of care concepts, including the care transition model, common discharge medication errors, and evidence-based pharmacy interventions like the MTM discharge bundle.",0.1556,True,2
+R085,why,1,"Transitions of care safety is clearly important, and pharmacists are well-positioned to intervene.",0.2402,True,1
+R085,why,2,"During my hospital rotation, I will ask to observe discharge counseling sessions, paying particular attention to how pharmacists explain medication changes to patients in plain language, and I will practice these conversations myself under supervision.",0.229,True,1
+R085,why,3,We also reviewed CMS quality measures related to readmissions and how pharmacist involvement affects them.,0.2066,True,1
+R085,how,1,"In class, we reviewed transitions of care concepts, including the care transition model, common discharge medication errors, and evidence-based pharmacy interventions like the MTM discharge bundle.",0.5078,True,2
+R085,how,2,"Transitions of care safety is clearly important, and pharmacists are well-positioned to intervene.",0.4531,True,2
+R085,how,3,"During my hospital rotation, I will ask to observe discharge counseling sessions, paying particular attention to how pharmacists explain medication changes to patients in plain language, and I will practice these conversations myself under supervision.",0.4317,True,2
+R086,what,1,"We discussed transitions of care in class today, reviewing some statistics on readmissions and the role of pharmacists.",0.2779,True,1
+R086,what,2,I plan to ask about the hospital-to-community pharmacy communication processes at each of my rotation sites and think about where I can intervene most effectively.,0.089,True,1
+R086,what,3,This topic resonated with me because my mother was readmitted to the hospital within two weeks of a prior discharge after she ran out of a cardiac medication because the discharge prescription was never sent to the pharmacy.,0.0821,True,1
+R086,why,1,"We discussed transitions of care in class today, reviewing some statistics on readmissions and the role of pharmacists.",0.2415,True,2
+R086,why,2,I plan to ask about the hospital-to-community pharmacy communication processes at each of my rotation sites and think about where I can intervene most effectively.,0.1351,True,2
+R086,why,3,This topic resonated with me because my mother was readmitted to the hospital within two weeks of a prior discharge after she ran out of a cardiac medication because the discharge prescription was never sent to the pharmacy.,0.1283,True,2
+R086,how,1,"We discussed transitions of care in class today, reviewing some statistics on readmissions and the role of pharmacists.",0.517,True,2
+R086,how,2,I plan to ask about the hospital-to-community pharmacy communication processes at each of my rotation sites and think about where I can intervene most effectively.,0.5165,True,2
+R086,how,3,This topic resonated with me because my mother was readmitted to the hospital within two weeks of a prior discharge after she ran out of a cardiac medication because the discharge prescription was never sent to the pharmacy.,0.3691,True,2
+R087,what,1,"Today's class covered transitions of care in detail, reviewing the epidemiology of medication-related readmissions, specific error types at discharge, and pharmacist-led intervention models.",0.1766,True,2
+R087,what,2,I want to be the pharmacist who closes those gaps.,0.1327,True,2
+R087,what,3,Understanding transitions of care makes me think about the real costs of gaps in pharmacy services.,0.1202,True,2
+R087,why,1,Understanding transitions of care makes me think about the real costs of gaps in pharmacy services.,0.198,True,2
+R087,why,2,I am still thinking about how to translate this into specific actions at my upcoming rotation.,0.1375,True,2
+R087,why,3,"Today's class covered transitions of care in detail, reviewing the epidemiology of medication-related readmissions, specific error types at discharge, and pharmacist-led intervention models.",0.1118,True,2
+R087,how,1,I want to be the pharmacist who closes those gaps.,0.4857,True,0
+R087,how,2,"Today's class covered transitions of care in detail, reviewing the epidemiology of medication-related readmissions, specific error types at discharge, and pharmacist-led intervention models.",0.4634,True,0
+R087,how,3,"We reviewed the PILL study protocol, which involved pharmacist-conducted counseling, medication reconciliation, and 72-hour follow-up calls, and how it reduced readmissions by 18%.",0.4454,True,0
+R088,what,1,Class today covered transitions of care and how medication errors commonly occur when patients move between settings.,0.2236,True,1
+R088,what,2,"Transitions of care are a high-risk period for patients, and pharmacists have an important role in preventing medication-related readmissions.",0.1086,True,1
+R088,what,3,We discussed the pharmacist's role in preventing these errors.,0.0813,True,1
+R088,why,1,Class today covered transitions of care and how medication errors commonly occur when patients move between settings.,0.1672,True,1
+R088,why,2,"Transitions of care are a high-risk period for patients, and pharmacists have an important role in preventing medication-related readmissions.",0.1225,True,1
+R088,why,3,I will look for opportunities to participate in discharge counseling during my hospital rotation.,0.0887,True,1
+R088,how,1,"Transitions of care are a high-risk period for patients, and pharmacists have an important role in preventing medication-related readmissions.",0.4736,True,1
+R088,how,2,Class today covered transitions of care and how medication errors commonly occur when patients move between settings.,0.4333,True,1
+R088,how,3,We discussed the pharmacist's role in preventing these errors.,0.3757,True,1
+R089,what,1,We talked about how patients' medications can get mixed up when they move from one place to another.,0.1022,True,0
+R089,what,2,I will try to participate in discharge counseling at my rotation site when I have the chance.,0.0407,True,0
+R089,why,1,We talked about how patients' medications can get mixed up when they move from one place to another.,0.1724,True,0
+R089,why,2,I will try to participate in discharge counseling at my rotation site when I have the chance.,0.1098,True,0
+R089,how,1,We talked about how patients' medications can get mixed up when they move from one place to another.,0.3495,True,1
+R089,how,2,I will try to participate in discharge counseling at my rotation site when I have the chance.,0.2376,True,1
+R090,what,1,I want to learn more about how this works in practice.,0.3423,True,0
+R090,what,2,This is an important area where pharmacists can make a real difference.,0.1562,True,0
+R090,what,3,Today we discussed care transitions and medication safety.,0.1113,True,0
+R090,why,1,I want to learn more about how this works in practice.,0.3936,True,1
+R090,why,2,This is an important area where pharmacists can make a real difference.,0.2275,True,1
+R090,why,3,Today we discussed care transitions and medication safety.,0.1198,True,1
+R090,how,1,This is an important area where pharmacists can make a real difference.,0.5315,True,0
+R090,how,2,Today we discussed care transitions and medication safety.,0.3733,True,0
+R090,how,3,I want to learn more about how this works in practice.,0.2787,True,0
+R091,what,1,"During my internship, when I observe a near miss or error, I will attempt to do a brief informal RCA in my head — identifying at least three contributing factors beyond the individual — and share those observations with my preceptor rather than just noting that an error occurred.",0.2569,True,2
+R091,what,2,"This realization makes me want to be someone who does not just avoid errors personally, but who actively advocates for system improvements.",0.1864,True,2
+R091,what,3,"Before today, I would have attributed most errors to individual carelessness.",0.1829,True,2
+R091,why,1,"During my internship, when I observe a near miss or error, I will attempt to do a brief informal RCA in my head — identifying at least three contributing factors beyond the individual — and share those observations with my preceptor rather than just noting that an error occurred.",0.2645,True,2
+R091,why,2,"This realization makes me want to be someone who does not just avoid errors personally, but who actively advocates for system improvements.",0.2466,True,2
+R091,why,3,"This session focused on root cause analysis (RCA) as a patient safety methodology, including its theoretical basis in just culture, the difference between RCA and blame-based error investigation, and the structured fishbone (Ishikawa) diagram approach to identifying contributing factors.",0.1822,True,2
+R091,how,1,The RCA framework transformed how I think about pharmacy errors.,0.4387,True,2
+R091,how,2,"We reviewed a case of a wrong-dose dispensing error and walked through the complete RCA process — from identifying the immediate cause to uncovering the latent system conditions that made the error possible: inadequate lighting, lack of a second-check policy, a poorly designed label template, and staffing shortages on the day the error occurred.",0.2228,True,2
+R091,how,3,"During my internship, when I observe a near miss or error, I will attempt to do a brief informal RCA in my head — identifying at least three contributing factors beyond the individual — and share those observations with my preceptor rather than just noting that an error occurred.",0.1704,True,2
+R092,what,1,We also discussed the psychological safety required for honest RCA and how just culture principles facilitate reporting.,0.251,True,2
+R092,what,2,I plan to approach any errors or near misses I observe during rotations with a root cause mindset — identifying systemic factors rather than stopping at individual blame.,0.1663,True,2
+R092,what,3,"In today's class, we covered the root cause analysis framework, including the Swiss Cheese Model revisited in the context of structured RCA, the difference between proximate causes and root causes, and how healthcare organizations use RCA reports to drive systemic improvement.",0.0946,True,2
+R092,why,1,We also discussed the psychological safety required for honest RCA and how just culture principles facilitate reporting.,0.2734,True,1
+R092,why,2,I plan to approach any errors or near misses I observe during rotations with a root cause mindset — identifying systemic factors rather than stopping at individual blame.,0.2559,True,1
+R092,why,3,"In today's class, we covered the root cause analysis framework, including the Swiss Cheese Model revisited in the context of structured RCA, the difference between proximate causes and root causes, and how healthcare organizations use RCA reports to drive systemic improvement.",0.1726,True,1
+R092,how,1,We also discussed the psychological safety required for honest RCA and how just culture principles facilitate reporting.,0.1517,True,2
+R092,how,2,"In today's class, we covered the root cause analysis framework, including the Swiss Cheese Model revisited in the context of structured RCA, the difference between proximate causes and root causes, and how healthcare organizations use RCA reports to drive systemic improvement.",0.1318,True,2
+R092,how,3,We reviewed a hospital case where a patient received a tenfold heparin overdose and practiced identifying root causes using a fishbone diagram.,0.0895,True,2
+R093,what,1,"The topic resonated with me because during a previous internship, a dispensing error occurred and the response from the manager was to criticize the technician publicly rather than investigate why the error happened.",0.2515,True,1
+R093,what,2,We covered root cause analysis in class and went through the basic method using a case example.,0.2169,True,1
+R093,what,3,I am committed to supporting just culture in any organization I work in.,0.1991,True,1
+R093,why,1,"The topic resonated with me because during a previous internship, a dispensing error occurred and the response from the manager was to criticize the technician publicly rather than investigate why the error happened.",0.3261,True,2
+R093,why,2,"During my rotations, I will model the behavior of identifying systemic contributing factors when errors occur and advocate for reporting rather than concealment when I observe near misses.",0.2655,True,2
+R093,why,3,I am committed to supporting just culture in any organization I work in.,0.2498,True,2
+R093,how,1,"The topic resonated with me because during a previous internship, a dispensing error occurred and the response from the manager was to criticize the technician publicly rather than investigate why the error happened.",0.1779,True,2
+R093,how,2,"That approach felt wrong at the time, and this class gave me the framework to understand why — blame-focused responses suppress reporting and leave the system conditions intact.",0.1586,True,2
+R093,how,3,"During my rotations, I will model the behavior of identifying systemic contributing factors when errors occur and advocate for reporting rather than concealment when I observe near misses.",0.1506,True,2
+R094,what,1,I want to be a pharmacist who approaches errors with curiosity rather than judgment.,0.2945,True,2
+R094,what,2,"The concept that resonated most was systems thinking — the idea that individual errors are predictable outputs of flawed systems, not aberrations caused by bad people.",0.2578,True,2
+R094,what,3,"Today's class walked through root cause analysis as a structured patient safety method, covering the fishbone diagram, the five whys technique, and the distinction between proximate and root causes.",0.1882,True,2
+R094,why,1,I want to be a pharmacist who approaches errors with curiosity rather than judgment.,0.2703,True,2
+R094,why,2,"The concept that resonated most was systems thinking — the idea that individual errors are predictable outputs of flawed systems, not aberrations caused by bad people.",0.2539,True,2
+R094,why,3,"Today's class walked through root cause analysis as a structured patient safety method, covering the fishbone diagram, the five whys technique, and the distinction between proximate and root causes.",0.2386,True,2
+R094,how,1,I want to be a pharmacist who approaches errors with curiosity rather than judgment.,0.5248,True,0
+R094,how,2,We reviewed case examples from pharmacy and nursing and discussed how RCA reports are used by pharmacy quality departments to drive system improvements.,0.4447,True,0
+R094,how,3,I am still figuring out how to translate this into concrete actions during my rotations.,0.1806,True,0
+R095,what,1,I will try to apply a root cause mindset when I encounter errors or near misses during my training.,0.2567,True,1
+R095,what,2,We went through a case and identified different contributing factors.,0.1504,True,1
+R095,what,3,We discussed root cause analysis and how it is used to investigate errors in pharmacy and healthcare.,0.1433,True,1
+R095,why,1,I will try to apply a root cause mindset when I encounter errors or near misses during my training.,0.3533,True,1
+R095,why,2,We went through a case and identified different contributing factors.,0.214,True,1
+R095,why,3,"RCA is a valuable safety tool because it focuses on system improvement rather than individual blame, which leads to better long-term outcomes.",0.2043,True,1
+R095,how,1,We discussed root cause analysis and how it is used to investigate errors in pharmacy and healthcare.,0.2857,True,1
+R095,how,2,I will try to apply a root cause mindset when I encounter errors or near misses during my training.,0.2407,True,1
+R095,how,3,We went through a case and identified different contributing factors.,0.1415,True,1
+R096,what,1,Today we talked about how errors are investigated in healthcare settings.,0.1566,True,0
+R096,what,2,It seems like there is more to errors than just one person making a mistake.,0.106,True,0
+R096,what,3,I will keep this in mind when I encounter any problems during my rotations.,0.0888,True,0
+R096,why,1,I will keep this in mind when I encounter any problems during my rotations.,0.1549,True,1
+R096,why,2,It seems like there is more to errors than just one person making a mistake.,0.1396,True,1
+R096,why,3,Today we talked about how errors are investigated in healthcare settings.,0.128,True,1
+R096,how,1,Today we talked about how errors are investigated in healthcare settings.,0.2097,True,0
+R096,how,2,I will keep this in mind when I encounter any problems during my rotations.,0.068,True,0
+R096,how,3,It seems like there is more to errors than just one person making a mistake.,0.024,True,0
+R097,what,1,I will try to think about the bigger picture whenever I notice a problem at my internship site.,0.1877,True,0
+R097,what,2,Class today covered safety investigation methods.,0.1803,True,0
+R097,why,1,I will try to think about the bigger picture whenever I notice a problem at my internship site.,0.2518,True,0
+R097,why,2,Class today covered safety investigation methods.,0.1353,True,0
+R097,how,1,Class today covered safety investigation methods.,0.2318,True,1
+R097,how,2,I will try to think about the bigger picture whenever I notice a problem at my internship site.,0.1756,True,1
+R098,what,1,Understanding this discomfort — and recognizing it as a clinical skill gap — was valuable.,0.2999,True,2
+R098,what,2,"Today's class covered medication error disclosure — the ethical and legal framework for communicating errors to patients and families, the communication techniques used in disclosure conversations, and the evidence showing that transparent disclosure actually reduces malpractice claims rather than increasing them.",0.1358,True,2
+R098,what,3,"I found myself wanting to qualify everything, minimize the significance, and avoid saying directly that an error had occurred.",0.1183,True,2
+R098,why,1,Understanding this discomfort — and recognizing it as a clinical skill gap — was valuable.,0.366,True,2
+R098,why,2,I now understand that disclosure is not just the right thing to do ethically; it is also the most effective way to preserve the therapeutic relationship and address patient harm.,0.1771,True,2
+R098,why,3,"I found myself wanting to qualify everything, minimize the significance, and avoid saying directly that an error had occurred.",0.157,True,2
+R098,how,1,We reviewed the CANDOR toolkit and practiced using it in a simulated disclosure scenario where a patient had received an incorrect dose of a blood pressure medication for two weeks.,0.3348,True,2
+R098,how,2,"Today's class covered medication error disclosure — the ethical and legal framework for communicating errors to patients and families, the communication techniques used in disclosure conversations, and the evidence showing that transparent disclosure actually reduces malpractice claims rather than increasing them.",0.3271,True,2
+R098,how,3,Understanding this discomfort — and recognizing it as a clinical skill gap — was valuable.,0.2323,True,2
+R099,what,1,Error disclosure is a difficult but necessary skill for pharmacists to develop.,0.2626,True,2
+R099,what,2,We went through a case study where a patient received a wrong drug for three days and the healthcare team debated whether and how to disclose the error.,0.1659,True,2
+R099,what,3,I plan to practice disclosure communication in simulation settings whenever possible and ask my preceptor to review the site's disclosure policy with me.,0.1399,True,2
+R099,why,1,Error disclosure is a difficult but necessary skill for pharmacists to develop.,0.2077,True,1
+R099,why,2,"In class, we covered error disclosure from both ethical and practical perspectives, reviewing the legal landscape around apology laws, the CANDOR toolkit, and the psychological impact of disclosure on patients and healthcare providers.",0.1785,True,1
+R099,why,3,I plan to practice disclosure communication in simulation settings whenever possible and ask my preceptor to review the site's disclosure policy with me.,0.1523,True,1
+R099,how,1,Error disclosure is a difficult but necessary skill for pharmacists to develop.,0.528,True,2
+R099,how,2,We went through a case study where a patient received a wrong drug for three days and the healthcare team debated whether and how to disclose the error.,0.3431,True,2
+R099,how,3,I plan to practice disclosure communication in simulation settings whenever possible and ask my preceptor to review the site's disclosure policy with me.,0.2543,True,2
+R100,what,1,This topic connects to something I believe in strongly — patient autonomy.,0.204,True,1
+R100,what,2,We discussed medication error disclosure in class today.,0.1902,True,1
+R100,what,3,I want to be someone who acts with integrity in those moments.,0.1854,True,1
+R100,why,1,I plan to learn the disclosure process at my rotation sites and be willing to participate in those conversations when appropriate.,0.2819,True,2
+R100,why,2,This topic connects to something I believe in strongly — patient autonomy.,0.2792,True,2
+R100,why,3,"The legal and ethical framework was complex, and the simulated exercise was challenging.",0.2061,True,2
+R100,how,1,We discussed medication error disclosure in class today.,0.4402,True,1
+R100,how,2,I plan to learn the disclosure process at my rotation sites and be willing to participate in those conversations when appropriate.,0.2638,True,1
+R100,how,3,This topic connects to something I believe in strongly — patient autonomy.,0.2626,True,1
+R101,what,1,"I understand intellectually that disclosure is the right approach, but I am still working on the emotional readiness to do it well in practice.",0.165,True,2
+R101,what,2,This topic matters deeply because patients who are harmed by medical errors deserve honesty.,0.1558,True,2
+R101,what,3,"We practiced structured disclosure in pairs, which was surprisingly difficult — the challenge of being clear about what happened while also being compassionate was not easy to balance.",0.1547,True,2
+R101,why,1,"I understand intellectually that disclosure is the right approach, but I am still working on the emotional readiness to do it well in practice.",0.3201,True,2
+R101,why,2,"We practiced structured disclosure in pairs, which was surprisingly difficult — the challenge of being clear about what happened while also being compassionate was not easy to balance.",0.2566,True,2
+R101,why,3,Research shows that patients primarily want acknowledgment and an apology — not litigation — and that concealment or deflection makes outcomes worse for everyone.,0.2286,True,2
+R101,how,1,"Today's session covered medication error disclosure, including the CANDOR framework, apology law protections, institutional disclosure policies, and the second victim experience.",0.302,True,0
+R101,how,2,"I understand intellectually that disclosure is the right approach, but I am still working on the emotional readiness to do it well in practice.",0.2101,True,0
+R101,how,3,This topic matters deeply because patients who are harmed by medical errors deserve honesty.,0.1142,True,0
+R102,what,1,We did a practice exercise that was challenging.,0.2429,True,1
+R102,what,2,I will learn more about the disclosure policies at my rotation sites.,0.1865,True,1
+R102,what,3,"Disclosure is an important professional responsibility, and patients deserve to know when errors have occurred.",0.1572,True,1
+R102,why,1,We did a practice exercise that was challenging.,0.3059,True,1
+R102,why,2,I will learn more about the disclosure policies at my rotation sites.,0.2603,True,1
+R102,why,3,"Disclosure is an important professional responsibility, and patients deserve to know when errors have occurred.",0.2224,True,1
+R102,how,1,"We went over the topic of medication error disclosure, including how it should be done and why transparency is important.",0.3305,True,1
+R102,how,2,We did a practice exercise that was challenging.,0.2714,True,1
+R102,how,3,I will learn more about the disclosure policies at my rotation sites.,0.2448,True,1
+R103,what,1,I will work on developing this skill.,0.4067,True,0
+R103,what,2,Today we talked about how to tell patients when a medication error has occurred.,0.106,True,0
+R103,what,3,This seems like a very difficult thing to do but is clearly important.,0.0521,True,0
+R103,why,1,I will work on developing this skill.,0.3939,True,1
+R103,why,2,This seems like a very difficult thing to do but is clearly important.,0.1353,True,1
+R103,why,3,Today we talked about how to tell patients when a medication error has occurred.,0.0148,True,1
+R103,how,1,I will work on developing this skill.,0.3282,True,0
+R103,how,2,Today we talked about how to tell patients when a medication error has occurred.,0.2879,True,0
+R103,how,3,This seems like a very difficult thing to do but is clearly important.,0.0782,True,0
+R104,what,1,Class today was about communicating with patients after an error.,0.207,True,0
+R104,what,2,I will ask my preceptor about any disclosure procedures at my site and try to learn how this is handled.,0.1211,True,0
+R104,why,1,Class today was about communicating with patients after an error.,0.1582,True,0
+R104,why,2,I will ask my preceptor about any disclosure procedures at my site and try to learn how this is handled.,0.0989,True,0
+R104,how,1,Class today was about communicating with patients after an error.,0.2735,True,1
+R104,how,2,I will ask my preceptor about any disclosure procedures at my site and try to learn how this is handled.,0.1917,True,1
+R105,what,1,"Today's class covered pharmaceutical storage standards, including USP temperature classifications, requirements for controlled room temperature, refrigerated, and frozen medications, and the safety implications of temperature excursions for different drug classes.",0.1328,True,2
+R105,what,2,I had not fully appreciated how much drug storage affects drug safety before this session.,0.1222,True,2
+R105,what,3,I will also audit the medication storage areas at my rotation sites and report any temperature excursion logs or improper segregation I observe to my preceptor.,0.1201,True,2
+R105,why,1,I had not fully appreciated how much drug storage affects drug safety before this session.,0.205,True,2
+R105,why,2,I will also audit the medication storage areas at my rotation sites and report any temperature excursion logs or improper segregation I observe to my preceptor.,0.1282,True,2
+R105,why,3,"This session made me realize that improper storage is not just a technical compliance issue — it is a patient safety issue that I, as a pharmacist, have a responsibility to address at the point of dispensing.",0.0692,True,2
+R105,how,1,"Today's class covered pharmaceutical storage standards, including USP temperature classifications, requirements for controlled room temperature, refrigerated, and frozen medications, and the safety implications of temperature excursions for different drug classes.",0.3884,True,2
+R105,how,2,"We also covered light-sensitive medications, segregation requirements for hazardous drugs, and the regulatory implications of dispensing an expired medication.",0.3635,True,2
+R105,how,3,"This session made me realize that improper storage is not just a technical compliance issue — it is a patient safety issue that I, as a pharmacist, have a responsibility to address at the point of dispensing.",0.3405,True,2
+R106,what,1,I will make storage counseling a standard part of my practice and will ask to review temperature monitoring logs at my rotation sites.,0.1327,True,2
+R106,what,2,Hearing about the insulin case made me think about how patients rely on the pharmacy to ensure the medications they receive are stored properly — they have no way to verify that themselves.,0.1113,True,2
+R106,what,3,"In class today, we covered drug storage requirements in detail — USP temperature ranges, refrigerated storage monitoring, cold chain requirements for biologics, and the storage requirements for controlled substances.",0.1005,True,2
+R106,why,1,I will make storage counseling a standard part of my practice and will ask to review temperature monitoring logs at my rotation sites.,0.1371,True,2
+R106,why,2,Hearing about the insulin case made me think about how patients rely on the pharmacy to ensure the medications they receive are stored properly — they have no way to verify that themselves.,0.126,True,2
+R106,why,3,Proper drug storage is an area I had underestimated before.,0.1026,True,2
+R106,how,1,Hearing about the insulin case made me think about how patients rely on the pharmacy to ensure the medications they receive are stored properly — they have no way to verify that themselves.,0.3925,True,1
+R106,how,2,"In class today, we covered drug storage requirements in detail — USP temperature ranges, refrigerated storage monitoring, cold chain requirements for biologics, and the storage requirements for controlled substances.",0.3365,True,1
+R106,how,3,Proper drug storage is an area I had underestimated before.,0.2959,True,1
+R107,what,1,This class made me realize that I had identified a genuine safety issue and that speaking up was not only appropriate but required.,0.2801,True,1
+R107,what,2,There were several important points about cold chain management and temperature excursions.,0.1137,True,1
+R107,what,3,"At my internship, I will check temperature logs and medication storage conditions as part of my regular responsibilities, and I will report concerns about potential temperature excursions to my supervisor promptly.",0.1036,True,1
+R107,why,1,This class made me realize that I had identified a genuine safety issue and that speaking up was not only appropriate but required.,0.3433,True,2
+R107,why,2,There were several important points about cold chain management and temperature excursions.,0.1656,True,2
+R107,why,3,"At my internship, I will check temperature logs and medication storage conditions as part of my regular responsibilities, and I will report concerns about potential temperature excursions to my supervisor promptly.",0.0562,True,2
+R107,how,1,Today we reviewed drug storage standards and the safety implications of improper storage.,0.2627,True,2
+R107,how,2,This class made me realize that I had identified a genuine safety issue and that speaking up was not only appropriate but required.,0.2565,True,2
+R107,how,3,"At my internship, I will check temperature logs and medication storage conditions as part of my regular responsibilities, and I will report concerns about potential temperature excursions to my supervisor promptly.",0.1945,True,2
+R108,what,1,"Drug storage is an often-overlooked aspect of medication safety, and I now have a clearer picture of how storage failures can compromise drug integrity and ultimately harm patients.",0.0972,True,2
+R108,what,2,"Today's session covered pharmaceutical storage requirements including USP storage condition classifications, monitoring procedures for refrigerators and freezers, and the handling requirements for light-sensitive medications.",0.0584,True,2
+R108,what,3,I will pay attention to storage standards at my sites.,0.0483,True,2
+R108,why,1,"Drug storage is an often-overlooked aspect of medication safety, and I now have a clearer picture of how storage failures can compromise drug integrity and ultimately harm patients.",0.1083,True,1
+R108,why,2,I will pay attention to storage standards at my sites.,0.0236,True,1
+R108,why,3,"Today's session covered pharmaceutical storage requirements including USP storage condition classifications, monitoring procedures for refrigerators and freezers, and the handling requirements for light-sensitive medications.",-0.0166,True,1
+R108,how,1,"Today's session covered pharmaceutical storage requirements including USP storage condition classifications, monitoring procedures for refrigerators and freezers, and the handling requirements for light-sensitive medications.",0.3978,True,0
+R108,how,2,"Drug storage is an often-overlooked aspect of medication safety, and I now have a clearer picture of how storage failures can compromise drug integrity and ultimately harm patients.",0.2931,True,0
+R108,how,3,We also discussed hazardous drug storage requirements under USP 800 and the segregation requirements for cytotoxic agents.,0.2497,True,0
+R109,what,1,We went over drug storage standards in class today.,0.1838,True,1
+R109,what,2,Proper drug storage is important for maintaining medication efficacy and patient safety.,0.1108,True,1
+R109,what,3,I will review storage conditions and monitoring logs at my rotation sites.,0.0353,True,1
+R109,why,1,We went over drug storage standards in class today.,0.1532,True,1
+R109,why,2,Proper drug storage is important for maintaining medication efficacy and patient safety.,0.1153,True,1
+R109,why,3,I will review storage conditions and monitoring logs at my rotation sites.,0.0711,True,1
+R109,how,1,We went over drug storage standards in class today.,0.3971,True,1
+R109,how,2,Proper drug storage is important for maintaining medication efficacy and patient safety.,0.3629,True,1
+R109,how,3,"We covered temperature ranges, cold chain management, and some examples of storage failures.",0.0706,True,1
+R110,what,1,Today's class was about storing medications properly.,0.2277,True,0
+R110,what,2,I will pay attention to storage conditions and temperature logs at my internship and ask questions if anything seems off.,0.1495,True,0
+R110,why,1,Today's class was about storing medications properly.,0.2085,True,0
+R110,why,2,I will pay attention to storage conditions and temperature logs at my internship and ask questions if anything seems off.,0.1075,True,0
+R110,how,1,Today's class was about storing medications properly.,0.4767,True,1
+R110,how,2,I will pay attention to storage conditions and temperature logs at my internship and ask questions if anything seems off.,0.0667,True,1
+R111,what,1,I will study more about the specific requirements.,0.3653,True,0
+R111,what,2,We talked about how important it is to store medications correctly.,0.1659,True,0
+R111,what,3,This is something pharmacists need to monitor carefully to ensure patient safety.,0.0937,True,0
+R111,why,1,I will study more about the specific requirements.,0.2679,True,1
+R111,why,2,We talked about how important it is to store medications correctly.,0.233,True,1
+R111,why,3,This is something pharmacists need to monitor carefully to ensure patient safety.,0.0874,True,1
+R111,how,1,This is something pharmacists need to monitor carefully to ensure patient safety.,0.3971,True,0
+R111,how,2,We talked about how important it is to store medications correctly.,0.3846,True,0
+R111,how,3,I will study more about the specific requirements.,0.3355,True,0
+R112,what,1,"Before this session, I viewed immunization as a fairly straightforward pharmacist activity — confirm age, give the shot, document.",0.1675,True,2
+R112,what,2,"The simulation revealed how much clinical judgment is actually required: interpreting allergy histories, distinguishing contraindications from precautions, recognizing early signs of anaphylaxis, and managing the epinephrine kit in a real emergency.",0.1566,True,2
+R112,what,3,"I was also confronted with how important counseling is in the immunization context, particularly for patients who have vaccine hesitancy — not to argue with them, but to have an informed, respectful conversation.",0.1478,True,2
+R112,why,1,"I was also confronted with how important counseling is in the immunization context, particularly for patients who have vaccine hesitancy — not to argue with them, but to have an informed, respectful conversation.",0.2853,True,2
+R112,why,2,"The simulation revealed how much clinical judgment is actually required: interpreting allergy histories, distinguishing contraindications from precautions, recognizing early signs of anaphylaxis, and managing the epinephrine kit in a real emergency.",0.1493,True,2
+R112,why,3,We also discussed the pharmacist's expanding role in administering vaccines and the responsibility to screen patients for contraindications and potential adverse reactions.,0.1437,True,2
+R112,how,1,"At my community pharmacy rotation, I will review the current ACIP schedule before each shift, ask to participate in immunization consultations, and practice anaphylaxis management scenarios with my preceptor to ensure I am prepared to respond if a reaction occurs.",0.4793,True,2
+R112,how,2,We also discussed the pharmacist's expanding role in administering vaccines and the responsibility to screen patients for contraindications and potential adverse reactions.,0.4077,True,2
+R112,how,3,"Before this session, I viewed immunization as a fairly straightforward pharmacist activity — confirm age, give the shot, document.",0.3465,True,2
+R113,what,1,This topic deepened my appreciation for the precision required in immunization practice.,0.2174,True,2
+R113,what,2,I will develop a personal screening checklist for common vaccines and ask to perform supervised vaccine administrations at my retail rotation.,0.1521,True,2
+R113,what,3,"Today's class covered vaccine safety, including VAERS reporting, Vaccine Information Statements, anaphylaxis recognition and management, and the ACIP immunization schedule.",0.1266,True,2
+R113,why,1,This topic deepened my appreciation for the precision required in immunization practice.,0.3014,True,2
+R113,why,2,"I also think about the impact at a population level: pharmacists administer millions of vaccines annually, and the quality of our screening and administration directly affects herd immunity.",0.1975,True,2
+R113,why,3,I will develop a personal screening checklist for common vaccines and ask to perform supervised vaccine administrations at my retail rotation.,0.1904,True,2
+R113,how,1,I will develop a personal screening checklist for common vaccines and ask to perform supervised vaccine administrations at my retail rotation.,0.3737,True,1
+R113,how,2,"Today's class covered vaccine safety, including VAERS reporting, Vaccine Information Statements, anaphylaxis recognition and management, and the ACIP immunization schedule.",0.2689,True,1
+R113,how,3,"I also think about the impact at a population level: pharmacists administer millions of vaccines annually, and the quality of our screening and administration directly affects herd immunity.",0.2675,True,1
+R114,what,1,"During my rotations, I will participate in vaccine administration sessions and practice using VIS documents with patients.",0.194,True,1
+R114,what,2,so I know how to submit a report if needed.,0.1588,True,1
+R114,what,3,"We covered immunization safety in class today, including vaccine adverse events, contraindications, and the pharmacist's role in immunization programs.",0.1444,True,1
+R114,why,1,"During my rotations, I will participate in vaccine administration sessions and practice using VIS documents with patients.",0.2256,True,2
+R114,why,2,"As someone who has family members who have expressed vaccine hesitancy, this topic felt particularly relevant to me.",0.2113,True,2
+R114,why,3,"I want to be able to have compassionate, evidence-based conversations about vaccine safety concerns rather than dismissive ones.",0.197,True,2
+R114,how,1,"We covered immunization safety in class today, including vaccine adverse events, contraindications, and the pharmacist's role in immunization programs.",0.3812,True,2
+R114,how,2,"During my rotations, I will participate in vaccine administration sessions and practice using VIS documents with patients.",0.369,True,2
+R114,how,3,"I want to be able to have compassionate, evidence-based conversations about vaccine safety concerns rather than dismissive ones.",0.2258,True,2
+R115,what,1,I recognize the clinical responsibility this entails.,0.2095,True,2
+R115,what,2,I will keep these safety principles in mind during my rotations.,0.1741,True,2
+R115,what,3,Immunization safety is an important area of pharmacist practice as we administer more vaccines than any other healthcare provider group.,0.1009,True,2
+R115,why,1,I recognize the clinical responsibility this entails.,0.2899,True,1
+R115,why,2,I will keep these safety principles in mind during my rotations.,0.2169,True,1
+R115,why,3,Immunization safety is an important area of pharmacist practice as we administer more vaccines than any other healthcare provider group.,0.1619,True,1
+R115,how,1,"Today we covered immunization safety in detail, including the pharmacist immunizer certification requirements, ACIP scheduling guidelines, contraindication screening protocols, anaphylaxis management, and VAERS reporting.",0.3166,True,0
+R115,how,2,I recognize the clinical responsibility this entails.,0.3156,True,0
+R115,how,3,Immunization safety is an important area of pharmacist practice as we administer more vaccines than any other healthcare provider group.,0.2967,True,0
+R116,what,1,"We discussed vaccine safety in class, including how pharmacists screen for contraindications, administer vaccines safely, and manage adverse reactions.",0.2399,True,1
+R116,what,2,I will review screening criteria and practice administration technique during my retail rotation.,0.2185,True,1
+R116,what,3,Immunization safety is a key responsibility for pharmacist immunizers.,0.1117,True,1
+R116,why,1,"We discussed vaccine safety in class, including how pharmacists screen for contraindications, administer vaccines safely, and manage adverse reactions.",0.2274,True,1
+R116,why,2,I will review screening criteria and practice administration technique during my retail rotation.,0.2245,True,1
+R116,why,3,Immunization safety is a key responsibility for pharmacist immunizers.,0.1458,True,1
+R116,how,1,"We discussed vaccine safety in class, including how pharmacists screen for contraindications, administer vaccines safely, and manage adverse reactions.",0.4305,True,1
+R116,how,2,I will review screening criteria and practice administration technique during my retail rotation.,0.4299,True,1
+R116,how,3,Immunization safety is a key responsibility for pharmacist immunizers.,0.3305,True,1
+R117,what,1,I will review contraindications and practice my immunization technique at my rotation site.,0.0887,True,0
+R117,what,2,Today we went over vaccines and some safety considerations.,0.0089,True,0
+R117,why,1,I will review contraindications and practice my immunization technique at my rotation site.,0.1687,True,0
+R117,why,2,Today we went over vaccines and some safety considerations.,0.1173,True,0
+R117,how,1,I will review contraindications and practice my immunization technique at my rotation site.,0.3002,True,1
+R117,how,2,Today we went over vaccines and some safety considerations.,0.1942,True,1
+R118,what,1,I will learn more about the requirements.,0.3192,True,0
+R118,what,2,Class today covered immunization-related topics.,0.1567,True,0
+R118,what,3,Vaccines are an important part of the pharmacist's role and there are safety responsibilities involved.,0.1137,True,0
+R118,why,1,I will learn more about the requirements.,0.2404,True,1
+R118,why,2,Vaccines are an important part of the pharmacist's role and there are safety responsibilities involved.,0.1866,True,1
+R118,why,3,Class today covered immunization-related topics.,0.1332,True,1
+R118,how,1,I will learn more about the requirements.,0.3274,True,0
+R118,how,2,Vaccines are an important part of the pharmacist's role and there are safety responsibilities involved.,0.3067,True,0
+R118,how,3,Class today covered immunization-related topics.,0.2601,True,0
+R119,what,1,"This is a reminder that pharmacist competency requires ongoing engagement with evolving evidence, not just initial certification.",0.2761,True,2
+R119,what,2,"At my clinical rotation, I will specifically ask to be involved in vancomycin pharmacokinetic consultations and practice calculating both trough and AUC-guided doses for each patient.",0.2225,True,2
+R119,what,3,We practiced calculating vancomycin doses using both methods with patient cases.,0.1591,True,2
+R119,why,1,"This is a reminder that pharmacist competency requires ongoing engagement with evolving evidence, not just initial certification.",0.2943,True,2
+R119,why,2,This session revealed a gap in my understanding — I had memorized vancomycin troughs as a target without understanding why the AUC-based approach is safer and more effective.,0.2221,True,2
+R119,why,3,"At my clinical rotation, I will specifically ask to be involved in vancomycin pharmacokinetic consultations and practice calculating both trough and AUC-guided doses for each patient.",0.2062,True,2
+R119,how,1,"This is a reminder that pharmacist competency requires ongoing engagement with evolving evidence, not just initial certification.",0.5348,True,2
+R119,how,2,"At my clinical rotation, I will specifically ask to be involved in vancomycin pharmacokinetic consultations and practice calculating both trough and AUC-guided doses for each patient.",0.4943,True,2
+R119,how,3,We practiced calculating vancomycin doses using both methods with patient cases.,0.3661,True,2
+R120,what,1,I will practice interpreting TDM results during my clinical rotations and develop my skills in pharmacokinetic calculations.,0.3235,True,2
+R120,what,2,"I want to be the pharmacist who adds interpretive value to a TDM result, not just the person who communicates a number.",0.2412,True,2
+R120,what,3,"We covered how to interpret drug levels in context — considering timing relative to the dose, renal function, patient-specific factors, and the clinical situation.",0.1814,True,2
+R120,why,1,I will practice interpreting TDM results during my clinical rotations and develop my skills in pharmacokinetic calculations.,0.3419,True,2
+R120,why,2,Interpreting a drug level without understanding the pharmacokinetic context can lead to dangerous dosing decisions — as the digoxin case illustrated.,0.1792,True,2
+R120,why,3,"I want to be the pharmacist who adds interpretive value to a TDM result, not just the person who communicates a number.",0.1737,True,2
+R120,how,1,I will practice interpreting TDM results during my clinical rotations and develop my skills in pharmacokinetic calculations.,0.4825,True,1
+R120,how,2,"I want to be the pharmacist who adds interpretive value to a TDM result, not just the person who communicates a number.",0.4647,True,1
+R120,how,3,TDM is an area where pharmacist expertise directly prevents patient harm.,0.4181,True,1
+R121,what,1,This class made me more committed to developing robust pharmacokinetic skills.,0.3982,True,1
+R121,what,2,"We covered therapeutic drug monitoring in class today, including several drug examples and some case studies.",0.2164,True,1
+R121,what,3,"During my clinical rotation, I will ask to be involved in pharmacokinetic dosing consults, work through calculations independently before reviewing them with my preceptor, and track the clinical outcomes of patients whose regimens I help optimize.",0.2025,True,1
+R121,why,1,This class made me more committed to developing robust pharmacokinetic skills.,0.4026,True,2
+R121,why,2,"During my clinical rotation, I will ask to be involved in pharmacokinetic dosing consults, work through calculations independently before reviewing them with my preceptor, and track the clinical outcomes of patients whose regimens I help optimize.",0.2477,True,2
+R121,why,3,"We covered therapeutic drug monitoring in class today, including several drug examples and some case studies.",0.2071,True,2
+R121,how,1,This class made me more committed to developing robust pharmacokinetic skills.,0.6382,True,2
+R121,how,2,"During my clinical rotation, I will ask to be involved in pharmacokinetic dosing consults, work through calculations independently before reviewing them with my preceptor, and track the clinical outcomes of patients whose regimens I help optimize.",0.5559,True,2
+R121,how,3,"We covered therapeutic drug monitoring in class today, including several drug examples and some case studies.",0.4569,True,2
+R122,what,1,TDM is an important clinical pharmacist competency with direct patient safety implications.,0.18,True,2
+R122,what,2,"Today's class covered TDM comprehensively, including pharmacokinetic principles, drug-specific monitoring targets, sampling timing, and interpretation.",0.1345,True,2
+R122,what,3,I will review TDM drug-specific targets before my clinical rotation and practice interpreting levels with cases.,0.1124,True,2
+R122,why,1,I will review TDM drug-specific targets before my clinical rotation and practice interpreting levels with cases.,0.2,True,1
+R122,why,2,TDM is an important clinical pharmacist competency with direct patient safety implications.,0.1708,True,1
+R122,why,3,"Today's class covered TDM comprehensively, including pharmacokinetic principles, drug-specific monitoring targets, sampling timing, and interpretation.",0.1599,True,1
+R122,how,1,TDM is an important clinical pharmacist competency with direct patient safety implications.,0.461,True,0
+R122,how,2,"Today's class covered TDM comprehensively, including pharmacokinetic principles, drug-specific monitoring targets, sampling timing, and interpretation.",0.4185,True,0
+R122,how,3,I will review TDM drug-specific targets before my clinical rotation and practice interpreting levels with cases.,0.3949,True,0
+R123,what,1,I will practice pharmacokinetic calculations and ask to be involved in TDM consultations during my rotations.,0.2628,True,1
+R123,what,2,"We discussed therapeutic drug monitoring in class, reviewing the main drug categories, monitoring targets, and how to interpret results.",0.2225,True,1
+R123,what,3,TDM is important for ensuring that patients receive doses that are both effective and safe.,0.1347,True,1
+R123,why,1,I will practice pharmacokinetic calculations and ask to be involved in TDM consultations during my rotations.,0.2837,True,1
+R123,why,2,"We discussed therapeutic drug monitoring in class, reviewing the main drug categories, monitoring targets, and how to interpret results.",0.2136,True,1
+R123,why,3,TDM is important for ensuring that patients receive doses that are both effective and safe.,0.2121,True,1
+R123,how,1,I will practice pharmacokinetic calculations and ask to be involved in TDM consultations during my rotations.,0.5571,True,1
+R123,how,2,"We discussed therapeutic drug monitoring in class, reviewing the main drug categories, monitoring targets, and how to interpret results.",0.3964,True,1
+R123,how,3,TDM is important for ensuring that patients receive doses that are both effective and safe.,0.3041,True,1
+R124,what,1,Class today was about monitoring blood drug levels for safety.,0.1987,True,0
+R124,what,2,I will ask to participate in TDM consultations at my clinical rotation and practice using the relevant pharmacokinetic tools.,0.1559,True,0
+R124,why,1,I will ask to participate in TDM consultations at my clinical rotation and practice using the relevant pharmacokinetic tools.,0.1779,True,0
+R124,why,2,Class today was about monitoring blood drug levels for safety.,0.1427,True,0
+R124,how,1,I will ask to participate in TDM consultations at my clinical rotation and practice using the relevant pharmacokinetic tools.,0.5055,True,1
+R124,how,2,Class today was about monitoring blood drug levels for safety.,0.3784,True,1
+R125,what,1,I will work on developing my TDM knowledge.,0.4148,True,0
+R125,what,2,This is clearly a skill that requires practice and expertise.,0.3982,True,0
+R125,what,3,We talked about drug level monitoring and its importance in clinical pharmacy.,0.2018,True,0
+R125,why,1,I will work on developing my TDM knowledge.,0.4248,True,1
+R125,why,2,This is clearly a skill that requires practice and expertise.,0.3889,True,1
+R125,why,3,We talked about drug level monitoring and its importance in clinical pharmacy.,0.227,True,1
+R125,how,1,We talked about drug level monitoring and its importance in clinical pharmacy.,0.4776,True,0
+R125,how,2,I will work on developing my TDM knowledge.,0.3169,True,0
+R125,how,3,This is clearly a skill that requires practice and expertise.,0.2637,True,0
+R126,what,1,The idea that digital tools introduce new categories of error — while reducing old ones — requires me to be vigilant in ways I was not expecting.,0.1273,True,2
+R126,what,2,"I expected EHR systems to be a straightforward safety improvement over paper prescribing, and this session disrupted that assumption.",0.0974,True,2
+R126,what,3,"This session covered electronic prescribing and its safety implications — the types of errors that are introduced by e-prescribing systems (auto-selection errors, incorrect drug-dose-route combinations, alert fatigue), the role of CPOE in preventing transcription errors, and the phenomenon of wrong-drug-selected-from-dropdown errors that have become more prevalent with EHR adoption.",0.078,True,2
+R126,why,1,"Alert fatigue in particular felt like a critical issue: if the system fires so many alerts that clinicians routinely override them without reading, the safety benefit is largely negated.",0.2274,True,2
+R126,why,2,"I will read each alert, understand why it fired, and document my reasoning for overriding or accepting the recommendation.",0.2205,True,2
+R126,why,3,The idea that digital tools introduce new categories of error — while reducing old ones — requires me to be vigilant in ways I was not expecting.,0.2057,True,2
+R126,how,1,"This session covered electronic prescribing and its safety implications — the types of errors that are introduced by e-prescribing systems (auto-selection errors, incorrect drug-dose-route combinations, alert fatigue), the role of CPOE in preventing transcription errors, and the phenomenon of wrong-drug-selected-from-dropdown errors that have become more prevalent with EHR adoption.",0.3605,True,2
+R126,how,2,"I expected EHR systems to be a straightforward safety improvement over paper prescribing, and this session disrupted that assumption.",0.2867,True,2
+R126,how,3,We reviewed a documented case of a patient who received methotrexate daily instead of weekly because the prescriber selected daily from the frequency dropdown without recognizing the error.,0.271,True,2
+R127,what,1,"I will apply this by carefully verifying drug name, dose, route, frequency, and indication for every order I process during rotations.",0.1027,True,2
+R127,what,2,"In class today, we reviewed electronic prescribing safety, including CPOE-related error types, alert fatigue, wrong-drug selection errors, and the design principles of effective versus ineffective CDS.",0.0524,True,2
+R127,what,3,Understanding how these systems fail helps me approach order verification with the right level of skepticism.,0.0228,True,2
+R127,why,1,Understanding how these systems fail helps me approach order verification with the right level of skepticism.,0.1321,True,2
+R127,why,2,"I will apply this by carefully verifying drug name, dose, route, frequency, and indication for every order I process during rotations.",0.1205,True,2
+R127,why,3,E-prescribing safety is important because pharmacists are often the final check on an order that was electronically generated — and we cannot assume the order is correct just because it came from an EHR.,0.0837,True,2
+R127,how,1,"I will apply this by carefully verifying drug name, dose, route, frequency, and indication for every order I process during rotations.",0.4185,True,1
+R127,how,2,We watched a video example of a simulated e-prescribing error involving look-alike drug names in a dropdown menu and discussed how to systematically verify orders before verifying them in the pharmacy system.,0.3913,True,1
+R127,how,3,E-prescribing safety is important because pharmacists are often the final check on an order that was electronically generated — and we cannot assume the order is correct just because it came from an EHR.,0.3307,True,1
+R128,what,1,"We covered e-prescribing safety in class today, including some error types and case studies.",0.1616,True,1
+R128,what,2,The discussion of alert fatigue was especially compelling to me because I have worked in a pharmacy where staff routinely clicked through alerts without reading them.,0.0831,True,1
+R128,what,3,"During my rotations, I will read and respond thoughtfully to every alert I encounter and track how often I override versus accept recommendations, so I can reflect on my own alert behavior.",0.075,True,1
+R128,why,1,"During my rotations, I will read and respond thoughtfully to every alert I encounter and track how often I override versus accept recommendations, so I can reflect on my own alert behavior.",0.2457,True,2
+R128,why,2,The discussion of alert fatigue was especially compelling to me because I have worked in a pharmacy where staff routinely clicked through alerts without reading them.,0.2412,True,2
+R128,why,3,I now understand the systemic reasons why this happens — poorly calibrated alerts with high false-positive rates — but I also recognize that this practice creates real risk.,0.1666,True,2
+R128,how,1,"We covered e-prescribing safety in class today, including some error types and case studies.",0.3683,True,2
+R128,how,2,"As a future pharmacist, I want to advocate for better-designed CDS in the systems I work with.",0.3423,True,2
+R128,how,3,The discussion of alert fatigue was especially compelling to me because I have worked in a pharmacy where staff routinely clicked through alerts without reading them.,0.2449,True,2
+R129,what,1,This is relevant to my future practice.,0.3043,True,2
+R129,what,2,"E-prescribing introduces new categories of errors while reducing others, and pharmacists need to be aware of both.",0.1066,True,2
+R129,what,3,I will be attentive to the limitations of CPOE systems during my rotations.,0.0914,True,2
+R129,why,1,This is relevant to my future practice.,0.4472,True,1
+R129,why,2,I will be attentive to the limitations of CPOE systems during my rotations.,0.1683,True,1
+R129,why,3,"E-prescribing introduces new categories of errors while reducing others, and pharmacists need to be aware of both.",0.1187,True,1
+R129,how,1,"E-prescribing introduces new categories of errors while reducing others, and pharmacists need to be aware of both.",0.3707,True,0
+R129,how,2,This is relevant to my future practice.,0.3586,True,0
+R129,how,3,"Today we reviewed electronic prescribing safety, covering CPOE error types, alert design, and specific cases of wrong-drug selection errors in EHR systems.",0.3332,True,0
+R130,what,1,"Electronic prescribing is not fail-safe, and pharmacists need to understand its limitations to catch errors effectively.",0.0833,True,1
+R130,what,2,We discussed electronic prescribing and its safety implications.,0.0568,True,1
+R130,what,3,We covered alert fatigue and the types of errors that can occur with EHR systems.,0.0307,True,1
+R130,why,1,We discussed electronic prescribing and its safety implications.,0.1029,True,1
+R130,why,2,I will approach all electronic orders critically and not assume they are correct.,0.0896,True,1
+R130,why,3,"Electronic prescribing is not fail-safe, and pharmacists need to understand its limitations to catch errors effectively.",0.0723,True,1
+R130,how,1,"Electronic prescribing is not fail-safe, and pharmacists need to understand its limitations to catch errors effectively.",0.3959,True,1
+R130,how,2,We discussed electronic prescribing and its safety implications.,0.3795,True,1
+R130,how,3,I will approach all electronic orders critically and not assume they are correct.,0.1674,True,1
+R131,what,1,Today we went over some topics related to electronic prescribing.,0.1897,True,0
+R131,what,2,I will make sure to read alerts carefully and verify orders thoroughly at my rotation site.,-0.0723,True,0
+R131,why,1,Today we went over some topics related to electronic prescribing.,0.2108,True,0
+R131,why,2,I will make sure to read alerts carefully and verify orders thoroughly at my rotation site.,0.0645,True,0
+R131,how,1,Today we went over some topics related to electronic prescribing.,0.4155,True,1
+R131,how,2,I will make sure to read alerts carefully and verify orders thoroughly at my rotation site.,0.1297,True,1
+R132,what,1,It is important for pharmacists to understand how electronic systems work and where they can fail.,0.2338,True,0
+R132,what,2,We talked about computers and prescribing safety.,0.1432,True,0
+R132,what,3,I will pay attention to this during my rotations.,0.0195,True,0
+R132,why,1,It is important for pharmacists to understand how electronic systems work and where they can fail.,0.2788,True,1
+R132,why,2,We talked about computers and prescribing safety.,0.1742,True,1
+R132,why,3,I will pay attention to this during my rotations.,0.1501,True,1
+R132,how,1,It is important for pharmacists to understand how electronic systems work and where they can fail.,0.4607,True,0
+R132,how,2,We talked about computers and prescribing safety.,0.2848,True,0
+R132,how,3,I will pay attention to this during my rotations.,0.0759,True,0
+R133,what,1,I came into this class with some compounding lab experience and thought I understood the requirements fairly well.,0.3269,True,2
+R133,what,2,"This session revealed how much I had been taking certain practices for granted — specifically how much the integrity of aseptic technique can be compromised by apparently minor lapses like incorrect positioning relative to the ISO 5 first-air zone, or briefly touching the needle shaft during transfer.",0.1806,True,2
+R133,what,3,"Before my sterile compounding rotation, I will review the USP 797 standard in full, practice garbing and gowning technique independently until it is automatic, and observe the site's environmental monitoring program to understand how quality is verified in practice.",0.0931,True,2
+R133,why,1,I came into this class with some compounding lab experience and thought I understood the requirements fairly well.,0.2898,True,2
+R133,why,2,"This session revealed how much I had been taking certain practices for granted — specifically how much the integrity of aseptic technique can be compromised by apparently minor lapses like incorrect positioning relative to the ISO 5 first-air zone, or briefly touching the needle shaft during transfer.",0.2394,True,2
+R133,why,3,"Before my sterile compounding rotation, I will review the USP 797 standard in full, practice garbing and gowning technique independently until it is automatic, and observe the site's environmental monitoring program to understand how quality is verified in practice.",0.1771,True,2
+R133,how,1,I came into this class with some compounding lab experience and thought I understood the requirements fairly well.,0.3833,True,2
+R133,how,2,"Before my sterile compounding rotation, I will review the USP 797 standard in full, practice garbing and gowning technique independently until it is automatic, and observe the site's environmental monitoring program to understand how quality is verified in practice.",0.3232,True,2
+R133,how,3,"Today's class provided an in-depth review of sterile compounding safety under USP 797, covering ISO classification for cleanrooms, pressure differentials for hazardous versus non-hazardous compounding areas, garbing requirements, aseptic technique principles, beyond-use date determination, and the environmental monitoring program.",0.2857,True,2
+R134,what,1,Understanding both the technique and the system makes me want to be someone who not only performs compounding correctly myself but also contributes to the quality oversight program at whatever site I work in.,0.2794,True,2
+R134,what,2,Sterile compounding is a high-stakes skill that requires both technical precision and systemic safeguards.,0.2084,True,2
+R134,what,3,"In class today, we covered sterile compounding safety in detail — aseptic technique, ISO cleanroom classification, beyond-use dating, personnel training and competency testing, and the regulatory inspections that govern 503B outsourcing facilities.",0.1038,True,2
+R134,why,1,Understanding both the technique and the system makes me want to be someone who not only performs compounding correctly myself but also contributes to the quality oversight program at whatever site I work in.,0.4031,True,2
+R134,why,2,Sterile compounding is a high-stakes skill that requires both technical precision and systemic safeguards.,0.2451,True,2
+R134,why,3,I will review USP 797 before my compounding rotation and ask to participate in any quality review activities during my placement.,0.2187,True,2
+R134,how,1,I will review USP 797 before my compounding rotation and ask to participate in any quality review activities during my placement.,0.3106,True,1
+R134,how,2,Sterile compounding is a high-stakes skill that requires both technical precision and systemic safeguards.,0.3007,True,1
+R134,how,3,"In class today, we covered sterile compounding safety in detail — aseptic technique, ISO cleanroom classification, beyond-use dating, personnel training and competency testing, and the regulatory inspections that govern 503B outsourcing facilities.",0.2947,True,1
+R135,what,1,Recognizing the gravity of that responsibility made this session feel very real.,0.1799,True,1
+R135,what,2,"During my rotation, I will treat every step of sterile compounding — garbing, hood technique, beyond-use dating — as non-negotiable, and I will ask to observe media fill testing or endotoxin testing if those procedures are occurring during my placement.",0.0626,True,1
+R135,what,3,"I have a strong personal motivation in this area because sterile compounding pharmacists are responsible for medications that are injected directly into patients — there is no intestinal absorption barrier, no second filter.",0.0386,True,1
+R135,why,1,Recognizing the gravity of that responsibility made this session feel very real.,0.3406,True,2
+R135,why,2,"I have a strong personal motivation in this area because sterile compounding pharmacists are responsible for medications that are injected directly into patients — there is no intestinal absorption barrier, no second filter.",0.1261,True,2
+R135,why,3,"During my rotation, I will treat every step of sterile compounding — garbing, hood technique, beyond-use dating — as non-negotiable, and I will ask to observe media fill testing or endotoxin testing if those procedures are occurring during my placement.",0.1066,True,2
+R135,how,1,"I have a strong personal motivation in this area because sterile compounding pharmacists are responsible for medications that are injected directly into patients — there is no intestinal absorption barrier, no second filter.",0.4002,True,2
+R135,how,2,"During my rotation, I will treat every step of sterile compounding — garbing, hood technique, beyond-use dating — as non-negotiable, and I will ask to observe media fill testing or endotoxin testing if those procedures are occurring during my placement.",0.2646,True,2
+R135,how,3,"We discussed sterile compounding today, covering the key elements of USP 797 and some case examples of compounding failures.",0.1919,True,2
+R136,what,1,We also discussed the difference between low-risk and medium-risk compounding categories and the corresponding monitoring requirements.,0.1458,True,2
+R136,what,2,I will review USP 797 and practice technique before any compounding work.,0.12,True,2
+R136,what,3,Sterile compounding is a technically demanding area with serious patient safety implications.,0.0525,True,2
+R136,why,1,I will review USP 797 and practice technique before any compounding work.,0.2319,True,1
+R136,why,2,Sterile compounding is a technically demanding area with serious patient safety implications.,0.1226,True,1
+R136,why,3,We also discussed the difference between low-risk and medium-risk compounding categories and the corresponding monitoring requirements.,0.1138,True,1
+R136,how,1,I will review USP 797 and practice technique before any compounding work.,0.3612,True,0
+R136,how,2,Sterile compounding is a technically demanding area with serious patient safety implications.,0.2954,True,0
+R136,how,3,"Today's session covered sterile compounding under USP 797, reviewing the cleanroom design requirements, garbing and gloving procedures, primary and secondary engineering controls, and beyond-use dating calculations.",0.279,True,0
+R137,what,1,I will take lab sessions seriously and follow all protocols when I have compounding opportunities.,0.1645,True,1
+R137,what,2,The importance of following sterile compounding procedures was emphasized with case examples.,0.1169,True,1
+R137,what,3,"We went over sterile compounding safety, including USP 797 standards, aseptic technique, and cleanroom requirements.",0.0472,True,1
+R137,why,1,I will take lab sessions seriously and follow all protocols when I have compounding opportunities.,0.292,True,1
+R137,why,2,The importance of following sterile compounding procedures was emphasized with case examples.,0.1716,True,1
+R137,why,3,"We went over sterile compounding safety, including USP 797 standards, aseptic technique, and cleanroom requirements.",0.0638,True,1
+R137,how,1,I will take lab sessions seriously and follow all protocols when I have compounding opportunities.,0.3641,True,1
+R137,how,2,The importance of following sterile compounding procedures was emphasized with case examples.,0.295,True,1
+R137,how,3,"We went over sterile compounding safety, including USP 797 standards, aseptic technique, and cleanroom requirements.",0.2668,True,1
+R138,what,1,I will make sure to follow all aseptic technique procedures during any compounding labs and rotations.,0.1469,True,0
+R138,what,2,Today we covered sterile compounding requirements.,0.0324,True,0
+R138,why,1,I will make sure to follow all aseptic technique procedures during any compounding labs and rotations.,0.1772,True,0
+R138,why,2,Today we covered sterile compounding requirements.,0.0105,True,0
+R138,how,1,Today we covered sterile compounding requirements.,0.3216,True,1
+R138,how,2,I will make sure to follow all aseptic technique procedures during any compounding labs and rotations.,0.3202,True,1
+R139,what,1,This is a high-risk area of pharmacy practice that requires careful attention to technique.,0.2396,True,0
+R139,what,2,I will learn more about USP 797.,0.1822,True,0
+R139,what,3,We discussed sterile compounding and its safety requirements today.,0.016,True,0
+R139,why,1,This is a high-risk area of pharmacy practice that requires careful attention to technique.,0.2864,True,1
+R139,why,2,I will learn more about USP 797.,0.2696,True,1
+R139,why,3,We discussed sterile compounding and its safety requirements today.,0.0173,True,1
+R139,how,1,This is a high-risk area of pharmacy practice that requires careful attention to technique.,0.5718,True,0
+R139,how,2,We discussed sterile compounding and its safety requirements today.,0.2579,True,0
+R139,how,3,I will learn more about USP 797.,0.2557,True,0
+R140,what,1,I will also ask my preceptors about REMS programs relevant to their practice setting and how they manage the associated requirements.,0.3087,True,2
+R140,what,2,Learning about how pharmacovigilance data has directly driven safety decisions — including the withdrawal of drugs that caused thousands of cardiovascular deaths before the signal was detected — completely changed this view.,0.1617,True,2
+R140,what,3,"Today's class covered pharmacovigilance — the science and activities relating to the detection, assessment, understanding, and prevention of adverse drug reactions.",0.1493,True,2
+R140,why,1,I will also ask my preceptors about REMS programs relevant to their practice setting and how they manage the associated requirements.,0.2695,True,2
+R140,why,2,Learning about how pharmacovigilance data has directly driven safety decisions — including the withdrawal of drugs that caused thousands of cardiovascular deaths before the signal was detected — completely changed this view.,0.2694,True,2
+R140,why,3,"Today's class covered pharmacovigilance — the science and activities relating to the detection, assessment, understanding, and prevention of adverse drug reactions.",0.1961,True,2
+R140,how,1,"Today's class covered pharmacovigilance — the science and activities relating to the detection, assessment, understanding, and prevention of adverse drug reactions.",0.4643,True,2
+R140,how,2,I will also ask my preceptors about REMS programs relevant to their practice setting and how they manage the associated requirements.,0.3707,True,2
+R140,how,3,"We reviewed the FDA MedWatch program, the FAERS database, REMS programs and their structure, and the reporting obligations of healthcare professionals and manufacturers.",0.34,True,2
+R141,what,1,"In class, we covered pharmacovigilance comprehensively, including the structure of the FDA's drug safety monitoring system, MedWatch and FAERS, REMS program design and obligations, and how post-marketing safety data informs labeling changes and market withdrawals.",0.1389,True,2
+R141,what,2,"Post-marketing surveillance is the safety net, and pharmacists are in an excellent position to contribute to it.",0.1141,True,2
+R141,what,3,I want to be a pharmacist who actively reports adverse events.,0.1107,True,2
+R141,why,1,I will build adverse event reporting into my clinical workflow at rotations.,0.2081,True,2
+R141,why,2,"Post-marketing surveillance is the safety net, and pharmacists are in an excellent position to contribute to it.",0.1993,True,2
+R141,why,3,"In class, we covered pharmacovigilance comprehensively, including the structure of the FDA's drug safety monitoring system, MedWatch and FAERS, REMS program design and obligations, and how post-marketing safety data informs labeling changes and market withdrawals.",0.1877,True,2
+R141,how,1,I want to be a pharmacist who actively reports adverse events.,0.5174,True,1
+R141,how,2,We reviewed the isotretinoin iPLED REMS program as a detailed example and discussed the practical workflow for prescribers and dispensing pharmacists.,0.4936,True,1
+R141,how,3,"In class, we covered pharmacovigilance comprehensively, including the structure of the FDA's drug safety monitoring system, MedWatch and FAERS, REMS program design and obligations, and how post-marketing safety data informs labeling changes and market withdrawals.",0.4338,True,1
+R142,what,1,This class made me think about how much safety data is being missed because community pharmacists — who talk to patients constantly about how they are tolerating their medications — are not systematically capturing and reporting what they observe.,0.1937,True,1
+R142,what,2,There were several case studies showing how post-marketing safety data has led to important changes.,0.1708,True,1
+R142,what,3,We discussed pharmacovigilance and adverse event reporting in class today.,0.1453,True,1
+R142,why,1,There were several case studies showing how post-marketing safety data has led to important changes.,0.226,True,2
+R142,why,2,This class made me think about how much safety data is being missed because community pharmacists — who talk to patients constantly about how they are tolerating their medications — are not systematically capturing and reporting what they observe.,0.2142,True,2
+R142,why,3,We discussed pharmacovigilance and adverse event reporting in class today.,0.2112,True,2
+R142,how,1,We discussed pharmacovigilance and adverse event reporting in class today.,0.4164,True,2
+R142,how,2,This class made me think about how much safety data is being missed because community pharmacists — who talk to patients constantly about how they are tolerating their medications — are not systematically capturing and reporting what they observe.,0.4125,True,2
+R142,how,3,"I work in a community pharmacy, and I am aware that ADR reporting is essentially non-existent in that setting despite how many patient interactions occur each day.",0.3241,True,2
+R143,what,1,I will learn more about MedWatch and REMS programs relevant to my rotation settings.,0.2018,True,2
+R143,what,2,Pharmacovigilance is an important public health responsibility and pharmacists are well positioned to contribute to the reporting system.,0.1253,True,2
+R143,what,3,"Today's session covered pharmacovigilance, including the MedWatch reporting program, FAERS database, REMS programs, and how post-marketing safety data is collected and used by the FDA.",0.1117,True,2
+R143,why,1,I will learn more about MedWatch and REMS programs relevant to my rotation settings.,0.2664,True,1
+R143,why,2,Pharmacovigilance is an important public health responsibility and pharmacists are well positioned to contribute to the reporting system.,0.2421,True,1
+R143,why,3,"Today's session covered pharmacovigilance, including the MedWatch reporting program, FAERS database, REMS programs, and how post-marketing safety data is collected and used by the FDA.",0.1285,True,1
+R143,how,1,Pharmacovigilance is an important public health responsibility and pharmacists are well positioned to contribute to the reporting system.,0.4141,True,0
+R143,how,2,"Today's session covered pharmacovigilance, including the MedWatch reporting program, FAERS database, REMS programs, and how post-marketing safety data is collected and used by the FDA.",0.3854,True,0
+R143,how,3,We reviewed specific REMS programs including iPLED for isotretinoin and the TIRF REMS for fentanyl products.,0.348,True,0
+R144,what,1,"We covered pharmacovigilance in class today, including MedWatch reporting, REMS programs, and how post-marketing data contributes to drug safety.",0.1778,True,1
+R144,what,2,I will pay attention to possible adverse drug reactions at my internship and report them when appropriate.,0.1263,True,1
+R144,what,3,"Adverse event reporting is a professional obligation that protects future patients, and pharmacists play an important role in the surveillance system.",-0.0103,True,1
+R144,why,1,"We covered pharmacovigilance in class today, including MedWatch reporting, REMS programs, and how post-marketing data contributes to drug safety.",0.246,True,1
+R144,why,2,I will pay attention to possible adverse drug reactions at my internship and report them when appropriate.,0.152,True,1
+R144,why,3,"Adverse event reporting is a professional obligation that protects future patients, and pharmacists play an important role in the surveillance system.",0.0816,True,1
+R144,how,1,"We covered pharmacovigilance in class today, including MedWatch reporting, REMS programs, and how post-marketing data contributes to drug safety.",0.4425,True,1
+R144,how,2,I will pay attention to possible adverse drug reactions at my internship and report them when appropriate.,0.3997,True,1
+R144,how,3,"Adverse event reporting is a professional obligation that protects future patients, and pharmacists play an important role in the surveillance system.",0.3054,True,1
+R145,what,1,Today's class was about drug safety monitoring after drugs are approved.,0.1778,True,0
+R145,what,2,I will familiarize myself with the MedWatch form and ask my preceptor about adverse event reporting at my site.,0.0295,True,0
+R145,why,1,Today's class was about drug safety monitoring after drugs are approved.,0.15,True,0
+R145,why,2,I will familiarize myself with the MedWatch form and ask my preceptor about adverse event reporting at my site.,0.0714,True,0
+R145,how,1,Today's class was about drug safety monitoring after drugs are approved.,0.4193,True,1
+R145,how,2,I will familiarize myself with the MedWatch form and ask my preceptor about adverse event reporting at my site.,0.2471,True,1
+R146,what,1,I will learn more about reporting requirements.,0.2322,True,0
+R146,what,2,This is an important part of the pharmaceutical system and pharmacists have a role in it.,0.1912,True,0
+R146,what,3,We discussed how drug safety continues to be monitored after approval.,0.0838,True,0
+R146,why,1,I will learn more about reporting requirements.,0.2499,True,1
+R146,why,2,This is an important part of the pharmaceutical system and pharmacists have a role in it.,0.2106,True,1
+R146,why,3,We discussed how drug safety continues to be monitored after approval.,0.14,True,1
+R146,how,1,This is an important part of the pharmaceutical system and pharmacists have a role in it.,0.5053,True,0
+R146,how,2,We discussed how drug safety continues to be monitored after approval.,0.3401,True,0
+R146,how,3,I will learn more about reporting requirements.,0.2874,True,0
+R147,what,1,"I remain uncertain about why this topic connects personally to me, but I can see the clinical importance clearly.",0.2706,True,2
+R147,what,2,I will apply the independent double-check procedure correctly for all high-alert medications at my hospital rotation.,-0.0252,True,2
+R147,what,3,We practiced applying an independent double-check workflow in pairs using a simulation scenario.,-0.0264,True,2
+R147,why,1,"I remain uncertain about why this topic connects personally to me, but I can see the clinical importance clearly.",0.5256,True,0
+R147,why,2,I will apply the independent double-check procedure correctly for all high-alert medications at my hospital rotation.,0.0849,True,0
+R147,why,3,"Today we reviewed the ISMP high-alert medication list in detail, covering the full list of institutional and community-level high-alert drugs, the rationale for their classification, and the specific independent double-check policies used in hospital pharmacies for drugs like insulin drips, heparin infusions, and concentrated electrolytes.",0.0121,True,0
+R147,how,1,I will apply the independent double-check procedure correctly for all high-alert medications at my hospital rotation.,0.3473,True,2
+R147,how,2,"Today we reviewed the ISMP high-alert medication list in detail, covering the full list of institutional and community-level high-alert drugs, the rationale for their classification, and the specific independent double-check policies used in hospital pharmacies for drugs like insulin drips, heparin infusions, and concentrated electrolytes.",0.2596,True,2
+R147,how,3,"I remain uncertain about why this topic connects personally to me, but I can see the clinical importance clearly.",0.2132,True,2
+R148,what,1,I still need to develop my technical knowledge of specific interactions more fully before I will feel confident applying this in practice.,0.4116,True,1
+R148,what,2,That experience motivates me to be a more attentive pharmacist in this area.,0.1643,True,1
+R148,what,3,My grandfather recently had a serious drug interaction that his cardiologist described as well-known but that was never caught by the pharmacy.,0.1007,True,1
+R148,why,1,I still need to develop my technical knowledge of specific interactions more fully before I will feel confident applying this in practice.,0.42,True,2
+R148,why,2,That experience motivates me to be a more attentive pharmacist in this area.,0.2722,True,2
+R148,why,3,"We covered drug-drug interactions in class, going through CYP450 and pharmacodynamic examples in some detail.",0.0693,True,2
+R148,how,1,That experience motivates me to be a more attentive pharmacist in this area.,0.4716,True,0
+R148,how,2,"We covered drug-drug interactions in class, going through CYP450 and pharmacodynamic examples in some detail.",0.3846,True,0
+R148,how,3,I still need to develop my technical knowledge of specific interactions more fully before I will feel confident applying this in practice.,0.3824,True,0
+R149,what,1,I understand this is a high-value pharmacist activity but have not yet connected it strongly to my personal practice goals.,0.2483,True,2
+R149,what,2,We practiced completing a BPMH using a patient vignette with an intentionally incomplete medication history.,0.1611,True,2
+R149,what,3,I will ask to conduct a supervised reconciliation interview during my hospital rotation.,0.1124,True,2
+R149,why,1,I understand this is a high-value pharmacist activity but have not yet connected it strongly to my personal practice goals.,0.3673,True,0
+R149,why,2,We practiced completing a BPMH using a patient vignette with an intentionally incomplete medication history.,0.1686,True,0
+R149,why,3,I will ask to conduct a supervised reconciliation interview during my hospital rotation.,0.1146,True,0
+R149,how,1,I understand this is a high-value pharmacist activity but have not yet connected it strongly to my personal practice goals.,0.602,True,1
+R149,how,2,"In class today, we reviewed the entire medication reconciliation workflow from admission to discharge, including BPMH collection methods, discrepancy categories, and Joint Commission standards.",0.3952,True,1
+R149,how,3,We practiced completing a BPMH using a patient vignette with an intentionally incomplete medication history.,0.3874,True,1
+R150,what,1,I will focus on developing this competency during my clinical rotation.,0.3593,True,1
+R150,what,2,I am still developing my clinical knowledge base around the specifics of anticoagulation protocols.,0.2803,True,1
+R150,what,3,That case made this topic feel very immediate.,0.1582,True,1
+R150,why,1,I will focus on developing this competency during my clinical rotation.,0.3742,True,2
+R150,why,2,That case made this topic feel very immediate.,0.3007,True,2
+R150,why,3,I am still developing my clinical knowledge base around the specifics of anticoagulation protocols.,0.2318,True,2
+R150,how,1,I will focus on developing this competency during my clinical rotation.,0.4655,True,0
+R150,how,2,I am still developing my clinical knowledge base around the specifics of anticoagulation protocols.,0.3319,True,0
+R150,how,3,"We reviewed anticoagulation safety in class, including DOAC and warfarin management, INR monitoring, and reversal agents.",0.214,True,0
+R151,what,1,"I have not yet developed a strong personal connection to this topic in the context of my professional development, and I am not certain yet how I will approach counseling differently after this session.",0.2611,True,2
+R151,what,2,"In today's class, we reviewed a wide range of patient counseling frameworks, including the IHS Prime Questions, teach-back, and motivational interviewing for medication adherence.",0.2501,True,2
+R151,what,3,We also practiced counseling on high-risk medications in pairs and received peer feedback.,0.1452,True,2
+R151,why,1,"I have not yet developed a strong personal connection to this topic in the context of my professional development, and I am not certain yet how I will approach counseling differently after this session.",0.3057,True,0
+R151,why,2,"In today's class, we reviewed a wide range of patient counseling frameworks, including the IHS Prime Questions, teach-back, and motivational interviewing for medication adherence.",0.2244,True,0
+R151,why,3,We also practiced counseling on high-risk medications in pairs and received peer feedback.,0.1829,True,0
+R151,how,1,"In today's class, we reviewed a wide range of patient counseling frameworks, including the IHS Prime Questions, teach-back, and motivational interviewing for medication adherence.",0.421,True,0
+R151,how,2,We also practiced counseling on high-risk medications in pairs and received peer feedback.,0.3307,True,0
+R151,how,3,"I have not yet developed a strong personal connection to this topic in the context of my professional development, and I am not certain yet how I will approach counseling differently after this session.",0.2752,True,0
+R152,what,1,That experience gives me a deep sense of purpose around this topic.,0.1844,True,0
+R152,what,2,I am still learning the specifics of MME calculation and PDMP interpretation and am not yet confident in how I will apply them in practice.,0.1749,True,0
+R152,what,3,"Today we talked about the opioid epidemic and the pharmacist's role in harm reduction, including naloxone dispensing and PDMP use.",0.0787,True,0
+R152,why,1,That experience gives me a deep sense of purpose around this topic.,0.397,True,2
+R152,why,2,"Today we talked about the opioid epidemic and the pharmacist's role in harm reduction, including naloxone dispensing and PDMP use.",0.1756,True,2
+R152,why,3,I am still learning the specifics of MME calculation and PDMP interpretation and am not yet confident in how I will apply them in practice.,0.1372,True,2
+R152,how,1,"Today we talked about the opioid epidemic and the pharmacist's role in harm reduction, including naloxone dispensing and PDMP use.",0.3319,True,0
+R152,how,2,I have a close family member whose life was saved by a naloxone kit that was available because a pharmacist had co-prescribed it without being asked.,0.284,True,0
+R152,how,3,That experience gives me a deep sense of purpose around this topic.,0.1059,True,0

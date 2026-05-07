@@ -1,0 +1,191 @@
+{
+  "score_distributions": {
+    "what": {
+      "0": 1,
+      "1": 112,
+      "2": 175
+    },
+    "why": {
+      "0": 84,
+      "1": 92,
+      "2": 112
+    },
+    "how": {
+      "0": 115,
+      "1": 77,
+      "2": 96
+    }
+  },
+  "length_distributions": {
+    "word_count": {
+      "count": 288.0,
+      "mean": 122.56597222222223,
+      "std": 133.21129827421422,
+      "min": 6.0,
+      "25%": 13.0,
+      "50%": 52.0,
+      "75%": 247.25,
+      "max": 417.0
+    },
+    "sentence_count": {
+      "count": 288.0,
+      "mean": 4.871527777777778,
+      "std": 2.574497364953504,
+      "min": 1.0,
+      "25%": 2.0,
+      "50%": 5.0,
+      "75%": 7.0,
+      "max": 12.0
+    }
+  },
+  "tfidf_keywords": {
+    "what": {
+      "0": [
+        "reactions patients",
+        "iv",
+        "allergic reactions",
+        "cause",
+        "cause allergic",
+        "infusion",
+        "iron",
+        "iron cause",
+        "iv iron",
+        "reactions"
+      ],
+      "1": [
+        "safety",
+        "pharmacists",
+        "drugs",
+        "shortages",
+        "help",
+        "rules",
+        "ll",
+        "culture",
+        "patients",
+        "safety culture"
+      ],
+      "2": [
+        "safety",
+        "pharmacy",
+        "covered",
+        "ll",
+        "today",
+        "class",
+        "patient",
+        "pharmacist",
+        "class covered",
+        "today class"
+      ]
+    },
+    "why": {
+      "0": [
+        "safety",
+        "pharmacists",
+        "drugs",
+        "shortages",
+        "rules",
+        "help",
+        "different",
+        "patients",
+        "culture",
+        "safety culture"
+      ],
+      "1": [
+        "safety",
+        "today",
+        "covered",
+        "ll",
+        "class",
+        "today class",
+        "class covered",
+        "pharmacy",
+        "culture",
+        "shortages"
+      ],
+      "2": [
+        "safety",
+        "pharmacy",
+        "patient",
+        "shortage",
+        "pharmacist",
+        "drug",
+        "clinical",
+        "medication",
+        "state",
+        "culture"
+      ]
+    },
+    "how": {
+      "0": [
+        "safety",
+        "pharmacists",
+        "drugs",
+        "help",
+        "shortages",
+        "rules",
+        "patients",
+        "culture",
+        "ll",
+        "different"
+      ],
+      "1": [
+        "class",
+        "today",
+        "covered",
+        "ll",
+        "today class",
+        "safety",
+        "class covered",
+        "pharmacist",
+        "patient",
+        "shortages"
+      ],
+      "2": [
+        "safety",
+        "pharmacy",
+        "shortage",
+        "patient",
+        "clinical",
+        "pharmacist",
+        "culture",
+        "pediatric",
+        "drug",
+        "medication"
+      ]
+    }
+  },
+  "marker_analysis": {
+    "what": {
+      "0": 0.07142857142857142,
+      "1": 0.055609893492865894,
+      "2": 0.02124461537961727
+    },
+    "why": {
+      "0": 0.002437641723356009,
+      "1": 0.0015776063129823866,
+      "2": 0.0025162129424092235
+    },
+    "how": {
+      "0": 0.005624270724938483,
+      "1": 0.008096755981231918,
+      "2": 0.006334441724060911
+    }
+  },
+  "sentiment_analysis": {
+    "what": {
+      "0": -0.296,
+      "1": 0.08747232142857142,
+      "2": 0.3448777142857143
+    },
+    "why": {
+      "0": 0.10571547619047619,
+      "1": 0.13522499999999998,
+      "2": 0.43333660714285716
+    },
+    "how": {
+      "0": 0.10028260869565217,
+      "1": 0.0945142857142857,
+      "2": 0.5317125
+    }
+  }
+}

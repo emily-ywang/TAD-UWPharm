@@ -1,0 +1,191 @@
+{
+  "score_distributions": {
+    "what": {
+      "0": 9,
+      "1": 101,
+      "2": 178
+    },
+    "why": {
+      "0": 73,
+      "1": 92,
+      "2": 123
+    },
+    "how": {
+      "0": 100,
+      "1": 84,
+      "2": 104
+    }
+  },
+  "length_distributions": {
+    "word_count": {
+      "count": 288.0,
+      "mean": 132.98958333333334,
+      "std": 124.05875545082245,
+      "min": 7.0,
+      "25%": 29.25,
+      "50%": 60.0,
+      "75%": 276.0,
+      "max": 396.0
+    },
+    "sentence_count": {
+      "count": 288.0,
+      "mean": 5.454861111111111,
+      "std": 2.857481892873358,
+      "min": 1.0,
+      "25%": 3.0,
+      "50%": 4.5,
+      "75%": 8.0,
+      "max": 16.0
+    }
+  },
+  "tfidf_keywords": {
+    "what": {
+      "0": [
+        "drug",
+        "important",
+        "problem",
+        "think",
+        "medications",
+        "shortages",
+        "drug shortages",
+        "need",
+        "shortage",
+        "pharmacy"
+      ],
+      "1": [
+        "safety",
+        "patients",
+        "pharmacists",
+        "shortages",
+        "errors",
+        "important",
+        "drug",
+        "drugs",
+        "rules",
+        "people"
+      ],
+      "2": [
+        "safety",
+        "patient",
+        "errors",
+        "drug",
+        "today",
+        "shortage",
+        "pharmacy",
+        "patients",
+        "medication",
+        "culture"
+      ]
+    },
+    "why": {
+      "0": [
+        "safety",
+        "drug",
+        "patients",
+        "shortages",
+        "important",
+        "errors",
+        "hospitals",
+        "pharmacists",
+        "patient",
+        "drugs"
+      ],
+      "1": [
+        "safety",
+        "patients",
+        "today",
+        "errors",
+        "important",
+        "problem",
+        "pharmacists",
+        "covered",
+        "drug",
+        "class"
+      ],
+      "2": [
+        "safety",
+        "shortage",
+        "patient",
+        "drug",
+        "pharmacy",
+        "culture",
+        "medication",
+        "errors",
+        "shortages",
+        "improvement"
+      ]
+    },
+    "how": {
+      "0": [
+        "safety",
+        "patients",
+        "pharmacists",
+        "important",
+        "shortages",
+        "drug",
+        "problem",
+        "errors",
+        "drugs",
+        "help"
+      ],
+      "1": [
+        "safety",
+        "errors",
+        "today",
+        "patients",
+        "drug",
+        "shortages",
+        "covered",
+        "medications",
+        "important",
+        "medication"
+      ],
+      "2": [
+        "safety",
+        "shortage",
+        "patient",
+        "pharmacy",
+        "culture",
+        "drug",
+        "medication",
+        "errors",
+        "improvement",
+        "error"
+      ]
+    }
+  },
+  "marker_analysis": {
+    "what": {
+      "0": 0.05574124323098892,
+      "1": 0.04484717405245613,
+      "2": 0.02069544169086609
+    },
+    "why": {
+      "0": 0.0005197707179636647,
+      "1": 0.007521364324544512,
+      "2": 0.003698193018759825
+    },
+    "how": {
+      "0": 0.013083415696001117,
+      "1": 0.022358740014642064,
+      "2": 0.007467016266050073
+    }
+  },
+  "sentiment_analysis": {
+    "what": {
+      "0": 0.09607777777777776,
+      "1": 0.03885940594059406,
+      "2": 0.12245393258426968
+    },
+    "why": {
+      "0": 0.09035890410958904,
+      "1": 0.08563152173913044,
+      "2": 0.09847154471544715
+    },
+    "how": {
+      "0": 0.045461999999999995,
+      "1": 0.12364285714285714,
+      "2": 0.11205865384615385
+    }
+  }
+}
