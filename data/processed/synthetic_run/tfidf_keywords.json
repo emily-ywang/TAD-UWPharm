@@ -1,0 +1,116 @@
+{
+  "what": {
+    "0": [
+      "drug",
+      "important",
+      "problem",
+      "think",
+      "medications",
+      "shortages",
+      "drug shortages",
+      "need",
+      "shortage",
+      "pharmacy"
+    ],
+    "1": [
+      "safety",
+      "patients",
+      "pharmacists",
+      "shortages",
+      "errors",
+      "important",
+      "drug",
+      "drugs",
+      "rules",
+      "people"
+    ],
+    "2": [
+      "safety",
+      "patient",
+      "errors",
+      "drug",
+      "today",
+      "shortage",
+      "pharmacy",
+      "patients",
+      "medication",
+      "culture"
+    ]
+  },
+  "why": {
+    "0": [
+      "safety",
+      "drug",
+      "patients",
+      "shortages",
+      "important",
+      "errors",
+      "hospitals",
+      "pharmacists",
+      "patient",
+      "drugs"
+    ],
+    "1": [
+      "safety",
+      "patients",
+      "today",
+      "errors",
+      "important",
+      "problem",
+      "pharmacists",
+      "covered",
+      "drug",
+      "class"
+    ],
+    "2": [
+      "safety",
+      "shortage",
+      "patient",
+      "drug",
+      "pharmacy",
+      "culture",
+      "medication",
+      "errors",
+      "shortages",
+      "improvement"
+    ]
+  },
+  "how": {
+    "0": [
+      "safety",
+      "patients",
+      "pharmacists",
+      "important",
+      "shortages",
+      "drug",
+      "problem",
+      "errors",
+      "drugs",
+      "help"
+    ],
+    "1": [
+      "safety",
+      "errors",
+      "today",
+      "patients",
+      "drug",
+      "shortages",
+      "covered",
+      "medications",
+      "important",
+      "medication"
+    ],
+    "2": [
+      "safety",
+      "shortage",
+      "patient",
+      "pharmacy",
+      "culture",
+      "drug",
+      "medication",
+      "errors",
+      "improvement",
+      "error"
+    ]
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "what": {
+    "0": [
+      "reactions patients",
+      "iv",
+      "allergic reactions",
+      "cause",
+      "cause allergic",
+      "infusion",
+      "iron",
+      "iron cause",
+      "iv iron",
+      "reactions"
+    ],
+    "1": [
+      "safety",
+      "pharmacists",
+      "drugs",
+      "shortages",
+      "help",
+      "rules",
+      "ll",
+      "culture",
+      "patients",
+      "safety culture"
+    ],
+    "2": [
+      "safety",
+      "pharmacy",
+      "covered",
+      "ll",
+      "today",
+      "class",
+      "patient",
+      "pharmacist",
+      "class covered",
+      "today class"
+    ]
+  },
+  "why": {
+    "0": [
+      "safety",
+      "pharmacists",
+      "drugs",
+      "shortages",
+      "rules",
+      "help",
+      "different",
+      "patients",
+      "culture",
+      "safety culture"
+    ],
+    "1": [
+      "safety",
+      "today",
+      "covered",
+      "ll",
+      "class",
+      "today class",
+      "class covered",
+      "pharmacy",
+      "culture",
+      "shortages"
+    ],
+    "2": [
+      "safety",
+      "pharmacy",
+      "patient",
+      "shortage",
+      "pharmacist",
+      "drug",
+      "clinical",
+      "medication",
+      "state",
+      "culture"
+    ]
+  },
+  "how": {
+    "0": [
+      "safety",
+      "pharmacists",
+      "drugs",
+      "help",
+      "shortages",
+      "rules",
+      "patients",
+      "culture",
+      "ll",
+      "different"
+    ],
+    "1": [
+      "class",
+      "today",
+      "covered",
+      "ll",
+      "today class",
+      "safety",
+      "class covered",
+      "pharmacist",
+      "patient",
+      "shortages"
+    ],
+    "2": [
+      "safety",
+      "pharmacy",
+      "shortage",
+      "patient",
+      "clinical",
+      "pharmacist",
+      "culture",
+      "pediatric",
+      "drug",
+      "medication"
+    ]
+  }
+}

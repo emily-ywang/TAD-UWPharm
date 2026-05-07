@@ -239,7 +239,7 @@ def _make_gemini_scorer(model_key: str):
         response = client.models.generate_content(
             model=LLM_MODELS[model_key],
             contents=build_scoring_prompt(reflection_text),
-            config=types.GenerateContentConfig(temperature=0, max_output_tokens=1024),
+            config=types.GenerateContentConfig(temperature=0, max_output_tokens=4096),
         )
         content = response.text
         if not content or not content.strip():
@@ -317,14 +317,17 @@ def score_reflection(
                 print(f"  [parse attempt {parse_attempts}] {e}")
                 time.sleep(retry_delay)
         except Exception as e:
-            if getattr(e, "status_code", None) == 429 or "ratelimit" in type(e).__name__.lower():
+            is_rate_limit = getattr(e, "status_code", None) == 429 or "ratelimit" in type(e).__name__.lower()
+            is_unavailable = getattr(e, "status_code", None) == 503 or "unavailable" in str(e).lower()
+            if is_rate_limit or is_unavailable:
                 rl_attempts += 1
                 if rl_attempts > rate_limit_retries:
                     raise
-                wait = _parse_retry_after(e) or min(2 ** rl_attempts, 300)
+                wait = _parse_retry_after(e) or (120 if is_unavailable else min(2 ** rl_attempts, 300))
                 mins, secs = divmod(int(wait), 60)
                 wait_str = f"{mins}m{secs}s" if mins else f"{secs}s"
-                print(f"  [rate limit] waiting {wait_str} (attempt {rl_attempts}/{rate_limit_retries})...")
+                label = "unavailable" if is_unavailable else "rate limit"
+                print(f"  [{label}] waiting {wait_str} (attempt {rl_attempts}/{rate_limit_retries})...")
                 time.sleep(wait)
             else:
                 raise
@@ -337,20 +340,26 @@ def score_reflection(
 def score_dataset(
     texts: list[str],
     model: str = "llama-3.3-70b",
-    sleep_between: float = 2.0,
+    sleep_between: float | None = None,
 ) -> list[dict[str, Any]]:
     """Score a list of reflections sequentially, with a small delay between API calls.
 
+    sleep_between defaults to 120s for Gemini models (high-demand 503s) and 2s for others.
     Note: free-tier Groq limits (e.g. 6 000 TPM for llama-3.1-8b) may require a
     larger sleep_between (~10s) to avoid sustained rate-limit pressure.
     """
+    if sleep_between is None:
+        sleep_between = 120.0 if model in _GEMINI_MODELS else 2.0
     results = []
     for i, text in enumerate(texts):
         result = score_reflection(text, model=model)
         result["reflection_idx"] = i
         results.append(result)
         if i < len(texts) - 1:
+            print(f"  [gemini] waiting {int(sleep_between)}s before next call..." if model in _GEMINI_MODELS else "", end="", flush=True)
             time.sleep(sleep_between)
+            if model in _GEMINI_MODELS:
+                print(" done")
     return results
 
 
@@ -425,14 +434,14 @@ def _parse_response_from_text(raw: str) -> dict[str, Any]:
 
         for text_key in ("evidence", "explanation"):
             key = f"{dim}_{text_key}"
-            # Look for: "key": "value" - match quoted values
-            pattern = r'"' + re.escape(key) + r'"\s*[:=]\s*"([^"]*)"'
+            # Look for: "key": "value" - handle escaped quotes inside values
+            pattern = r'"' + re.escape(key) + r'"\s*[:=]\s*"((?:[^"\\]|\\.)*)"'
             match = re.search(pattern, cleaned, re.S)
             if match:
                 value = match.group(1)
             else:
                 # Try: key: "value"
-                pattern = re.escape(key) + r'\s*[:=]\s*"([^"]*)"'
+                pattern = re.escape(key) + r'\s*[:=]\s*"((?:[^"\\]|\\.)*)"'
                 match = re.search(pattern, cleaned, re.S)
                 if not match:
                     raise ValueError(f"Unable to extract field '{key}' from LLM response.")

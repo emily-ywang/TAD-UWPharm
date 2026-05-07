@@ -91,7 +91,7 @@ LLM_MODELS = {
     "llama-3.3-70b":  "llama-3.3-70b-versatile",
     "llama-4-scout":  "meta-llama/llama-4-scout-17b-16e-instruct",
     # Google Gemini (GEMINI_API_KEY)
-    # "gemini-flash":   "gemini-2.5-flash",  # temporarily disabled — high demand
+    "gemini-flash":   "gemini-2.5-flash"
     # Ollama local (no API key — requires `ollama serve` on localhost:11434)
     # "ollama-qwen2.5-72b": "qwen2.5:72b",
     # "ollama-gemma3-12b":  "gemma3:12b",
