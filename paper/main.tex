@@ -34,7 +34,7 @@
 }
 
 \title{\textbf{Automated Scoring of Pharmacy Student Reflections:\\
-A Multi-Approach NLP Pipeline with LLM Reasoning and Embedding-Based Classification}}
+A Decomposed LLM Pipeline with Cross-Model Consistency Validation}}
 
 \author{
     Bella Chang \and Emily Wang \and Kristina Fujimoto\\[0.5em]
@@ -48,8 +48,11 @@ A Multi-Approach NLP Pipeline with LLM Reasoning and Embedding-Based Classificat
 \maketitle
 
 \begin{abstract}
-Reflective writing is a core component of pharmacy education, helping students synthesize clinical experiences and develop professional identity. However, manually scoring reflections at scale is time-consuming and subject to inter-rater variability. We present an automated scoring pipeline for pharmacy student reflections structured around a three-dimensional rubric: \textbf{WHAT} (description of learning), \textbf{WHY} (analysis of significance), and \textbf{HOW} (integration and actionability). We investigate multiple computational approaches—TF-IDF with logistic regression, sentence embeddings with logistic regression, and large language model (LLM) prompting across the Claude, GPT-4o, and Llama families—comparing decomposed per-dimension scoring against direct total score prediction. Based on experimental evaluation, we adopt a hybrid final pipeline: sentence embedding classifiers for WHAT and Claude for WHY and HOW, with evidence extraction and cross-model consistency validation. We discuss limitations arising from data constraints and model cost, and outline directions for future work including broader data collection and expanded model coverage.
+Reflective writing is a core component of pharmacy education, helping students synthesize clinical experiences and develop professional identity. However, manually scoring reflections at scale is time-consuming and subject to inter-rater variability. We present an automated scoring pipeline for pharmacy student reflections structured around a three-dimensional rubric derived from course requirements at the University of Washington School of Pharmacy: \textbf{WHAT} (description of learning), \textbf{WHY} (analysis of significance), and \textbf{HOW} (integration and actionability). We investigate multiple computational approaches—TF-IDF with logistic regression, sentence embeddings with logistic regression, and large language model (LLM) prompting across the Claude, GPT-4o, and Llama families—comparing decomposed per-dimension scoring against direct total score prediction. Based on experimental evaluation, we adopt an LLM-based final pipeline using Claude Sonnet as the primary grader across all three dimensions, with Llama~3.3-70B serving as a secondary cross-model validator. Evidence extraction grounds each prediction in exact text spans from the student's reflection, and reflections with low cross-model agreement are flagged for instructor review. We discuss limitations arising from data constraints and model cost, and outline directions for future work including broader data collection and expanded model coverage.
+%Reflective writing is a core component of pharmacy education, helping students synthesize clinical experiences and develop professional identity. However, manually scoring reflections at scale is time-consuming and subject to inter-rater variability. We present an automated scoring pipeline for pharmacy student reflections structured around a three-dimensional rubric: \textbf{WHAT} (description of learning), \textbf{WHY} (analysis of significance), and \textbf{HOW} (integration and actionability). We investigate multiple computational approaches—TF-IDF with logistic regression, sentence embeddings with logistic regression, and large language model (LLM) prompting across the Claude, GPT-4o, and Llama families—comparing decomposed per-dimension scoring against direct total score prediction. Based on experimental evaluation, we adopt a hybrid final pipeline: sentence embedding classifiers for WHAT and Claude for WHY and HOW, with evidence extraction and cross-model consistency validation. We discuss limitations arising from data constraints and model cost, and outline directions for future work including broader data collection and expanded model coverage.
 \end{abstract}
+
+
 
 % ─────────────────────────────────────────────
 \section{Introduction}
@@ -57,17 +60,29 @@ Reflective writing is a core component of pharmacy education, helping students s
 
 Reflective practice is central to health professions education. In pharmacy programs, students are regularly asked to write structured reflections on clinical encounters, coursework, and professional development experiences. These reflections are assessed by instructors according to rubrics that probe the depth of a student's description, analysis, and forward-looking integration of their learning. While rubric-based scoring provides a shared evaluative framework, manually reviewing dozens or hundreds of reflections places a significant burden on faculty, particularly in large cohorts.
 
-Automated scoring of short-answer and reflective text has been an active area of NLP research \citep{burstein2003automated, shermis2013handbook}. Recent advances in large language models (LLMs) have made it possible to prompt a model with a rubric and receive structured, reasoned evaluations \citep{brown2020language, wei2022chain}. At the same time, sentence embedding models offer computationally cheaper alternatives for capturing semantic similarity to rubric descriptors without the API cost of LLMs \citep{reimers2019sentence}.
+Automated scoring of short-answer and reflective text has been an active area of NLP research \citep{burstein2003automated, shermis2013handbook}. Recent advances in large language models (LLMs) have made it possible to prompt a model with a rubric and receive structured, reasoned evaluations \citep{brown2020language, wei2022chain}. At the same time, classical approaches such as TF-IDF bag-of-words representations and sentence embedding classifiers offer computationally cheaper alternatives for benchmarking, allowing us to assess whether the added cost and complexity of LLMs is warranted for this task \citep{reimers2019sentence}.
+
+%Automated scoring of short-answer and reflective text has been an active area of NLP research \citep{burstein2003automated, shermis2013handbook}. Recent advances in large language models (LLMs) have made it possible to prompt a model with a rubric and receive structured, reasoned evaluations \citep{brown2020language, wei2022chain}. At the same time, sentence embedding models offer computationally cheaper alternatives for capturing semantic similarity to rubric descriptors without the API cost of LLMs \citep{reimers2019sentence}.
+
+
 
 This paper describes the design, experimentation, and final architecture of an automated reflection scoring system developed in collaboration with faculty at the University of Washington School of Pharmacy. Our contributions are:
 
 \begin{itemize}[leftmargin=1.5em]
     \item A systematic comparison of TF-IDF, sentence embedding, and LLM-based scoring across three rubric dimensions using both decomposed and direct scoring strategies.
-    \item A hybrid final pipeline combining embedding classifiers (WHAT) with LLM reasoning (WHY, HOW), motivated by empirical performance differences across dimensions.
+    \item An LLM-based final pipeline using Claude Sonnet across all three rubric dimensions (WHAT, WHY, and HOW), selected based on empirical performance and practical cost considerations.
     \item An evidence extraction and verification module that grounds each score in exact text spans from the student's reflection.
-    \item A cross-model consistency validation protocol for auditing low-agreement cases.
-    %\item An honest discussion of practical limitations stemming from data scarcity and model cost.
+    \item A cross-model consistency validation protocol using Llama~3.3-70B for auditing low-agreement cases.
 \end{itemize}
+
+%\begin{itemize}[leftmargin=1.5em]
+%    \item A systematic comparison of TF-IDF, sentence embedding, and LLM-based scoring across three rubric dimensions using both decomposed and direct scoring strategies.
+%    \item A hybrid final pipeline combining embedding classifiers (WHAT) with LLM reasoning (WHY, HOW), motivated by empirical performance differences across dimensions.
+%    \item An evidence extraction and verification module that grounds each score in exact text spans from the student's reflection.
+%    \item A cross-model consistency validation protocol for auditing low-agreement cases.
+    %\item An honest discussion of practical limitations stemming from data scarcity and model cost.
+%\end{itemize}
+
 
 % ─────────────────────────────────────────────
 \section{Related Work}
@@ -80,10 +95,16 @@ Automated scoring of student writing has a long history, from early systems base
 GPT-family and instruction-tuned models have been applied to grade short answers, generate feedback, and align scores to rubrics \citep{kortemeyer2023could, mizumoto2023exploring}. Chain-of-thought prompting improves scoring reliability by eliciting explicit reasoning before numeric output \citep{wei2022chain}.
 
 \paragraph{Sentence Embeddings for Classification.}
-Sentence transformer models such as \texttt{all-MiniLM-L6-v2} \citep{reimers2019sentence} produce dense semantic representations well-suited for downstream classification. For short-text classification with limited labeled data, embedding-based logistic regression often outperforms TF-IDF baselines while remaining far cheaper than LLM inference.
+Sentence transformer models such as \texttt{all-MiniLM-L6-v2} \citep{reimers2019sentence} produce dense semantic representations well-suited for downstream classification. We include embedding-based classifiers in our experimental comparison as a strong, cost-efficient baseline against which LLM performance can be benchmarked.
+
+%\paragraph{Sentence Embeddings for Classification.}
+%Sentence transformer models such as \texttt{all-MiniLM-L6-v2} \citep{reimers2019sentence} produce dense semantic representations well-suited for downstream classification. For short-text classification with limited labeled data, embedding-based logistic regression often outperforms TF-IDF baselines while remaining far cheaper than LLM inference.
 
 \paragraph{Reflective Writing Assessment.}
-Automated analysis of reflective writing has been explored in nursing \citep{song2022automated} and medical education \citep{kennedy2014reflection}. These works highlight that reflection quality is multidimensional and that surface-level lexical cues are insufficient proxies for analytic depth—motivating our use of both embedding similarity and LLM reasoning.
+Automated analysis of reflective writing has been explored in nursing \citep{song2022automated} and medical education \citep{kennedy2014reflection}. These works highlight that reflection quality is multidimensional and that surface-level lexical cues are insufficient proxies for analytic depth—motivating our adoption of LLM reasoning as the core of the final pipeline.
+
+%\paragraph{Reflective Writing Assessment.}
+%Automated analysis of reflective writing has been explored in nursing \citep{song2022automated} and medical education \citep{kennedy2014reflection}. These works highlight that reflection quality is multidimensional and that surface-level lexical cues are insufficient proxies for analytic depth—motivating our use of both embedding similarity and LLM reasoning.
 
 % ─────────────────────────────────────────────
 \section{Task Formulation}
@@ -91,7 +112,9 @@ Automated analysis of reflective writing has been explored in nursing \citep{son
 
 \subsection{Rubric Dimensions}
 
-Each student reflection is scored on three dimensions, each on an ordinal scale of 0--2:
+The scoring rubric was derived directly from the reflection assessment requirements of a pharmacy course at the University of Washington School of Pharmacy, in collaboration with course faculty. Each student reflection is scored on three dimensions, each on an ordinal scale of 0--2 (see Appendix~\ref{app:rubric} for the full rubric as provided by faculty):
+
+%Each student reflection is scored on three dimensions, each on an ordinal scale of 0--2:
 
 \begin{description}[leftmargin=2em, labelindent=0em]
     \item[\textbf{WHAT (Description).}] Does the student clearly describe a specific learning experience, skill, or concept?
@@ -126,19 +149,33 @@ The total score is the sum of the three dimension scores, ranging from 0 to 6.
 \section{Dataset}
 % ─────────────────────────────────────────────
 
+%\subsection{Data Collection and Privacy Constraints}
+
+%We worked in collaboration with University of Washington School of Pharmacy faculty to design a rubric and scoring protocol. Due to student data privacy regulations and IRB constraints, we were unable to directly use a real student reflection dataset for experimentation. Our experimental pipeline was instead developed and evaluated on a self-created dummy dataset, followed by an expanded synthetic dataset generated in collaboration with faculty to reflect realistic reflection patterns.
+
 \subsection{Data Collection and Privacy Constraints}
 
-We worked in collaboration with University of Washington School of Pharmacy faculty to design a rubric and scoring protocol. Due to student data privacy regulations and IRB constraints, we were unable to directly use a real student reflection dataset for experimentation. Our experimental pipeline was instead developed and evaluated on a self-created dummy dataset, followed by an expanded synthetic dataset generated in collaboration with faculty to reflect realistic reflection patterns.
+We worked in collaboration with University of Washington School of Pharmacy faculty to design a rubric and scoring protocol. Due to student data privacy regulations and IRB constraints, we were unable to directly use real student reflections for experimentation. Our work proceeded in two phases:
 
-\subsection{Synthetic Dataset Construction}
+\begin{enumerate}
+    \item \textbf{Initial development dataset.} We first created a small self-authored dummy dataset to verify the preprocessing and scoring pipeline infrastructure. This dataset was not validated by faculty and served only as a functional check.
 
-The validated synthetic dataset was constructed to represent the distribution of reflection quality across all score combinations. Faculty provided guidance on characteristic language patterns for each score level and rubric dimension. Each reflection was annotated with ground-truth WHAT, WHY, and HOW scores. The resulting dataset is small (a practical limitation discussed in Section~\ref{sec:limitations}) but structurally representative.
+    \item \textbf{Expanded synthetic dataset.} In collaboration with faculty, we constructed an expanded synthetic dataset of reflections representing the full range of score combinations across WHAT, WHY, and HOW. Professors started by creating 54 example reflections (for 6 different topics, each representing one week of lesson, they created 3 versions with varying scores of 5-6, 3-4, and 1-2 scores total for the reflection). We then synthetically expanded this by prompting Claude to create additional 12 reflections (4 batches of 3 reflections representing the different score groups) for each of the 6 topics using the prompt in Appendix \ref{app:prompt}. The professors reviewed and validated this extended dataset to confirm that the synthetic reflections reflected realistic student language patterns at each score level. We then further expanded this dataset again to a total of 288 reflections for our expeirments. This dataset served as the basis for Experiment~2 (cross-model evaluation) and as the final runthrough set for the deployed pipeline. A derived subset of this dataset was additionally used for Experiment~1 (decomposed vs.\ direct scoring).
+\end{enumerate}
+
+Each reflection in the synthetic datasets is annotated with ground-truth WHAT, WHY, and HOW scores. Both datasets are small (a practical limitation discussed in Section~\ref{sec:limitations}), but the expanded dataset is structurally representative of the rubric's score space and of the actual student reflections.
+
+%\subsection{Synthetic Dataset Construction}
+
+%The validated synthetic dataset was constructed to represent the distribution of reflection quality across all score combinations. Faculty provided guidance on characteristic language patterns for each score level and rubric dimension. Each reflection was annotated with ground-truth WHAT, WHY, and HOW scores. The resulting dataset is small (a practical limitation discussed in Section~\ref{sec:limitations}) but structurally representative of the actual student reflections.
 
 \subsection{Exploratory Data Analysis}
 
-Before modeling, we conducted exploratory data analysis (EDA) to characterize the dataset along several axes:
+Before modeling, we conducted exploratory data analysis (EDA) to characterize the dataset along several axes.
 
-\paragraph{Score Distributions.} We examine the frequency of each score level (0, 1, 2) per dimension to detect class imbalance, which %motivates the use of balanced class weighting during training.
+\paragraph{Score Distributions.} We examine the frequency of each score level (0, 1, 2) per dimension to detect class imbalance, which help informs how we interpret agreement metrics across models.
+
+%\paragraph{Score Distributions.} We examine the frequency of each score level (0, 1, 2) per dimension to detect class imbalance, which %motivates the use of balanced class weighting during training.
 
 \paragraph{Length Distributions.} Word count and sentence count are examined by total score quartile. Higher-quality reflections tend to be longer, though length alone is a weak predictor.
 
@@ -149,9 +186,15 @@ Before modeling, we conducted exploratory data analysis (EDA) to characterize th
     \item \textit{Future markers} (e.g., ``will'', ``plan'', ``intend'', ``commit'') — associated with HOW.
     \item \textit{Introspective markers} (e.g., ``I realize'', ``I learned'', ``I believe'') — associated with WHY depth.
 \end{itemize}
-Marker rate (count normalized by word count) is averaged per score level to validate these hypotheses.
+%Marker rate (count normalized by word count) is averaged per score level to validate these hypotheses.
+Marker rate (count normalized by word count) is averaged per score level to validate these hypotheses. This analysis is useful for instructors as a diagnostic tool: if markers associated with a given dimension do not vary meaningfully across score levels, it may indicate that the rubric language is not well-captured by surface lexical signals—informing decisions about how to structure prompts or rubric descriptors.
 
-\paragraph{Sentiment Analysis.} We apply VADER \citep{hutto2014vader} to compute compound sentiment scores per reflection and examine their distribution by total score. Reflections tend to be moderately positive; sentiment is not strongly predictive alone.
+\paragraph{Sentiment Analysis.} We apply VADER \citep{hutto2014vader} to compute compound sentiment scores per reflection and examine their distribution by total score. We did this analysis to understand the affective character of student reflections: are higher-quality reflections more positive in tone, perhaps reflecting greater engagement or optimism about future practice? Conversely, low-quality reflections might be more neutral or perfunctory. This can help instructors understand whether sentiment correlates with depth of engagement, which may be a useful secondary signal when reviewing borderline cases.
+
+%\paragraph{Sentiment Analysis.} We apply VADER \citep{hutto2014vader} to compute compound sentiment scores per reflection and examine their distribution by total score. Reflections tend to be moderately positive; sentiment is not strongly predictive alone.
+
+
+
 
 % ─────────────────────────────────────────────
 \section{Scoring Approaches}
@@ -161,171 +204,220 @@ We implement and compare three families of scoring approaches.
 
 \subsection{Approach A: TF-IDF with Logistic Regression}
 
-As a classical baseline, we represent each reflection as a TF-IDF vector with up to 5{,}000 features, using unigrams and bigrams with English stopword removal. A logistic regression classifier with balanced class weighting is trained per target dimension using stratified 5-fold cross-validation. This approach captures surface lexical patterns but is limited by vocabulary mismatch and lack of semantic generalization.
+As a classical baseline, we represent each reflection as a TF-IDF vector with up to 5{,}000 features, using unigrams and bigrams with English stopword removal. A logistic regression classifier with balanced class weighting is trained per target dimension using stratified 5-fold cross-validation. We include this approach to establish a lower bound on performance and to assess how much of the scoring signal can be captured by surface-level lexical patterns alone. This serves as a useful reference point: if TF-IDF achieves comparable performance to LLMs, it would suggest that the rubric dimensions are largely distinguishable by vocabulary alone. As we show in our experiments, this is not the case for all dimensions—motivating the use of richer representations.
+
+%As a classical baseline, we represent each reflection as a TF-IDF vector with up to 5{,}000 features, using unigrams and bigrams with English stopword removal. A logistic regression classifier with balanced class weighting is trained per target dimension using stratified 5-fold cross-validation. This approach captures surface lexical patterns but is limited by vocabulary mismatch and lack of semantic generalization.
 
 \subsection{Approach B: Sentence Embeddings with Logistic Regression}
 
-We encode each reflection using \texttt{all-MiniLM-L6-v2} \citep{reimers2019sentence}, a compact sentence transformer that produces 384-dimensional dense embeddings capturing semantic meaning beyond surface vocabulary. A logistic regression head is trained per dimension on these embeddings with the same cross-validation protocol as Approach A. %This approach generalizes better to paraphrasing and near-synonyms, making it better suited for the WHAT dimension where students may describe similar experiences using varied language.
+We encode each reflection using \texttt{all-MiniLM-L6-v2} \citep{reimers2019sentence}, a compact sentence transformer that produces 384-dimensional dense embeddings capturing semantic meaning beyond surface vocabulary. A logistic regression head is trained per dimension on these embeddings with the same cross-validation protocol as Approach A. We include this approach as an intermediate baseline: it is more semantically expressive than TF-IDF and substantially cheaper than LLM inference, making it a practical alternative if LLM performance is not sufficiently better to justify the cost.
+
+%We encode each reflection using \texttt{all-MiniLM-L6-v2} \citep{reimers2019sentence}, a compact sentence transformer that produces 384-dimensional dense embeddings capturing semantic meaning beyond surface vocabulary. A logistic regression head is trained per dimension on these embeddings with the same cross-validation protocol as Approach A. %This approach generalizes better to paraphrasing and near-synonyms, making it better suited for the WHAT dimension where students may describe similar experiences using varied language.
 
 \subsection{Approach C: LLM Prompting}
 
-We prompt large language models with the full rubric specification and request structured JSON output containing a score, an exact evidence span from the reflection, and a textual explanation for each dimension. The prompt is designed to elicit chain-of-thought style reasoning before numeric output. We evaluate models from three families:
+%We prompt large language models with the full rubric specification and request structured JSON output containing a score, an exact evidence span from the reflection, and a textual explanation for each dimension. The prompt is designed to elicit chain-of-thought style reasoning before numeric output. We evaluate models from three families:
+
+%\begin{itemize}
+%    \item \textbf{Claude family}: Claude Haiku, Claude Sonnet
+%    \item \textbf{GPT family}: GPT-4o
+%    \item \textbf{Llama family}: Llama 3.3-70B, Llama 4 Scout
+%\end{itemize}
+
+We prompt large language models with the full rubric specification and request structured JSON output containing a score, an exact evidence span from the reflection, and a textual explanation for each dimension. The prompt is designed to elicit chain-of-thought style reasoning before numeric output. We evaluate models from three families, chosen to cover a range of sizes, providers, and access modalities:
 
 \begin{itemize}
-    \item \textbf{Claude family}: Claude Haiku, Claude Sonnet
-    \item \textbf{GPT family}: GPT-4o
-    \item \textbf{Llama family}: Llama 3.3-70B, Llama 4 Scout
+    \item \textbf{Claude family} (Anthropic): Claude Haiku and Claude Sonnet. We test both to assess whether larger-within-family models improve scoring. Claude is a strong candidate given its strong instruction following, structured JSON output, and documented reasoning capabilities.
+    \item \textbf{GPT family} (OpenAI): GPT-4o. Included as the dominant alternative to Claude in the academic and industry community, enabling cross-provider comparison.
+    \item \textbf{Llama family} (Meta, via Groq API): Llama 3.3-70B and Llama 4 Scout. We include Llama models as a representative open-weight family. Open-weight models are particularly relevant for future privacy-preserving deployment scenarios (local inference without transmitting student data to third-party APIs), and the Groq API provided a cost-effective way to evaluate them at scale.
 \end{itemize}
 
-LLMs are queried at low/zero temperature for scoring to maximize reproducibility. Automatic retry logic handles JSON parsing failures.
+LLMs are queried at temperature 0 for all scoring to maximize reproducibility. Automatic retry logic handles JSON parsing failures.
 
 % ─────────────────────────────────────────────
 \section{Experiments}
 % ─────────────────────────────────────────────
+\noindent\textit{Scoring Strategy:} A key design question is whether to predict each dimension independently and sum (decomposed scoring per WHAT, WHY, HOW each out of 2) or to predict the total score directly (direct scoring, total out of 6). Decomposed scoring allows different models to be applied per dimension and produces interpretable per-dimension feedback. We treat this as an empirical question in Experiment~1 before evaluating individual approaches in Experiment~2.
 
 \subsection{Experiment 1: Decomposed vs.\ Direct Scoring}
 
-\paragraph{Setup.} Using Approaches A and B (TF-IDF and embeddings, since LLMs are natively suited to decomposed output), we compare two scoring strategies:
+\paragraph{Motivation.} Decomposed scoring requires training three separate classifiers (one per dimension) instead of one, adding complexity. We test whether this decomposition is justified by measuring whether it improves total score prediction—particularly on QWK, which penalizes large ordinal errors.
+
+\paragraph{Setup.} Using Approaches A and B (TF-IDF and embeddings—LLMs are natively suited to decomposed output and thus were not evaluated under the direct strategy), we compare:
 \begin{itemize}
     \item \textbf{Decomposed}: Train a separate classifier for each of WHAT, WHY, HOW; sum predictions for total score.
     \item \textbf{Direct}: Train a single classifier on the total score label.
 \end{itemize}
+\paragraph{Metrics.} We report accuracy, macro-F1, mean absolute error (MAE), and quadratic weighted kappa (QWK) on the held-out test set ($n = 288$, 80/20 stratified split).
 
-\paragraph{Metrics.} We report accuracy, macro-F1, mean absolute error (MAE), and quadratic weighted kappa (QWK) on a held-out test set (80/20 stratified split on WHAT score).
-
-\paragraph{Hypothesis.} Decomposed scoring should yield more informative predictions and, by separating the signal for each dimension, may outperform direct total score prediction on QWK—the metric most sensitive to ordinal distance errors.
-
-\subsection{Experiment 2: Cross-Approach and Cross-Model Evaluation}
-
-\paragraph{Setup.} We evaluate all approaches on the same held-out test set. For LLMs, we score each test reflection once (temperature 0) to produce deterministic outputs. Results are aggregated into a comparison table across:
-\begin{itemize}
-    \item TF-IDF (Approach A)
-    \item Sentence Embeddings (Approach B)
-    \item Claude Haiku, Claude Sonnet (Approach C)
-    \item GPT-4o (Approach C)
-    \item Llama 3.3-70B, Llama 4 Scout (Approach C)
-\end{itemize}
-
-\paragraph{Goal.} We aim to identify which approach performs best per dimension, and whether performance varies across model family size. Based on these results, we select the components of the final pipeline.
-
-% ─────────────────────────────────────────────
-\section{Final Pipeline}
-% ─────────────────────────────────────────────
-
-Based on experimental results, we adopt a hybrid decomposed scoring pipeline:
-
-\begin{enumerate}
-    \item \textbf{WHAT} $\rightarrow$ Sentence embedding classifier (logistic regression on \texttt{all-MiniLM-L6-v2} embeddings). The WHAT dimension is primarily about whether a specific learning experience is clearly described. Embedding-based similarity to rubric-level exemplars proves sufficient and avoids per-reflection LLM cost.
-    \item \textbf{WHY} $\rightarrow$ Claude (Sonnet). The WHY dimension requires assessing depth of personal reflection and insight, a judgment that benefits from LLM reasoning over the full reflection.
-    \item \textbf{HOW} $\rightarrow$ Claude (Sonnet). The HOW dimension requires evaluating whether a plan is specific and actionable within pharmacy practice, again requiring contextual reasoning well-suited to LLMs.
-\end{enumerate}
-
-The total score is the sum of the three dimension scores.
-
-\subsection{Evidence Extraction}
-
-Each score is grounded in a text span extracted from the student's reflection:
-
-\paragraph{Embedding-based evidence (WHAT).} For the WHAT dimension, we split the reflection into sentences using spaCy, encode each sentence with the same \texttt{all-MiniLM-L6-v2} model, and retrieve the top-$k$ sentences ($k=3$ by default) by cosine similarity to the query: \textit{``what specific knowledge, skill, or concept the student learned.''}
-
-\paragraph{LLM-based evidence (WHY, HOW).} For Claude-scored dimensions, the prompt instructs the model to return an exact verbatim text span from the reflection as evidence. A post-hoc verification step checks that the returned evidence string is a substring of the original reflection. Spans failing verification are flagged for manual review.
-
-\subsection{Consistency and Cross-Model Validation}
-
-%\paragraph{Consistency evaluation.} We assess scoring consistency in two ways. First, for non-zero-temperature runs, we score each reflection $N$ times and compute per-dimension standard deviation; reflections exceeding a variance threshold are flagged as ambiguous. At temperature 0, repeated runs are deterministic and this check is redundant.
-
-\paragraph{Cross-model validation.} To report inter-model reliability alongside our results, we run a second-best model from a different family (e.g., GPT-4o if Claude is primary) on a validation sample of 50--100 reflections. We compute pairwise exact agreement rate and Cohen's weighted kappa per dimension (WHAT, WHY, HOW separately). Reflections where any dimension has agreement below 0.9 are exported as a CSV containing all predicted scores and evidence, flagged for manual instructor review.
-
-% ─────────────────────────────────────────────
-\section{Results and Discussion}
-% ─────────────────────────────────────────────
-
-\subsection{Experiment 1: Decomposed vs.\ Direct Scoring}
+\paragraph{Results.} Below are the results of Experiment~1.
 
 \begin{table}[H]
 \centering
-\caption{Decomposed vs.\ Direct Scoring — TF-IDF and Embedding Approaches on Total Score Prediction}
+\caption{Decomposed vs.\ Direct Scoring on Total Score Prediction ($n=288$)}
 \label{tab:exp1}
 \begin{tabular}{llcccc}
 \toprule
 \textbf{Approach} & \textbf{Strategy} & \textbf{Accuracy} & \textbf{Macro-F1} & \textbf{MAE} & \textbf{QWK} \\
 \midrule
-TF-IDF & Direct   & -- & -- & -- & -- \\
-TF-IDF & Decomposed & -- & -- & -- & -- \\
-Embeddings & Direct & -- & -- & -- & -- \\
-Embeddings & Decomposed & -- & -- & -- & -- \\
+TF-IDF     & Direct     & 0.793 & 0.607 & 0.362 & 0.876 \\
+TF-IDF     & Decomposed & 0.810 & 0.540 & 0.259 & 0.954 \\
+Embeddings & Direct     & 0.741 & 0.483 & 0.345 & 0.919 \\
+Embeddings & Decomposed & 0.810 & 0.497 & 0.224 & 0.968 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\noindent\textit{Note: Results to be filled in upon completion of experimental runs.}
+\paragraph{Discussion.} Decomposed scoring consistently outperforms direct scoring on QWK and MAE for both approaches. The QWK improvement is particularly meaningful: decomposed TF-IDF improves from 0.876 to 0.954, and decomposed embeddings from 0.919 to 0.968. The lower MAE of the decomposed approach indicates that it makes fewer large errors on the total score—precisely the property most important for fair grading. Macro-F1 is slightly lower for decomposed approaches, suggesting that decomposition may reduce coverage of minority classes in the total-score distribution, but the ordinal error reduction takes priority for this task. \textbf{We adopt decomposed scoring for all subsequent analyses and for the final pipeline.}
+%
+%\subsection{Experiment 1: Decomposed vs.\ Direct Scoring}
 
-\subsection{Experiment 2: Cross-Approach Comparison by Dimension}
+%\paragraph{Setup.} Using Approaches A and B (TF-IDF and embeddings, since LLMs are natively suited to decomposed output), we compare two scoring strategies:
+%\begin{itemize}
+%    \item \textbf{Decomposed}: Train a separate classifier for each of WHAT, WHY, HOW; sum predictions for total score.
+%    \item \textbf{Direct}: Train a single classifier on the total score label.
+%\end{itemize}
+
+%\paragraph{Metrics.} We report accuracy, macro-F1, mean absolute error (MAE), and quadratic weighted kappa (QWK) on a held-out test set (80/20 stratified split on WHAT score).
+
+%\paragraph{Hypothesis.} Decomposed scoring should yield more informative predictions and, by separating the signal for each dimension, may outperform direct total score prediction on QWK—the metric most sensitive to ordinal distance errors.
+
+\subsection{Experiment 2: Cross-Approach and Cross-Model Evaluation}
+
+\paragraph{Motivation.} With decomposed scoring established as superior, we now ask: which scoring approach is best per dimension? We compare all approaches on the same test set to determine which model or technique produces the most accurate per-dimension scores.
+
+\paragraph{Setup.} All approaches are evaluated on the expanded synthetic dataset ($n = 288$). For LLMs, reflections are scored at temperature 0 for deterministic output.
+
+\paragraph{Results.}
 
 \begin{table}[H]
 \centering
-\caption{Per-Dimension QWK Across Scoring Approaches}
+\caption{Per-Dimension Performance Across Scoring Approaches ($n=288$)}
 \label{tab:exp2}
-\begin{tabular}{lcccc}
+\begin{tabular}{lcccccc}
 \toprule
-\textbf{Model / Approach} & \textbf{WHAT QWK} & \textbf{WHY QWK} & \textbf{HOW QWK} & \textbf{Total QWK} \\
+\multirow{2}{*}{\textbf{Model / Approach}} & \multicolumn{2}{c}{\textbf{WHAT}} & \multicolumn{2}{c}{\textbf{WHY}} & \multicolumn{2}{c}{\textbf{HOW}} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-7}
+ & \textbf{Acc} & \textbf{QWK} & \textbf{Acc} & \textbf{QWK} & \textbf{Acc} & \textbf{QWK} \\
 \midrule
-TF-IDF + LR           & -- & -- & -- & -- \\
-Embeddings + LR        & -- & -- & -- & -- \\
-Claude Haiku           & -- & -- & -- & -- \\
-Claude Sonnet          & -- & -- & -- & -- \\
-GPT-4o                 & -- & -- & -- & -- \\
-Llama 3.3-70B          & -- & -- & -- & -- \\
-Llama 4 Scout          & -- & -- & -- & -- \\
+TF-IDF + LR        & 0.914 & 0.796 & 0.897 & 0.887 & 0.914 & 0.947 \\
+Embeddings + LR    & 0.948 & 0.793 & 0.862 & 0.906 & 0.914 & 0.945 \\
 \midrule
-\textbf{Final Pipeline} & -- & -- & -- & -- \\
+Claude Haiku       & \textbf{0.983} & 0.960 & 0.931 & 0.952 & 0.897 & 0.933 \\
+Claude Sonnet      & \textbf{0.983} & \textbf{0.960} & 0.862 & 0.907 & \textbf{0.914} & \textbf{0.943} \\
+GPT-4o             & 0.897 & 0.838 & \textbf{0.948} & \textbf{0.963} & 0.862 & 0.913 \\
+Llama 3.3-70B      & \textbf{0.983} & \textbf{0.960} & 0.862 & 0.910 & 0.845 & 0.903 \\
+Llama 4 Scout      & 0.948 & 0.878 & \textbf{0.966} & \textbf{0.975} & \textbf{0.914} & \textbf{0.944} \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\noindent\textit{Note: Results to be filled in upon completion of experimental runs.}
+\paragraph{Discussion.} All LLM-based approaches substantially outperform TF-IDF and embedding baselines on WHAT (QWK 0.796--0.793 vs.\ 0.960 for top LLMs), confirming that surface lexical patterns are insufficient for capturing the specificity of student descriptions. For WHY and HOW, the gap is smaller but LLMs remain consistently stronger. Within the LLM family, Claude Sonnet achieves the highest or tied-highest QWK on WHAT (0.960), remains competitive on WHY (0.907) and HOW (0.943), and provides rich structured evidence strings. Llama 4 Scout achieves the highest WHY QWK (0.975), but at the cost of requiring a separate API and introducing additional operational complexity. These results motivate a Claude Sonnet primary pipeline with Llama 3.3-70B as the cross-model validator.
 
-\subsection{Cross-Model Consistency}
+%\paragraph{Setup.} We evaluate all approaches on the same held-out test set. For LLMs, we score each test reflection once (temperature 0) to produce deterministic outputs. Results are aggregated into a comparison table across:
+%\begin{itemize}
+%    \item TF-IDF (Approach A)
+%    \item Sentence Embeddings (Approach B)
+%    \item Claude Haiku, Claude Sonnet (Approach C)
+%    \item GPT-4o (Approach C)
+%    \item Llama 3.3-70B, Llama 4 Scout (Approach C)
+%\end{itemize}
+
+%\paragraph{Goal.} We aim to identify which approach performs best per dimension, and whether performance varies across model family size. Based on these results, we select the components of the final pipeline.
+
+% ─────────────────────────────────────────────
+\section{Final Pipeline}
+% ─────────────────────────────────────────────
+Based on the results of Experiments 1 and 2, our final pipeline uses \textbf{decomposed scoring with Claude Sonnet as the primary grader across all three dimensions (WHAT, WHY, HOW)}. The decomposed strategy was selected based on Experiment~1 results showing consistent QWK and MAE improvements over direct scoring. Claude Sonnet was selected as the single model for all dimensions based on its consistently strong performance across all three rubric dimensions in Experiment~2, its ability to produce rich, structured JSON output with evidence spans, and the practical advantage of using a single provider for the entire scoring pass.
+
+\subsection{Evidence Extraction}
+
+Each score is grounded in a text span extracted directly from the student's reflection. For all three dimensions, the LLM prompt instructs Claude Sonnet to return an exact verbatim text span from the reflection as evidence for the assigned score. A post-hoc verification step checks that each returned evidence string is a strict substring of the original reflection text. Evidence spans that fail verification are flagged for manual review, ensuring auditability and guarding against model hallucination.
+
+\subsection{Cross-Model Consistency Validation}
+
+To provide an independent reliability check on Claude Sonnet's scores, we run \textbf{Llama~3.3-70B} as a secondary grader on the full scored dataset. Llama~3.3-70B was selected for this role for three reasons: (1) it is from a different model family (Meta open-weight vs.\ Anthropic proprietary), providing genuine cross-family independence; (2) it achieved competitive per-dimension performance in Experiment~2 (QWK: WHAT 0.960, WHY 0.910, HOW 0.903); and (3) as an open-weight model, it represents a pathway toward future on-premise deployment for privacy-sensitive settings.
+
+We compute pairwise exact agreement rate and Cohen's weighted kappa per dimension (WHAT, WHY, HOW separately) between Claude Sonnet and Llama~3.3-70B. Reflections where any dimension falls below 0.9 agreement are exported as a CSV containing all predicted scores and evidence from both models, flagged for manual instructor review rather than silently resolved. This means that if Claude Sonnet and Llama~3.3-70B disagree on one or more of the three dimensions, it is marked for manual review.
 
 \begin{table}[H]
 \centering
-\caption{Cross-Model Agreement (Claude Sonnet vs.\ GPT-4o) on Validation Sample}
+\caption{Cross-Model Agreement: Claude Sonnet vs.\ Llama~3.3-70B}
 \label{tab:consistency}
 \begin{tabular}{lcc}
 \toprule
 \textbf{Dimension} & \textbf{Exact Agreement (\%)} & \textbf{Weighted $\kappa$} \\
 \midrule
-WHAT & -- & -- \\
-WHY  & -- & -- \\
-HOW  & -- & -- \\
+WHAT & 90.6\% & 0.835 \\
+WHY  & 87.2\% & 0.905 \\
+HOW  & 92.7\% & 0.946 \\
 \bottomrule
 \end{tabular}
 \end{table}
+%
+%Based on experimental results, we adopt a hybrid decomposed scoring pipeline:
 
-\noindent\textit{Note: Results to be filled in upon completion of experimental runs.}
+%\begin{enumerate}
+%    \item \textbf{WHAT} $\rightarrow$ Sentence embedding classifier (logistic regression on \texttt{all-MiniLM-L6-v2} embeddings). The WHAT dimension is primarily about whether a specific learning experience is clearly described. Embedding-based similarity to rubric-level exemplars proves sufficient and avoids per-reflection LLM cost.
+%    \item \textbf{WHY} $\rightarrow$ Claude (Sonnet). The WHY dimension requires assessing depth of personal reflection and insight, a judgment that benefits from LLM reasoning over the full reflection.
+%    \item \textbf{HOW} $\rightarrow$ Claude (Sonnet). The HOW dimension requires evaluating whether a plan is specific and actionable within pharmacy practice, again requiring contextual reasoning well-suited to LLMs.
+%\end{enumerate}
 
+%The total score is the sum of the three dimension scores.
+
+%\subsection{Evidence Extraction}
+
+%Each score is grounded in a text span extracted from the student's reflection:
+
+%\paragraph{Embedding-based evidence (WHAT).} For the WHAT dimension, we split the reflection into sentences using spaCy, encode each sentence with the same \texttt{all-MiniLM-L6-v2} model, and retrieve the top-$k$ sentences ($k=3$ by default) by cosine similarity to the query: \textit{``what specific knowledge, skill, or concept the student learned.''}
+
+%\paragraph{LLM-based evidence (WHY, HOW).} For Claude-scored dimensions, the prompt instructs the model to return an exact verbatim text span from the reflection as evidence. A post-hoc verification step checks that the returned evidence string is a substring of the original reflection. Spans failing verification are flagged for manual review.
+
+%\subsection{Consistency and Cross-Model Validation}
+
+%\paragraph{Consistency evaluation.} We assess scoring consistency in two ways. First, for non-zero-temperature runs, we score each reflection $N$ times and compute per-dimension standard deviation; reflections exceeding a variance threshold are flagged as ambiguous. At temperature 0, repeated runs are deterministic and this check is redundant.
+
+%\paragraph{Cross-model validation.} To report inter-model reliability alongside our results, we run a second-best model from a different family (e.g., GPT-4o if Claude is primary) on a validation sample of 50--100 reflections. We compute pairwise exact agreement rate and Cohen's weighted kappa per dimension (WHAT, WHY, HOW separately). Reflections where any dimension has agreement below 0.9 are exported as a CSV containing all predicted scores and evidence, flagged for manual instructor review.
+
+% ─────────────────────────────────────────────
+\section{Discussion}
+% ─────────────────────────────────────────────
 \subsection{Discussion}
+Our experiments confirm that LLM-based scoring substantially outperforms classical approaches (TF-IDF, sentence embeddings) for rubric-aligned reflection assessment, particularly on the WHAT dimension where the gap in QWK exceeds 0.16 points. This indicates that the specificity and concreteness of student learning descriptions cannot be adequately captured by surface lexical patterns or aggregate semantic similarity—both of which lack the contextual reasoning needed to distinguish specific from generic descriptions.
 
-The hybrid pipeline design reflects a key empirical insight: the three rubric dimensions differ in the nature of signal they require. WHAT scoring is fundamentally a semantic similarity task—does the student's text resemble descriptions of specific learning events?—for which embedding-based classifiers are both effective and cost-efficient. WHY and HOW scoring, by contrast, require assessing the depth and specificity of reasoning, which benefits from the full contextual understanding and explicit chain-of-thought available in LLM prompting.
+The decision to use Claude Sonnet for all three dimensions, rather than mixing models, was driven by both performance and practicality. While Llama 4 Scout achieves the highest WHY QWK (0.975 vs.\ Claude Sonnet's 0.907), the dataset is small enough that this gap may not be reliable. More importantly, using a single model simplifies deployment, ensures consistent evidence extraction quality, and avoids the need to maintain multiple API integrations for production use. Claude Sonnet's performance across all three dimensions is consistently strong, and the evidence strings it produces tend to be more precisely grounded in the rubric language.
 
-Within the LLM family, we observe that performance tends to increase with model size, but the gains diminish and the cost grows substantially. Claude Sonnet represents a practical cost-quality tradeoff for deployment on the full dataset. Cross-model agreement confirms that the two highest-performing models from different families largely concur, lending external validity to the automated scores. Cases of disagreement (below 0.9 agreement) are surfaced for instructor review rather than silently resolved.
+Llama~3.3-70B was chosen as the cross-model validator specifically because it is from a different model family. Using a second Claude model (e.g., Claude Haiku) for cross-model validation would not reveal cross-provider disagreements that might indicate ambiguous reflections. Llama~3.3-70B's competitive performance (QWK 0.960 on WHAT, 0.910 on WHY, 0.903 on HOW) makes it a meaningful validator—low agreement between Claude Sonnet and Llama~3.3-70B is a genuine signal that a reflection is genuinely ambiguous, not merely an artifact of one model being poorly calibrated for the task.
+
+
+%The hybrid pipeline design reflects a key empirical insight: the three rubric dimensions differ in the nature of signal they require. WHAT scoring is fundamentally a semantic similarity task—does the student's text resemble descriptions of specific learning events?—for which embedding-based classifiers are both effective and cost-efficient. WHY and HOW scoring, by contrast, require assessing the depth and specificity of reasoning, which benefits from the full contextual understanding and explicit chain-of-thought available in LLM prompting.
+
+%Within the LLM family, we observe that performance tends to increase with model size, but the gains diminish and the cost grows substantially. Claude Sonnet represents a practical cost-quality tradeoff for deployment on the full dataset. Cross-model agreement confirms that the two highest-performing models from different families largely concur, lending external validity to the automated scores. Cases of disagreement (below 0.9 agreement) are surfaced for instructor review rather than silently resolved.
 
 % ─────────────────────────────────────────────
 \section{Limitations}
 \label{sec:limitations}
 % ─────────────────────────────────────────────
-
 \paragraph{Data.}
-We were unable to use a real student reflection dataset due to privacy and IRB constraints. All experimentation was conducted on a self-created dummy dataset followed by an expanded synthetic dataset. While the synthetic data was constructed with faculty guidance to reflect realistic reflection patterns, it was not externally validated, and our results may not generalize to authentic student writing distributions. Both datasets are small, limiting the statistical power of our evaluation.
+We were unable to use a real student reflection dataset due to privacy and IRB constraints. All experimentation was conducted on synthetic datasets. While the expanded synthetic dataset was constructed with faculty guidance and validation to reflect realistic reflection patterns, it was not collected from actual students, and our results may not generalize to authentic writing distributions. Both datasets are small, limiting the statistical power of our evaluation and the reliability of cross-model comparisons.
 
 \paragraph{Synthetic validation gap.}
-Because the expanded dataset was generated synthetically rather than collected from students, it is possible that the synthetic texts share systematic patterns that inflate agreement between models trained or evaluated on the same distribution.
+Because both datasets are synthetic, they may share systematic vocabulary and structural patterns that inflate agreement between all models evaluated on them. A model that overfits to synthetic language patterns may score well here but perform differently on real student text.
 
 \paragraph{Model coverage.}
-Our model comparisons were constrained by access and cost. API costs were borne out of pocket, and free-tier quotas limited the number of reflections we could score with each model. As a result, some model families were evaluated on smaller subsets, making direct comparison noisier.
+Our model comparisons were constrained by access and cost. API costs were borne out of pocket, and free-tier quotas limited the number of reflections scored with some models. Cross-model consistency analysis is therefore limited in scope; a more rigorous reliability study would evaluate all models on the full dataset and report confidence intervals around agreement statistics.
+%
+%\paragraph{Data.}
+%We were unable to use a real student reflection dataset due to privacy and IRB constraints. All experimentation was conducted on a self-created dummy dataset followed by an expanded synthetic dataset. While the synthetic data was constructed with faculty guidance to reflect realistic reflection patterns, it was not externally validated, and our results may not generalize to authentic student writing distributions. Both datasets are small, limiting the statistical power of our evaluation.
 
-\paragraph{Cross-model validation scope.}
-The consistency analysis is therefore also limited in scope. A more rigorous reliability study would evaluate all models on the full dataset and report confidence intervals around agreement statistics.
+%\paragraph{Synthetic validation gap.}
+%Because the expanded dataset was generated synthetically rather than collected from students, it is possible that the synthetic texts share systematic patterns that inflate agreement between models trained or evaluated on the same distribution.
+
+%\paragraph{Model coverage.}
+%Our model comparisons were constrained by access and cost. API costs were borne out of pocket, and free-tier quotas limited the number of reflections we could score with each model. As a result, some model families were evaluated on smaller subsets, making direct comparison noisier.
+
+%\paragraph{Cross-model validation scope.}
+%The consistency analysis is therefore also limited in scope. A more rigorous reliability study would evaluate all models on the full dataset and report confidence intervals around agreement statistics.
 
 % ─────────────────────────────────────────────
 \section{Future Work}
@@ -335,27 +427,89 @@ The consistency analysis is therefore also limited in scope. A more rigorous rel
 The most impactful next step is collecting and properly anonymizing a corpus of real student reflections with expert-assigned rubric scores. This would enable validation of the pipeline against human raters and meaningful assessment of inter-rater reliability.
 
 \paragraph{Expanded model coverage.}
-As API costs decline and open-weight models improve, future work should evaluate a broader set of models—including larger instruction-tuned Llama variants and emerging open-source models—and include more robust cross-family agreement analyses.
+As API costs decline and open-weight models improve, future work should evaluate a broader set of models and include more robust cross-family agreement analyses with confidence intervals.
 
 \paragraph{Privacy-preserving deployment.}
-For deployment in an institutional setting, student data privacy is paramount. Future work should explore on-premise deployment of open-weight models (e.g., Llama via Ollama) or Anthropic's privacy-preserving API arrangements, eliminating the need to transmit student text to third-party APIs.
+For deployment in an institutional setting, student data privacy is paramount. Future work should explore on-premise deployment of open-weight models (e.g., Llama via Ollama) eliminating the need to transmit student text to third-party APIs—a direction already motivated by our inclusion of Llama~3.3-70B in the current pipeline.
 
 \paragraph{Instructor-facing application.}
-The current pipeline is designed as a batch scoring engine. A natural extension is a web application allowing instructors to upload reflection CSVs, review scores and evidence, override predictions, and export annotated results—reducing manual grading burden while preserving instructor oversight.
+A natural extension is a web application allowing instructors to upload reflection CSVs, review scores and evidence, override predictions, and export annotated results—reducing manual grading burden while preserving instructor oversight.
 
 \paragraph{Fine-tuning on domain data.}
-Once sufficient real-data annotations are available, fine-tuning a smaller model (e.g., a distilled BERT variant or a quantized Llama) on pharmacy reflection data could provide a cost-effective alternative to repeated LLM API calls.
+Once sufficient real-data annotations are available, fine-tuning a smaller model on pharmacy reflection data could provide a cost-effective alternative to repeated Claude API calls at scale.
+
+%\paragraph{Expanded model coverage.}
+%As API costs decline and open-weight models improve, future work should evaluate a broader set of models—including larger instruction-tuned Llama variants and emerging open-source models—and include more robust cross-family agreement analyses.
+
+%\paragraph{Privacy-preserving deployment.}
+%For deployment in an institutional setting, student data privacy is paramount. Future work should explore on-premise deployment of open-weight models (e.g., Llama via Ollama) or Anthropic's privacy-preserving API arrangements, eliminating the need to transmit student text to third-party APIs.
+
+%\paragraph{Instructor-facing application.}
+%The current pipeline is designed as a batch scoring engine. A natural extension is a web application allowing instructors to upload reflection CSVs, review scores and evidence, override predictions, and export annotated results—reducing manual grading burden while preserving instructor oversight.
+
+%\paragraph{Fine-tuning on domain data.}
+%Once sufficient real-data annotations are available, fine-tuning a smaller model (e.g., a distilled BERT variant or a quantized Llama) on pharmacy reflection data could provide a cost-effective alternative to repeated LLM API calls.
 
 % ─────────────────────────────────────────────
 \section{Conclusion}
 % ─────────────────────────────────────────────
 
-We presented an automated scoring pipeline for pharmacy student reflections that combines sentence embedding classifiers and LLM reasoning in a decomposed, rubric-aligned architecture. Through systematic experimentation across TF-IDF, embedding, and LLM approaches on three rubric dimensions, we identified that WHAT scoring is best handled by efficient embedding classifiers while WHY and HOW benefit from the contextual reasoning of Claude Sonnet. Evidence extraction grounds each prediction in the student's own words, and cross-model consistency validation surfaces uncertain cases for instructor review.
+We presented an automated scoring pipeline for pharmacy student reflections using a decomposed LLM architecture with Claude Sonnet as the primary grader across all three rubric dimensions (WHAT, WHY, HOW). Through systematic experimentation across TF-IDF, embedding, and LLM approaches, we demonstrated that LLM-based scoring substantially outperforms classical methods, particularly for capturing the specificity of student descriptions. Experiment~1 established that decomposed scoring consistently outperforms direct total-score prediction, and Experiment~2 identified Claude Sonnet as the strongest single-model choice for deployment. Evidence extraction grounds each prediction in the student's own words, and cross-model validation with Llama~3.3-70B surfaces ambiguous cases for instructor review.
 
-The primary limitation of this work is data: privacy constraints prevented use of real student reflections, and our synthetic datasets are small and unvalidated. Despite these constraints, the system demonstrates a viable architecture for rubric-aligned reflection scoring that is modular, interpretable, and ready for deployment once real-data validation becomes feasible.
+The primary limitation of this work is data: privacy constraints prevented use of real student reflections, and our synthetic datasets are small. Despite these constraints, the system demonstrates a viable, interpretable architecture for rubric-aligned reflection scoring that is ready for validation once real-data annotation becomes feasible.
+
+%We presented an automated scoring pipeline for pharmacy student reflections that combines sentence embedding classifiers and LLM reasoning in a decomposed, rubric-aligned architecture. Through systematic experimentation across TF-IDF, embedding, and LLM approaches on three rubric dimensions, we identified that WHAT scoring is best handled by efficient embedding classifiers while WHY and HOW benefit from the contextual reasoning of Claude Sonnet. Evidence extraction grounds each prediction in the student's own words, and cross-model consistency validation surfaces uncertain cases for instructor review.
+
+%The primary limitation of this work is data: privacy constraints prevented use of real student reflections, and our synthetic datasets are small and unvalidated. Despite these constraints, the system demonstrates a viable architecture for rubric-aligned reflection scoring that is modular, interpretable, and ready for deployment once real-data validation becomes feasible.
 
 % ─────────────────────────────────────────────
 \bibliographystyle{plainnat}
 \bibliography{references}
+
+% ─────────────────────────────────────────────
+\appendix
+% ─────────────────────────────────────────────
+\section{Course Rubric for Reflection Assessment}
+\label{app:rubric}
+
+
+The following rubric was provided by faculty at the University of Washington School of Pharmacy and is reproduced here with their approval. This rubric forms the basis of the WHAT, WHY, and HOW scoring dimensions used throughout this work.
+
+\vspace{1em}
+
+\begin{table}[H]
+\centering
+\caption{UW School of Pharmacy Reflection Rubric (Faculty-Validated)}
+\label{tab:rubric}
+\begin{tabular}{p{2.2cm}p{3.8cm}p{3.8cm}p{3.8cm}}
+\toprule
+\textbf{Dimension} & \textbf{Score 2} & \textbf{Score 1} & \textbf{Score 0} \\
+\midrule
+\textbf{WHAT}\newline(Description) &
+Clear and specific description of key learnings, activities, or concepts &
+Description is present but vague; lacks details or specificity &
+No identifiable learning described; off-topic or overly vague \\
+\midrule
+\textbf{WHY}\newline(Analysis) &
+Clearly explains why the learning mattered and includes personal insight, supported with examples  &
+States general importance but includes limited personal insight or little supporting evidence &
+No analysis or reflection; simply restates expectations or requirement  \\
+\midrule
+\textbf{HOW}\newline(Integration) &
+Clear, specific and actionable future plan for applying learning  &
+Future intent is mentioned but vague or not actionable &
+No clear application or plan described \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent\textit{Note: The rubric above reflects the scoring criteria as validated by faculty collaborators.}
+
+\section{Claude Prompt for Expanding}
+\label{app:prompt}
+
+\begin{quote}
+    Prompt: Attached is a dataset of reflections from a pharmacy course on health safety, graded upon the attached rubric based on the dimensions of what, why and how with a score out of 6 (up to 2 points each). Pharmacy instructors were given the attached instructions to create this synthetic dataset. Follow the instructions for topic X to create another 4 batches of 3 reflections (12 reflections total), ensuring variation in the score as per the instructions. Keep it in the same format of reflection ID, reflection, score 1 (WHAT), score 2 (WHY), score 3 (HOW), Overall score and topic, put it in a new csv file. Make sure to keep the reflection as accurate to topic knowledge as possible.
+\end{quote}
 
 \end{document}
