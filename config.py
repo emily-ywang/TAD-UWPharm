@@ -116,4 +116,5 @@ RANDOM_SEED = 42
 # ---------------------------------------------------------------------------
 # Evidence extraction
 # ---------------------------------------------------------------------------
-EVIDENCE_TOP_K = 3  # top-k sentences retrieved per rubric dimension
+EVIDENCE_TOP_K = 3          # top-k sentences retrieved per rubric dimension
+EVIDENCE_LLM_MODEL = "gpt4o"   # default LLM for agentic evidence extraction
