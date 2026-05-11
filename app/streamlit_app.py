@@ -109,32 +109,12 @@ div.stDownloadButton > button { border-radius:8px; font-weight:600; }
 # ---------------------------------------------------------------------------
 # Sidebar
 # ---------------------------------------------------------------------------
+PRIMARY_MODEL = "claude"
+CV_MODEL = "llama-3.3-70b"
+SLEEP_BETWEEN = 2.0
+MAX_RETRIES = 5
+
 with st.sidebar:
-    st.subheader("⚙️ Settings")
-
-    model_options = [k for k in LLM_MODELS if k != "ollama"]
-    primary_model = st.selectbox(
-        "Primary model",
-        options=model_options,
-        index=model_options.index("claude") if "claude" in model_options else 0,
-        help="Main model used for scoring and evidence extraction.",
-    )
-    cv_model = st.selectbox(
-        "Cross-validation model",
-        options=model_options,
-        index=model_options.index("llama-3.3-70b") if "llama-3.3-70b" in model_options else 1,
-        help="Second model used to flag uncertain reflections.",
-    )
-    sleep_between = st.slider(
-        "Delay between API calls (s)",
-        min_value=0.5, max_value=10.0, value=2.0, step=0.5,
-    )
-    max_retries = st.slider(
-        "Max retries for exact-match evidence",
-        min_value=1, max_value=8, value=5, step=1,
-    )
-
-    st.divider()
     st.subheader("📋 Rubric")
     for dim, info in RUBRIC.items():
         with st.expander(info["name"]):
@@ -202,7 +182,7 @@ if uploaded is not None:
     with s2:
         st.markdown(f'<div class="stat-card"><div class="stat-num">{int(df["word_count"].mean())}</div><div class="stat-label">Avg words</div></div>', unsafe_allow_html=True)
     with s3:
-        st.markdown(f'<div class="stat-card"><div class="stat-num">{primary_model.split("-")[0].upper()}</div><div class="stat-label">Primary model</div></div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="stat-card"><div class="stat-num">CLAUDE</div><div class="stat-label">Primary model</div></div>', unsafe_allow_html=True)
 
     with st.expander("Preview data"):
         st.dataframe(df[["reflection_id", "reflection"]].head(10), use_container_width=True)
@@ -216,45 +196,45 @@ if uploaded is not None:
         status = st.empty()
 
         # ── Stage 1: primary model ──────────────────────────────────────────
-        status.markdown(f"**Stage 1 of 2** — Scoring with `{primary_model}`…")
+        status.markdown(f"**Stage 1 of 2** — Scoring with `{PRIMARY_MODEL}`…")
         primary_results = []
         for idx, (_, row) in enumerate(df.iterrows()):
-            status.markdown(f"**Stage 1 of 2** — `{primary_model}` · {idx+1}/{n}: `{row['reflection_id']}`")
+            status.markdown(f"**Stage 1 of 2** — `{PRIMARY_MODEL}` · {idx+1}/{n}: `{row['reflection_id']}`")
             result = None
-            for attempt in range(max_retries):
+            for attempt in range(MAX_RETRIES):
                 try:
-                    r = score_reflection(row["reflection"], model=primary_model, retries=0)
+                    r = score_reflection(row["reflection"], model=PRIMARY_MODEL, retries=0)
                     all_exact = all(r.get(f"{dim}_evidence_exact_match", True) for dim in DIMENSIONS)
-                    if all_exact or attempt == max_retries - 1:
+                    if all_exact or attempt == MAX_RETRIES - 1:
                         result = r
                         break
                 except Exception as exc:
-                    if attempt == max_retries - 1:
+                    if attempt == MAX_RETRIES - 1:
                         result = {f"{dim}_score": None for dim in DIMENSIONS}
                         result.update({f"{dim}_evidence": "" for dim in DIMENSIONS})
                         result.update({f"{dim}_explanation": "" for dim in DIMENSIONS})
                         result["error"] = str(exc)
-                if result is None and attempt < max_retries - 1:
+                if result is None and attempt < MAX_RETRIES - 1:
                     time.sleep(1.0)
             primary_results.append(result or {})
             progress.progress((idx + 1) / (n * 2))
             if idx < n - 1:
-                time.sleep(sleep_between)
+                time.sleep(SLEEP_BETWEEN)
 
         # ── Stage 2: cross-validation model ────────────────────────────────
-        status.markdown(f"**Stage 2 of 2** — Cross-validating with `{cv_model}`…")
+        status.markdown(f"**Stage 2 of 2** — Cross-validating with `{CV_MODEL}`…")
         cv_results = []
         for idx, (_, row) in enumerate(df.iterrows()):
-            status.markdown(f"**Stage 2 of 2** — `{cv_model}` · {idx+1}/{n}: `{row['reflection_id']}`")
+            status.markdown(f"**Stage 2 of 2** — `{CV_MODEL}` · {idx+1}/{n}: `{row['reflection_id']}`")
             try:
-                r = score_reflection(row["reflection"], model=cv_model, retries=3)
+                r = score_reflection(row["reflection"], model=CV_MODEL, retries=3)
             except Exception as exc:
                 r = {f"{dim}_score": None for dim in DIMENSIONS}
                 r["error"] = str(exc)
             cv_results.append(r)
             progress.progress(0.5 + (idx + 1) / (n * 2))
             if idx < n - 1:
-                time.sleep(sleep_between)
+                time.sleep(SLEEP_BETWEEN)
 
         progress.empty()
         status.empty()
@@ -292,8 +272,8 @@ if uploaded is not None:
         results_df = pd.DataFrame(rows)
         results_df["total_score"] = results_df[[f"{d}_score" for d in DIMENSIONS]].sum(axis=1)
         st.session_state["results_df"] = results_df
-        st.session_state["primary_model"] = primary_model
-        st.session_state["cv_model"] = cv_model
+        st.session_state["PRIMARY_MODEL"] = PRIMARY_MODEL
+        st.session_state["CV_MODEL"] = CV_MODEL
         st.success("✅ Scoring complete!")
 
 # ---------------------------------------------------------------------------
@@ -301,8 +281,8 @@ if uploaded is not None:
 # ---------------------------------------------------------------------------
 if "results_df" in st.session_state:
     results_df: pd.DataFrame = st.session_state["results_df"]
-    pm = st.session_state.get("primary_model", "")
-    cvm = st.session_state.get("cv_model", "")
+    pm = st.session_state.get("PRIMARY_MODEL", "")
+    cvm = st.session_state.get("CV_MODEL", "")
 
     n_uncertain = int(results_df["uncertain"].sum())
     n_agreed = len(results_df) - n_uncertain
