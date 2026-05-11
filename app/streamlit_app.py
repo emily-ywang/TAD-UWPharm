@@ -342,14 +342,17 @@ if "results_df" in st.session_state:
         display_cols = ["reflection_id", "uncertain"] + score_cols + ["total_score"]
         display_cols = [c for c in display_cols if c in results_df.columns]
 
+        rename_map = {
+            **{f"{d}_score": f"{d.upper()} ({pm[:5]})" for d in DIMENSIONS},
+            **{f"{d}_score_cv": f"{d.upper()} ({cvm[:5]})" for d in DIMENSIONS},
+        }
+        renamed_score_cols = [rename_map.get(c, c) for c in display_cols if "_score" in c]
+
         styled = (
             results_df[display_cols]
-            .rename(columns={
-                **{f"{d}_score": f"{d.upper()} ({pm[:5]})" for d in DIMENSIONS},
-                **{f"{d}_score_cv": f"{d.upper()} ({cvm[:5]})" for d in DIMENSIONS},
-            })
+            .rename(columns=rename_map)
             .style
-            .map(_color, subset=[c for c in display_cols if "_score" in c])
+            .map(_color, subset=renamed_score_cols)
             .map(_flag, subset=["uncertain"])
         )
         st.dataframe(styled, use_container_width=True, height=min(450, 45 + 38*len(results_df)))
