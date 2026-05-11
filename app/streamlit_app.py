@@ -26,8 +26,8 @@ set_cache_path(Path("/tmp/llm_score_cache.json"))
 # Page config
 # ---------------------------------------------------------------------------
 st.set_page_config(
-    page_title="Reflection Scorer — UW Pharmacy",
-    page_icon="💊",
+    page_title="Reflection Scorer",
+    page_icon="✏️",
     layout="wide",
 )
 
