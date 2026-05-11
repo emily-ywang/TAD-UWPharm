@@ -287,7 +287,7 @@ if uploaded is not None:
         avg_words = int(df["reflection"].str.split().str.len().mean())
         st.markdown(f'<div class="stat-card"><div class="stat-num">{avg_words}</div><div class="stat-label">Avg. words per reflection</div></div>', unsafe_allow_html=True)
     with s3:
-        st.markdown(f'<div class="stat-card"><div class="stat-num">{LLM_MODELS.get(model, model).split("-")[0].upper()}</div><div class="stat-label">Selected model</div></div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="stat-card"><div class="stat-num">{model.split("-")[0].upper()}</div><div class="stat-label">Selected model</div></div>', unsafe_allow_html=True)
 
     with st.expander("Preview data"):
         st.dataframe(df[["reflection_id", "reflection"]].head(10), use_container_width=True)
