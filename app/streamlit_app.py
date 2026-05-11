@@ -36,63 +36,23 @@ st.set_page_config(
 # ---------------------------------------------------------------------------
 st.markdown("""
 <style>
-/* ── Fonts & base ── */
-html, body, [class*="css"] {
-    font-family: 'Inter', 'Segoe UI', sans-serif;
-}
-
-/* ── CSS variables: light mode ── */
-:root {
-    --hero-bg-start: #ddd6fe;
-    --hero-bg-end:   #ede9fe;
-    --hero-text:     #3b1f6e;
-    --card-bg:       #f8f7ff;
-    --card-bg-alt:   #f9fafb;
-    --card-border:   #e5e7eb;
-    --text-primary:  #1f1f2e;
-    --text-secondary:#374151;
-    --text-muted:    #6b7280;
-    --stat-bg:       #ffffff;
-    --accent:        #7c5cbf;
-    --section-border:#e5e7eb;
-}
-
-/* ── CSS variables: dark mode ── */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --hero-bg-start: rgba(124,92,191,0.25);
-        --hero-bg-end:   rgba(124,92,191,0.12);
-        --hero-text:     #e9d8fd;
-        --card-bg:       rgba(255,255,255,0.06);
-        --card-bg-alt:   rgba(255,255,255,0.04);
-        --card-border:   rgba(255,255,255,0.12);
-        --text-primary:  #e2e8f0;
-        --text-secondary:#cbd5e0;
-        --text-muted:    #a0aec0;
-        --stat-bg:       rgba(255,255,255,0.06);
-        --accent:        #a78bfa;
-        --section-border:rgba(255,255,255,0.12);
-    }
-}
-
 /* ── Hero header ── */
 .hero {
-    background: linear-gradient(135deg, var(--hero-bg-start) 0%, var(--hero-bg-end) 100%);
+    background: linear-gradient(135deg, rgba(167,139,250,0.25) 0%, rgba(196,181,253,0.15) 100%);
     border-radius: 16px;
     padding: 2.5rem 2.5rem 2rem 2.5rem;
     margin-bottom: 2rem;
+    border: 1px solid rgba(167,139,250,0.3);
 }
 .hero h1 {
     font-size: 2.2rem;
     font-weight: 700;
     margin: 0 0 0.4rem 0;
-    color: var(--hero-text);
 }
 .hero p {
     font-size: 1.05rem;
     margin: 0;
-    color: var(--hero-text);
-    opacity: 0.88;
+    opacity: 0.85;
 }
 
 /* ── Score badges ── */
@@ -107,25 +67,23 @@ html, body, [class*="css"] {
 .score-2 { background: #d1fae5; color: #065f46; border: 1.5px solid #6ee7b7; }
 .score-1 { background: #fef3c7; color: #92400e; border: 1.5px solid #fcd34d; }
 .score-0 { background: #fee2e2; color: #991b1b; border: 1.5px solid #fca5a5; }
-.score-none { background: var(--card-bg); color: var(--text-muted); border: 1.5px solid var(--card-border); }
+.score-none { background: rgba(128,128,128,0.15); border: 1.5px solid rgba(128,128,128,0.3); }
 
 /* ── Evidence card ── */
 .evidence-card {
-    background: var(--card-bg);
-    border-left: 4px solid var(--accent);
+    background: rgba(167,139,250,0.1);
+    border-left: 4px solid #7c5cbf;
     border-radius: 0 10px 10px 0;
     padding: 0.9rem 1.1rem;
     margin: 0.5rem 0 0.8rem 0;
     font-size: 0.95rem;
-    color: var(--text-primary);
 }
 .explanation-card {
-    background: var(--card-bg-alt);
+    background: rgba(128,128,128,0.08);
     border-radius: 8px;
     padding: 0.7rem 1rem;
     font-size: 0.92rem;
-    color: var(--text-secondary);
-    border: 1px solid var(--card-border);
+    border: 1px solid rgba(128,128,128,0.2);
 }
 
 /* ── Dimension label ── */
@@ -134,18 +92,17 @@ html, body, [class*="css"] {
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--text-muted);
+    opacity: 0.6;
     margin-bottom: 0.3rem;
 }
 
 /* ── Reflection preview box ── */
 .reflection-box {
-    background: var(--card-bg-alt);
-    border: 1px solid var(--card-border);
+    background: rgba(128,128,128,0.08);
+    border: 1px solid rgba(128,128,128,0.2);
     border-radius: 10px;
     padding: 1rem 1.2rem;
     font-size: 0.93rem;
-    color: var(--text-secondary);
     line-height: 1.65;
     margin-bottom: 1.2rem;
     max-height: 180px;
@@ -156,29 +113,27 @@ html, body, [class*="css"] {
 .section-header {
     font-size: 1.25rem;
     font-weight: 700;
-    color: var(--text-primary);
     margin: 1.5rem 0 0.8rem 0;
     padding-bottom: 0.4rem;
-    border-bottom: 2px solid var(--section-border);
+    border-bottom: 2px solid rgba(128,128,128,0.2);
 }
 
 /* ── Stat card ── */
 .stat-card {
-    background: var(--stat-bg);
-    border: 1px solid var(--card-border);
+    background: rgba(128,128,128,0.08);
+    border: 1px solid rgba(128,128,128,0.2);
     border-radius: 12px;
     padding: 1.1rem 1.2rem;
     text-align: center;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
 }
 .stat-card .stat-num {
     font-size: 2rem;
     font-weight: 800;
-    color: var(--accent);
+    color: #7c5cbf;
 }
 .stat-card .stat-label {
     font-size: 0.82rem;
-    color: var(--text-muted);
+    opacity: 0.65;
     font-weight: 500;
     margin-top: 0.2rem;
 }
@@ -195,8 +150,6 @@ div.stButton > button[kind="primary"] {
 div.stButton > button[kind="primary"]:hover {
     background: #6a4aad;
 }
-
-/* ── Download button ── */
 div.stDownloadButton > button {
     border-radius: 8px;
     font-weight: 600;
