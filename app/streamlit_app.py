@@ -27,7 +27,7 @@ set_cache_path(Path("/tmp/llm_score_cache.json"))
 # ---------------------------------------------------------------------------
 st.set_page_config(
     page_title="Reflection Scorer",
-    page_icon="✏️",
+    page_icon="📊",
     layout="wide",
 )
 
