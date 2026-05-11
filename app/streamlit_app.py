@@ -77,7 +77,7 @@ st.write(
 # ── Sample template download ────────────────────────────────────────────────
 sample_df = pd.DataFrame({
     "reflection_id": ["REF001", "REF002"],
-    "reflection_text": [
+    "reflection": [
         (
             "I learned how to counsel patients on warfarin therapy during my rotation. "
             "This matters because improper anticoagulation can lead to serious bleeding "
@@ -101,7 +101,7 @@ st.download_button(
 )
 
 st.info(
-    "**Required columns:** `reflection_id`, `reflection_text`  \n"
+    "**Required columns:** `reflection_id`, `reflection`  \n"
     "Ground-truth score columns (`what_score`, `why_score`, `how_score`) are optional."
 )
 
@@ -118,19 +118,19 @@ if uploaded is not None:
     # Normalize column names
     df.columns = [c.strip().lower().replace(" ", "_") for c in df.columns]
 
-    if "reflection_text" not in df.columns:
-        st.error("CSV must contain a `reflection_text` column.")
+    if "reflection" not in df.columns:
+        st.error("CSV must contain a `reflection` column.")
         st.stop()
 
     if "reflection_id" not in df.columns:
         df.insert(0, "reflection_id", [f"REF{i + 1:03d}" for i in range(len(df))])
 
-    df = df[df["reflection_text"].notna() & (df["reflection_text"].str.strip() != "")].copy()
+    df = df[df["reflection"].notna() & (df["reflection"].str.strip() != "")].copy()
 
     st.success(f"{len(df)} reflection(s) ready to score.")
 
     with st.expander("Preview uploaded data"):
-        st.dataframe(df[["reflection_id", "reflection_text"]].head(10), use_container_width=True)
+        st.dataframe(df[["reflection_id", "reflection"]].head(10), use_container_width=True)
 
     # ── Score button ─────────────────────────────────────────────────────────
     if st.button("Score reflections", type="primary", use_container_width=True):
@@ -142,7 +142,7 @@ if uploaded is not None:
         for idx, (_, row) in enumerate(df.iterrows()):
             status_text.text(f"Scoring {idx + 1} / {n}: {row['reflection_id']}")
             try:
-                result = score_reflection(row["reflection_text"], model=model)
+                result = score_reflection(row["reflection"], model=model)
             except Exception as exc:
                 result = {f"{dim}_score": None for dim in DIMENSIONS}
                 result.update({f"{dim}_evidence": "" for dim in DIMENSIONS})
@@ -150,7 +150,7 @@ if uploaded is not None:
                 result["error"] = str(exc)
 
             result["reflection_id"] = row["reflection_id"]
-            result["reflection_text"] = row["reflection_text"]
+            result["reflection"] = row["reflection"]
             results.append(result)
 
             progress_bar.progress((idx + 1) / n, text=f"Scored {idx + 1} / {n}")
@@ -221,8 +221,8 @@ if "results_df" in st.session_state:
             if has_error:
                 st.error(f"Scoring error: {row['error']}")
 
-            st.write("**Reflection text:**")
-            st.write(row["reflection_text"])
+            st.write("**Reflection:**")
+            st.write(row["reflection"])
             st.divider()
 
             dim_cols = st.columns(3)
@@ -244,7 +244,7 @@ if "results_df" in st.session_state:
     st.subheader("Export")
 
     export_cols = (
-        ["reflection_id", "reflection_text"]
+        ["reflection_id", "reflection"]
         + [f"{dim}_{field}" for dim in DIMENSIONS for field in ["score", "evidence", "explanation"]]
     )
     export_cols = [c for c in export_cols if c in results_df.columns]
