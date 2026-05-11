@@ -41,28 +41,58 @@ html, body, [class*="css"] {
     font-family: 'Inter', 'Segoe UI', sans-serif;
 }
 
+/* ── CSS variables: light mode ── */
+:root {
+    --hero-bg-start: #ddd6fe;
+    --hero-bg-end:   #ede9fe;
+    --hero-text:     #3b1f6e;
+    --card-bg:       #f8f7ff;
+    --card-bg-alt:   #f9fafb;
+    --card-border:   #e5e7eb;
+    --text-primary:  #1f1f2e;
+    --text-secondary:#374151;
+    --text-muted:    #6b7280;
+    --stat-bg:       #ffffff;
+    --accent:        #7c5cbf;
+    --section-border:#e5e7eb;
+}
+
+/* ── CSS variables: dark mode ── */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --hero-bg-start: rgba(124,92,191,0.25);
+        --hero-bg-end:   rgba(124,92,191,0.12);
+        --hero-text:     #e9d8fd;
+        --card-bg:       rgba(255,255,255,0.06);
+        --card-bg-alt:   rgba(255,255,255,0.04);
+        --card-border:   rgba(255,255,255,0.12);
+        --text-primary:  #e2e8f0;
+        --text-secondary:#cbd5e0;
+        --text-muted:    #a0aec0;
+        --stat-bg:       rgba(255,255,255,0.06);
+        --accent:        #a78bfa;
+        --section-border:rgba(255,255,255,0.12);
+    }
+}
+
 /* ── Hero header ── */
 .hero {
-    background: linear-gradient(135deg, #ddd6fe 0%, #ede9fe 100%);
+    background: linear-gradient(135deg, var(--hero-bg-start) 0%, var(--hero-bg-end) 100%);
     border-radius: 16px;
     padding: 2.5rem 2.5rem 2rem 2.5rem;
     margin-bottom: 2rem;
-    color: #3b1f6e;
 }
 .hero h1 {
     font-size: 2.2rem;
     font-weight: 700;
     margin: 0 0 0.4rem 0;
-    color: #3b1f6e;
+    color: var(--hero-text);
 }
 .hero p {
     font-size: 1.05rem;
-    opacity: 0.85;
     margin: 0;
-    color: #3b1f6e;
-}
-.hero-badge {
-    display: none;
+    color: var(--hero-text);
+    opacity: 0.88;
 }
 
 /* ── Score badges ── */
@@ -77,25 +107,25 @@ html, body, [class*="css"] {
 .score-2 { background: #d1fae5; color: #065f46; border: 1.5px solid #6ee7b7; }
 .score-1 { background: #fef3c7; color: #92400e; border: 1.5px solid #fcd34d; }
 .score-0 { background: #fee2e2; color: #991b1b; border: 1.5px solid #fca5a5; }
-.score-none { background: #f3f4f6; color: #6b7280; border: 1.5px solid #d1d5db; }
+.score-none { background: var(--card-bg); color: var(--text-muted); border: 1.5px solid var(--card-border); }
 
 /* ── Evidence card ── */
 .evidence-card {
-    background: #f8f7ff;
-    border-left: 4px solid #7c5cbf;
+    background: var(--card-bg);
+    border-left: 4px solid var(--accent);
     border-radius: 0 10px 10px 0;
     padding: 0.9rem 1.1rem;
     margin: 0.5rem 0 0.8rem 0;
     font-size: 0.95rem;
-    color: #1f1f2e;
+    color: var(--text-primary);
 }
 .explanation-card {
-    background: #f9fafb;
+    background: var(--card-bg-alt);
     border-radius: 8px;
     padding: 0.7rem 1rem;
     font-size: 0.92rem;
-    color: #374151;
-    border: 1px solid #e5e7eb;
+    color: var(--text-secondary);
+    border: 1px solid var(--card-border);
 }
 
 /* ── Dimension label ── */
@@ -104,18 +134,18 @@ html, body, [class*="css"] {
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: #6b7280;
+    color: var(--text-muted);
     margin-bottom: 0.3rem;
 }
 
 /* ── Reflection preview box ── */
 .reflection-box {
-    background: #fafafa;
-    border: 1px solid #e5e7eb;
+    background: var(--card-bg-alt);
+    border: 1px solid var(--card-border);
     border-radius: 10px;
     padding: 1rem 1.2rem;
     font-size: 0.93rem;
-    color: #374151;
+    color: var(--text-secondary);
     line-height: 1.65;
     margin-bottom: 1.2rem;
     max-height: 180px;
@@ -126,16 +156,16 @@ html, body, [class*="css"] {
 .section-header {
     font-size: 1.25rem;
     font-weight: 700;
-    color: #1f1f2e;
+    color: var(--text-primary);
     margin: 1.5rem 0 0.8rem 0;
     padding-bottom: 0.4rem;
-    border-bottom: 2px solid #e5e7eb;
+    border-bottom: 2px solid var(--section-border);
 }
 
 /* ── Stat card ── */
 .stat-card {
-    background: white;
-    border: 1px solid #e5e7eb;
+    background: var(--stat-bg);
+    border: 1px solid var(--card-border);
     border-radius: 12px;
     padding: 1.1rem 1.2rem;
     text-align: center;
@@ -144,24 +174,13 @@ html, body, [class*="css"] {
 .stat-card .stat-num {
     font-size: 2rem;
     font-weight: 800;
-    color: #7c5cbf;
+    color: var(--accent);
 }
 .stat-card .stat-label {
     font-size: 0.82rem;
-    color: #6b7280;
+    color: var(--text-muted);
     font-weight: 500;
     margin-top: 0.2rem;
-}
-
-/* ── Sidebar ── */
-section[data-testid="stSidebar"] {
-    background: #f5f3ff;
-}
-section[data-testid="stSidebar"] h2 {
-    color: #7c5cbf;
-}
-section[data-testid="stSidebar"] h3 {
-    color: #7c5cbf;
 }
 
 /* ── Buttons ── */
@@ -207,12 +226,11 @@ with st.sidebar:
 
     st.divider()
     st.subheader("📋 Rubric")
-    score_colors = {2: "🟢", 1: "🟡", 0: "🔴"}
     for dim, info in RUBRIC.items():
         with st.expander(info["name"]):
             st.caption(info["description"])
             for score in [2, 1, 0]:
-                st.write(f"{score_colors[score]} **{score}** — {info['levels'][score]}")
+                st.write(f"**{score}** — {info['levels'][score]}")
 
 # ---------------------------------------------------------------------------
 # Hero header
