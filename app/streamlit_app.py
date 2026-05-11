@@ -43,35 +43,26 @@ html, body, [class*="css"] {
 
 /* ── Hero header ── */
 .hero {
-    background: linear-gradient(135deg, #4b2e83 0%, #6a3fa6 100%);
+    background: linear-gradient(135deg, #ddd6fe 0%, #ede9fe 100%);
     border-radius: 16px;
     padding: 2.5rem 2.5rem 2rem 2.5rem;
     margin-bottom: 2rem;
-    color: white;
+    color: #3b1f6e;
 }
 .hero h1 {
     font-size: 2.2rem;
     font-weight: 700;
     margin: 0 0 0.4rem 0;
-    color: white;
+    color: #3b1f6e;
 }
 .hero p {
     font-size: 1.05rem;
-    opacity: 0.88;
+    opacity: 0.85;
     margin: 0;
-    color: white;
+    color: #3b1f6e;
 }
 .hero-badge {
-    display: inline-block;
-    background: rgba(255,255,255,0.18);
-    border: 1px solid rgba(255,255,255,0.35);
-    border-radius: 20px;
-    padding: 0.2rem 0.9rem;
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    margin-bottom: 1rem;
-    color: white;
+    display: none;
 }
 
 /* ── Score badges ── */
@@ -91,7 +82,7 @@ html, body, [class*="css"] {
 /* ── Evidence card ── */
 .evidence-card {
     background: #f8f7ff;
-    border-left: 4px solid #4b2e83;
+    border-left: 4px solid #7c5cbf;
     border-radius: 0 10px 10px 0;
     padding: 0.9rem 1.1rem;
     margin: 0.5rem 0 0.8rem 0;
@@ -153,7 +144,7 @@ html, body, [class*="css"] {
 .stat-card .stat-num {
     font-size: 2rem;
     font-weight: 800;
-    color: #4b2e83;
+    color: #7c5cbf;
 }
 .stat-card .stat-label {
     font-size: 0.82rem;
@@ -167,12 +158,15 @@ section[data-testid="stSidebar"] {
     background: #f5f3ff;
 }
 section[data-testid="stSidebar"] h2 {
-    color: #4b2e83;
+    color: #7c5cbf;
+}
+section[data-testid="stSidebar"] h3 {
+    color: #7c5cbf;
 }
 
 /* ── Buttons ── */
 div.stButton > button[kind="primary"] {
-    background: #4b2e83;
+    background: #7c5cbf;
     border: none;
     border-radius: 8px;
     font-weight: 600;
@@ -180,7 +174,7 @@ div.stButton > button[kind="primary"] {
     padding: 0.6rem 1.5rem;
 }
 div.stButton > button[kind="primary"]:hover {
-    background: #3a2269;
+    background: #6a4aad;
 }
 
 /* ── Download button ── */
@@ -225,8 +219,7 @@ with st.sidebar:
 # ---------------------------------------------------------------------------
 st.markdown("""
 <div class="hero">
-    <div class="hero-badge">UW School of Pharmacy</div>
-    <h1>💊 Student Reflection Scorer</h1>
+    <h1>Student Reflection Scorer</h1>
     <p>Upload a CSV of student reflections to automatically score them on the <strong>WHAT</strong>, <strong>WHY</strong>, and <strong>HOW</strong> rubric dimensions using AI.</p>
 </div>
 """, unsafe_allow_html=True)
@@ -366,7 +359,7 @@ if "results_df" in st.session_state:
             with col_ui:
                 counts = results_df[sc].value_counts().sort_index().reindex([0, 1, 2], fill_value=0)
                 st.markdown(f"**{sc.replace('_score','').upper()}**")
-                st.bar_chart(counts, color="#4b2e83", height=180)
+                st.bar_chart(counts, color="#7c5cbf", height=180)
 
     # ── Per-reflection detail ──────────────────────────────────────────────
     st.markdown('<div class="section-header">🔍 Evidence & Explanations</div>', unsafe_allow_html=True)
