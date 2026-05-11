@@ -389,8 +389,9 @@ if "results_df" in st.session_state:
                     explanation = row.get(f"{dim}_explanation", "—")
                     exact = row.get(f"{dim}_evidence_exact_match", True)
 
-                    score_class = f"score-{int(score_val)}" if score_val is not None else "score-none"
-                    score_display = score_val if score_val is not None else "—"
+                    valid_score = score_val is not None and not (isinstance(score_val, float) and pd.isna(score_val))
+                    score_class = f"score-{int(score_val)}" if valid_score else "score-none"
+                    score_display = int(score_val) if valid_score else "—"
 
                     st.markdown(f'<div class="dim-label">{dim.upper()}</div>', unsafe_allow_html=True)
                     st.markdown(f'<span class="score-badge {score_class}">Score: {score_display}</span>', unsafe_allow_html=True)
