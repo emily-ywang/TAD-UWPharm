@@ -206,10 +206,10 @@ with st.sidebar:
     )
 
     st.divider()
-    st.markdown("### 📋 Rubric")
+    st.subheader("📋 Rubric")
     score_colors = {2: "🟢", 1: "🟡", 0: "🔴"}
     for dim, info in RUBRIC.items():
-        with st.expander(f"**{info['name']}**"):
+        with st.expander(info["name"]):
             st.caption(info["description"])
             for score in [2, 1, 0]:
                 st.write(f"{score_colors[score]} **{score}** — {info['levels'][score]}")
