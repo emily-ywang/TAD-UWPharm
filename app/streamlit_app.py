@@ -323,8 +323,8 @@ if "results_df" in st.session_state:
         display_cols = [c for c in display_cols if c in results_df.columns]
 
         rename_map = {
-            **{f"{d}_score": f"{d.upper()} ({pm[:5]})" for d in DIMENSIONS},
-            **{f"{d}_score_cv": f"{d.upper()} ({cvm[:5]})" for d in DIMENSIONS},
+            **{f"{d}_score":    f"{d.upper()} (Claude)" for d in DIMENSIONS},
+            **{f"{d}_score_cv": f"{d.upper()} (Llama)"  for d in DIMENSIONS},
         }
         renamed_score_cols = [rename_map.get(c, c) for c in display_cols if "_score" in c]
 
@@ -382,8 +382,8 @@ if "results_df" in st.session_state:
                 ["reflection_id"] + [f"{d}_score" for d in DIMENSIONS] + [f"{d}_score_cv" for d in DIMENSIONS]
             ]
             st.dataframe(uncertain_df.rename(columns={
-                **{f"{d}_score": f"{d.upper()} ({pm[:5]})" for d in DIMENSIONS},
-                **{f"{d}_score_cv": f"{d.upper()} ({cvm[:5]})" for d in DIMENSIONS},
+                **{f"{d}_score":    f"{d.upper()} (Claude)" for d in DIMENSIONS},
+                **{f"{d}_score_cv": f"{d.upper()} (Llama)"  for d in DIMENSIONS},
             }), use_container_width=True)
         else:
             st.success("Both models agreed on all reflections — no manual review needed.")
@@ -417,7 +417,7 @@ if "results_df" in st.session_state:
 
                         st.markdown(f'<div class="dim-label">{dim.upper()}</div>', unsafe_allow_html=True)
                         st.markdown(f'<span class="score-badge {score_class}">Score: {score_display}</span>', unsafe_allow_html=True)
-                        st.caption(f"Cross-val ({cvm[:8]}): {cv_display}")
+                        st.caption(f"Llama score: {cv_display}")
                         if not exact:
                             st.warning("Evidence may not be exact — review.")
                         st.markdown("**Evidence**")
@@ -438,8 +438,10 @@ if "results_df" in st.session_state:
         )
         export_cols = [c for c in export_cols if c in results_df.columns]
         export_df = results_df[export_cols].rename(columns={
-            **{f"{d}_score": f"{d}_{pm[:8]}" for d in DIMENSIONS},
-            **{f"{d}_score_cv": f"{d}_{cvm[:8]}" for d in DIMENSIONS},
+            **{f"{d}_score":    f"{d}_score_claude"  for d in DIMENSIONS},
+            **{f"{d}_score_cv": f"{d}_score_llama"   for d in DIMENSIONS},
+            **{f"{d}_evidence":     f"{d}_evidence_claude"    for d in DIMENSIONS},
+            **{f"{d}_explanation":  f"{d}_explanation_claude" for d in DIMENSIONS},
         })
 
         st.dataframe(export_df.head(5), use_container_width=True)
