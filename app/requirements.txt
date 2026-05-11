@@ -1,5 +1,6 @@
 streamlit>=1.35
 pandas>=2.0
+matplotlib>=3.8
 anthropic>=0.30
 openai>=1.30
 google-generativeai>=0.7
